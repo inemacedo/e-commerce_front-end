@@ -1,13 +1,16 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --pink: #de4e60;
+  --yellow: rgb(227, 168, 1);
+  --sky-blue: #b4dcd8;
+  --blue-green: #01524f;
+  --light-grey: #eae6e1;
+  --light-beige: #eadfd7;
+  --dark-grey: #585954;
+  --darker-grey: #4c4c49;
+  --black: #0a0a0a;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* ejemplo de uso 
+ p {
+  color: var(--pink);
+} */
