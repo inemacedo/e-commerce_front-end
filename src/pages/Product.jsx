@@ -33,7 +33,7 @@ function Product() {
               </button>
             </div>
 
-            <div>
+            <div className="mb-5">
               <p>Métodos y costos de envío</p>
               <p className="fw-bold mb-1">A todo Montevideo:</p>
               <p>
@@ -49,6 +49,30 @@ function Product() {
               </p>
               <p>Costo variable según tamaño del paquete.</p>
             </div>
+            <table class="table ">
+              <tbody>
+                <tr>
+                  <td className="fw-bold">CARACTERÍSTICAS</td>
+                </tr>
+
+                <tr>
+                  <td>Medidas:</td>
+                  <td>Mark</td>
+                </tr>
+                <tr>
+                  <td>Material:</td>
+                  <td>Jacob</td>
+                </tr>
+                <tr>
+                  <td>Estilo:</td>
+                  <td colspan="2">Larry the Bird</td>
+                </tr>
+                <tr>
+                  <td>Ambiente:</td>
+                  <td colspan="2">Larry the Bird</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
