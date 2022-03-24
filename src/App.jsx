@@ -9,7 +9,7 @@ import Cart from "./pages/Cart";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App d-flex flex-column">
       <NavbarComponent />
       <Routes>
         <Route path="/sobre-nosotros" element={<About />} />

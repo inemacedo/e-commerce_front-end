@@ -5,7 +5,7 @@ import { AiOutlineFacebook, AiOutlineLinkedin } from "react-icons/ai";
 
 function Footer() {
   return (
-    <footer className="text-center text-lg-start ">
+    <footer className="text-center text-lg-start mt-auto">
       <section className="">
         <div className="container text-center text-md-start mt-5">
           <div className="row mt-3">
