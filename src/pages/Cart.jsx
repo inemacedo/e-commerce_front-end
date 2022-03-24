@@ -1,9 +1,6 @@
 import React from "react";
-import {
-  AiOutlineArrowLeft,
-  AiOutlinePlus,
-  AiOutlineMinus,
-} from "react-icons/ai";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import QuantityInput from "../components/QuantityInput";
 
 function Cart() {
@@ -16,13 +13,15 @@ function Cart() {
               <div className="card-body p-0">
                 <div className="row g-0">
                   <div className="col-lg-8">
-                    <div className="p-5">
+                    <div className="me-5">
                       <div className="d-flex justify-content-between align-items-center mb-5">
                         <h1 className="fs-3 mb-0 text-black">Mis compras</h1>
                         <h6 className="mb-0 text-muted">3 items</h6>
                       </div>
                       <hr className="my-4" />
                       <div className="row mb-4 d-flex justify-content-between align-items-center">
+                        {/* item 1 */}
+
                         <div className="col-md-2 col-lg-2 col-xl-2">
                           <img
                             src="https://f.fcdn.app/imgs/e9eaa1/www.kavehome.com.uy/kaveuy/6298/webp/catalogo/CC2094J_12_1/900x1125/butaca-plegable-chabeli-madera-maciza-acacia-y-beige-fsc-100.jpg"
@@ -42,13 +41,10 @@ function Cart() {
                         <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                           <h6 className="mb-0">USD 44.00</h6>
                         </div>
-                        <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                          <a href="#!" className="text-muted">
-                            <i className="fas fa-times" />
-                          </a>
-                        </div>
                       </div>
                       <hr className="my-4" />
+
+                      {/* item 2  */}
                       <div className="row mb-4 d-flex justify-content-between align-items-center">
                         <div className="col-md-2 col-lg-2 col-xl-2">
                           <img
@@ -69,13 +65,10 @@ function Cart() {
                         <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                           <h6 className="mb-0">USD 44.00</h6>
                         </div>
-                        <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                          <a href="#!" className="text-muted">
-                            <i className="fas fa-times" />
-                          </a>
-                        </div>
                       </div>
                       <hr className="my-4" />
+
+                      {/* item3 */}
                       <div className="row mb-4 d-flex justify-content-between align-items-center">
                         <div className="col-md-2 col-lg-2 col-xl-2">
                           <img
@@ -97,19 +90,14 @@ function Cart() {
                         <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                           <h6 className="mb-0">USD 44.00</h6>
                         </div>
-                        <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                          <a href="#!" className="text-muted">
-                            x
-                          </a>
-                        </div>
                       </div>
                       <hr className="my-4" />
                       <div className="pt-5">
                         <h6 className="mb-0">
-                          <a href="#!" className="text-body">
+                          <Link to="/productos" className="text-body">
                             <AiOutlineArrowLeft />
                             Volver a lista de productos
-                          </a>
+                          </Link>
                         </h6>
                       </div>
                     </div>
