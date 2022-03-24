@@ -15,7 +15,7 @@ function ProductsList({ list }) {
           <Product />
         </div>
       </div>
-      <button type="button" class="btn btn-dark rounded-pill">
+      <button type="button" class="btn btn-dark rounded-pill py-2 px-5 mt-4">
         Ver Todos
       </button>
     </div>
