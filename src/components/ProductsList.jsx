@@ -1,21 +1,16 @@
 import ProductComponent from "./ProductComponent";
 import "../styles/ProductList.css";
 
-function ProductsList({ list }) {
+function ProductsList({ products }) {
   return (
     <div className="mx-5">
       <div className="container">
         <h2 className="fs-4 text-center mb-5 fw-bold"> DESTACADOS</h2>
         <div className="row g-5">
-          <div className="col-md-4">
-            <ProductComponent />
-          </div>
-          <div className="col-md-4">
-            <ProductComponent />
-          </div>
-          <div className="col-md-4">
-            <ProductComponent />
-          </div>
+          { products.map( elem=>
+            <div className="col-md-4" key={elem.id}>
+              <ProductComponent data={elem} />
+            </div>)}
         </div>
         <div className="text-center">
           <button
