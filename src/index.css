@@ -10,6 +10,8 @@
   --black: #0a0a0a;
 }
 
+/* NAVBAR */
+
 #navbar-text-logo {
   font-family: "Red Hat Display", sans-serif;
   font-size: 2rem;
@@ -17,10 +19,34 @@
 .navbar-icons {
   color: black;
 }
+.navbar-links {
+  position: relative;
+  transition: all ease-in-out 250ms;
+}
+.navbar-links::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 0.2em;
+  width: 0%;
+  background-color: var(--black);
+  bottom: -2.7rem;
+  transition: all ease-in-out 250ms;
+}
+.navbar-links:hover::after {
+  width: 100%;
+}
 
-.navbar-icons:hover {
+/* FOOTER */
+
+.footer-link {
+  color: black;
+  text-decoration: none;
+}
+.footer-link:hover {
   color: var(--dark-grey);
 }
+
 /* ejemplo de uso 
  p {
   color: var(--pink);

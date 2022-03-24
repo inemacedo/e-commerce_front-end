@@ -4,6 +4,7 @@ import ProductsList from "./components/ProductsList";
 import Product from "./components/Product";
 import About from "./pages/About";
 import NavbarComponent from "./components/NavbarComponent";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/producto" element={<Product />} />
         {/* <Route path="/sobre-nosotros" element={<About />} /> */}
       </Routes>
+      <Footer />
     </div>
   );
 }
