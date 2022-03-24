@@ -1,10 +1,12 @@
 
-import Product from "./Product";
+// import Product from "../components/Product";
 
 function ProductsList({list}) {
   
   return <div>
     Lista de Productos Destacados
-    <Product />
+    {/* <Product /> */}
   </div>
 }
+
+export default ProductsList;
