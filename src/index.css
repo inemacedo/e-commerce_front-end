@@ -24,22 +24,30 @@
   color: var(--dark-grey);
 }
 
-.navbar-links {
-  position: relative;
-  transition: all ease-in-out 250ms;
+@media (min-width: 1000px) {
+  .navbar-links {
+    position: relative;
+    transition: all ease-in-out 250ms;
+  }
+  .navbar-links::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 0.2em;
+    width: 0%;
+    background-color: var(--black);
+    bottom: -2.6rem;
+    transition: all ease-in-out 250ms;
+  }
+  .navbar-links:hover::after {
+    width: 100%;
+  }
 }
-.navbar-links::after {
-  content: "";
-  position: absolute;
-  display: block;
-  height: 0.2em;
-  width: 0%;
-  background-color: var(--black);
-  bottom: -2.7rem;
-  transition: all ease-in-out 250ms;
-}
-.navbar-links:hover::after {
-  width: 100%;
+
+@media (max-width: 1000px) {
+  .navbar-links {
+    overflow: hidden;
+  }
 }
 
 /* FOOTER */
