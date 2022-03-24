@@ -36,7 +36,7 @@ function NavbarComponent() {
                 <AiOutlineUser size={20} />
               </Nav.Link>
               <Nav.Link className="navbar-icons">
-                <IoSearchOutline className="mx-5" size={20} />
+                <IoSearchOutline className="mx-3" size={20} />
               </Nav.Link>
               <Nav.Link className="navbar-icons">
                 <BsCart2 size={20} />

@@ -4,7 +4,7 @@ import "../styles/Header.css";
 function Header() {
   return (
     <div className="header-background d-flex align-items-center justify-content-center">
-      <h1 className="fw-bold text-light">Tu casa, tu lugar en el mundo</h1>
+      <h1 className=" text-light">Tu casa, tu lugar en el mundo</h1>
     </div>
   );
 }
