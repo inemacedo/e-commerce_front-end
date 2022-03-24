@@ -23,7 +23,7 @@ function NavbarComponent() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="me-auto my-2 my-lg-0 navbar-nav d-flex"
+              className="me-auto my-2 my-lg-0 d-flex"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
@@ -39,10 +39,10 @@ function NavbarComponent() {
             </Nav>
 
             <Nav.Link className="navbar-icons">
-              <AiOutlineUser size={20} />
+              <AiOutlineUser className="me-2" size={20} />
             </Nav.Link>
             <Nav.Link className="navbar-icons">
-              <IoSearchOutline className="mx-3" size={20} />
+              <IoSearchOutline className="me-2" size={20} />
             </Nav.Link>
             <Nav.Link className="navbar-icons">
               <BsCart2 size={20} />
