@@ -1,4 +1,4 @@
-import Product from "./Product";
+import ProductComponent from "./ProductComponent";
 
 function ProductsList({ list }) {
   return (
@@ -7,13 +7,13 @@ function ProductsList({ list }) {
         <h2 className="fs-5 text-center mt-5 mb-4 fw-bold"> DESTACADOS</h2>
         <div className="row g-5">
           <div className="col-md-4">
-            <Product />
+            <ProductComponent />
           </div>
           <div className="col-md-4">
-            <Product />
+            <ProductComponent />
           </div>
           <div className="col-md-4">
-            <Product />
+            <ProductComponent />
           </div>
         </div>
         <div className="text-center">
