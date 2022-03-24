@@ -20,7 +20,7 @@ function ProductsList({ list }) {
         <div className="text-center">
           <button
             type="button"
-            class="btn btn-dark rounded-pill py-2 px-5 mt-3"
+            class="btn btn-dark rounded-pill py-2 px-5 mt-4 fw-bold"
           >
             Ver Todos
           </button>
