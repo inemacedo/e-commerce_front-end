@@ -8,12 +8,18 @@ import {
   Nav,
 } from "react-bootstrap";
 
+import { IoSearchOutline } from "react-icons/io5";
+import { BsCart2 } from "react-icons/bs";
+import { AiOutlineUser } from "react-icons/ai";
+
 function NavbarComponent() {
   return (
     <div>
-      <Navbar bg="light" expand="lg">
+      <Navbar bg="white" expand="lg">
         <Container className="my-4">
-          <Navbar.Brand href="#">Hack Home</Navbar.Brand>
+          <Navbar.Brand id="navbar-text-logo" href="#">
+            HACK HOME
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -22,18 +28,20 @@ function NavbarComponent() {
               navbarScroll
             >
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/productos">Products</Nav.Link>
-              <Nav.Link href="/about">About Us</Nav.Link>
+              <Nav.Link href="/productos">Productos</Nav.Link>
+              <Nav.Link href="/about">Sobre nosotros</Nav.Link>
             </Nav>
-            <Form className="d-flex">
-              <FormControl
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
+            <div className="d-flex ">
+              <Nav.Link className="navbar-icons">
+                <AiOutlineUser size={20} />
+              </Nav.Link>
+              <Nav.Link className="navbar-icons">
+                <IoSearchOutline className="mx-5" size={20} />
+              </Nav.Link>
+              <Nav.Link className="navbar-icons">
+                <BsCart2 size={20} />
+              </Nav.Link>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
