@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import ProductsList from "../components/ProductsList";
 
 function Products() {
-  return <div className="products" >Products</div>;
+
+  const [products, setProducts] = useState([]);
+
+  useEffect( ()=>{
+    console.log("useEffect", process.env.REACT_APP_API_URL);
+    const getProducts = async ()=>{
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/products`);
+      const data = await response.json();
+      console.log(data);
+      setProducts(data);
+    }
+    getProducts();
+  } , [] )
+
+  return <div className="products" >
+    <h2 className="text-center" >Products</h2>
+    <ProductsList products={products} />
+  </div>;
 }
 
 export default Products;
