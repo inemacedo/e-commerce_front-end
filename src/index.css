@@ -19,6 +19,11 @@
 .navbar-icons {
   color: black;
 }
+
+.navbar-icons:hover {
+  color: var(--dark-grey);
+}
+
 .navbar-links {
   position: relative;
   transition: all ease-in-out 250ms;
