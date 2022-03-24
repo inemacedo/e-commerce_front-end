@@ -5,18 +5,20 @@ import Product from "./pages/Product";
 import About from "./pages/About";
 import NavbarComponent from "./components/NavbarComponent";
 import Footer from "./components/Footer";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
     <div className="App">
       <NavbarComponent />
       <Routes>
+        <Route path="/sobre-nosotros" element={<About />} />
         <Route path="/" element={<Home />} />
         {/* <Route path="/login" element={<Login />} /> */}
         {/* <Route path="/registro" element={<Register />} /> */}
         <Route path="/productos" element={<ProductsList />} />
         <Route path="/producto" element={<Product />} />
-        {/* <Route path="/sobre-nosotros" element={<About />} /> */}
+        <Route path="/carrito-de-compras" element={<Cart />} />
       </Routes>
       <Footer />
     </div>
