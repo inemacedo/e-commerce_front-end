@@ -1,9 +1,10 @@
 import React from "react";
 import QuantityInput from "../components/QuantityInput";
+import "../styles/Product.css";
 
 function Product() {
   return (
-    <div className="mx-5 my-5">
+    <div className="m-5">
       <div className="container">
         <div className="row g-5">
           <div className="col-md-7">
@@ -14,13 +15,15 @@ function Product() {
             />
           </div>
           <div className="col-md-5">
-            <h1 className="fs-2 fw-bold">
+            <h1 className="fs-4 fw-bold mb-1">
               Mesa De Centro Alaia De Madera Maciza De Acacia Con Acabado
               Natural 115 X 65 Cm
             </h1>
-            <p>Art:CC6003M43</p>
-            <h2 className="fs-3 fw-bold">USD 756</h2>
-            <div className="d-flex mb-0">
+            <p className="text-secondary">Art:CC6003M43</p>
+            <h2 className="fs-5 fw-bold my-3">USD 756</h2>
+            <p>Mesa de centro. Madera maciza. Estilo Colonial.</p>
+            <hr />
+            <div className="d-flex my-5">
               <QuantityInput />
               <button
                 type="button"
@@ -29,7 +32,7 @@ function Product() {
                 Añadir al Carrito
               </button>
             </div>
-            <hr />
+
             <div>
               <p>Métodos y costos de envío</p>
               <p className="fw-bold mb-1">A todo Montevideo:</p>
