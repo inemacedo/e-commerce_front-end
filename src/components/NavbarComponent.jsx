@@ -1,16 +1,9 @@
 import React from "react";
-import {
-  Button,
-  Container,
-  Form,
-  FormControl,
-  Navbar,
-  Nav,
-} from "react-bootstrap";
-
+import { Container, Navbar, Nav } from "react-bootstrap";
 import { IoSearchOutline } from "react-icons/io5";
 import { BsCart2 } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 function NavbarComponent() {
   return (
@@ -27,26 +20,28 @@ function NavbarComponent() {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link className="navbar-links" href="/">
+              <Link className="navbar-links " to="/">
                 Home
-              </Nav.Link>
-              <Nav.Link className="navbar-links" href="/productos">
+              </Link>
+              <Link className="navbar-links" to="/productos">
                 Productos
-              </Nav.Link>
-              <Nav.Link className="navbar-links" href="/about">
+              </Link>
+              <Link className="navbar-links" to="/sobre-nosotros">
                 Sobre nosotros
-              </Nav.Link>
+              </Link>
             </Nav>
 
-            <Nav.Link className="navbar-icons">
-              <AiOutlineUser className="me-2" size={20} />
-            </Nav.Link>
-            <Nav.Link className="navbar-icons">
-              <IoSearchOutline className="me-2" size={20} />
-            </Nav.Link>
-            <Nav.Link className="navbar-icons">
-              <BsCart2 size={20} />
-            </Nav.Link>
+            <div className="navbar-icons">
+              <Link className="navbar-icon" to="/">
+                <AiOutlineUser className="me-2" size={20} />
+              </Link>
+              <Link className="navbar-icon" to="/">
+                <IoSearchOutline className="me-2" size={20} />
+              </Link>
+              <Link className="navbar-icon" to="/carrito-de-compras">
+                <BsCart2 className="me-2" size={20} />
+              </Link>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
