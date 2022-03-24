@@ -1,5 +1,4 @@
 import ProductComponent from "./ProductComponent";
-import "../styles/ProductList.css";
 
 function ProductsList({ products }) {
   return (
@@ -11,14 +10,6 @@ function ProductsList({ products }) {
               <ProductComponent data={elem} />
             </div>
           ))}
-        </div>
-        <div className="text-center">
-          <button
-            type="button"
-            className="btn btn-dark rounded-pill py-2 px-5 mt-4 fw-bold button-home"
-          >
-            Ver Todos
-          </button>
         </div>
       </div>
     </div>
