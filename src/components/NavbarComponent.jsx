@@ -17,7 +17,7 @@ function NavbarComponent() {
     <div>
       <Navbar bg="white" expand="lg" className="border">
         <Container className="my-4 ">
-          <Navbar.Brand className="me-5" id="navbar-text-logo" href="#">
+          <Navbar.Brand className="me-5" id="navbar-text-logo" href="/">
             HACK HOME
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
