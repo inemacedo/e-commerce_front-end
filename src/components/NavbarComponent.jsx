@@ -9,14 +9,14 @@ function NavbarComponent() {
   return (
     <div>
       <Navbar bg="white" expand="lg" className="border">
-        <Container className="my-4 ">
-          <Navbar.Brand className="me-5" id="navbar-text-logo" href="/">
+        <Container className="my-lg-4 ">
+          <Navbar.Brand className="g-0 p-0" id="navbar-text-logo" href="/">
             HACK HOME
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="me-auto my-2 my-lg-0 d-flex"
+              className="me-auto my-lg-0 d-flex"
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
