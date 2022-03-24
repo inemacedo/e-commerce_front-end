@@ -6,6 +6,8 @@ import About from "./pages/About";
 import NavbarComponent from "./components/NavbarComponent";
 import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   return (
@@ -14,8 +16,8 @@ function App() {
       <Routes>
         <Route path="/sobre-nosotros" element={<About />} />
         <Route path="/" element={<Home />} />
-        {/* <Route path="/login" element={<Login />} /> */}
-        {/* <Route path="/registro" element={<Register />} /> */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/registro" element={<Register />} />
         <Route path="/productos" element={<ProductsList />} />
         <Route path="/producto" element={<Product />} />
         <Route path="/carrito-de-compras" element={<Cart />} />
