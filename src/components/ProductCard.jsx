@@ -13,7 +13,7 @@ function ProductCard({ product }) {
       </NavLink>
 
       <p>{product.title}</p>
-      <p className="fw-bold">{product.price}</p>
+      <p className="fw-bold">USD {product.price}</p>
     </div>
   );
 }
