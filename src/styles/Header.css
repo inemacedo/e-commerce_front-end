@@ -4,10 +4,11 @@
   filter: grayscale(100%);
   background-size: cover;
   background-position: center;
-  height: 60rem;
+  height: 65rem;
   object-fit: contain;
+  margin-bottom: 9rem;
 }
 
-/* h1 {
+h1 {
   font-size: 3rem;
-} */
+}
