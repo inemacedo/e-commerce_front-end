@@ -1,5 +1,10 @@
 import React from "react";
-import { AiOutlineArrowLeft, AiOutlinePlus } from "react-icons/ai";
+import {
+  AiOutlineArrowLeft,
+  AiOutlinePlus,
+  AiOutlineMinus,
+} from "react-icons/ai";
+import QuantityInput from "../components/QuantityInput";
 
 function Cart() {
   return (
@@ -7,7 +12,7 @@ function Cart() {
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-12">
-            <div className="card card-registration card-registration-2">
+            <div className="card card-registration card-registration-2 border-0">
               <div className="card-body p-0">
                 <div className="row g-0">
                   <div className="col-lg-8">
@@ -31,24 +36,8 @@ function Cart() {
                           </h6>
                           <h6 className="text-black mb-0">Beige FSC 100%t</h6>
                         </div>
-                        <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                          <button className="btn btn-link px-2">
-                            <i className="fas fa-minus" />
-                          </button>
-                          <input
-                            id="form1"
-                            min={0}
-                            name="quantity"
-                            defaultValue={1}
-                            type="number"
-                            className="form-control form-control-sm"
-                          />
-                          <button
-                            className="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                          >
-                            <i className="fas fa-plus" />
-                          </button>
+                        <div className="col-md-3 col-lg-3  d-flex">
+                          <QuantityInput />
                         </div>
                         <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                           <h6 className="mb-0">USD 44.00</h6>
@@ -74,27 +63,8 @@ function Cart() {
                           </h6>
                           <h6 className="text-black mb-0">Topo 182 Cm</h6>
                         </div>
-                        <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                          <button
-                            className="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                          >
-                            <i className="fas fa-minus" />
-                          </button>
-                          <input
-                            id="form1"
-                            min={0}
-                            name="quantity"
-                            defaultValue={1}
-                            type="number"
-                            className="form-control form-control-sm"
-                          />
-                          <button
-                            className="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                          >
-                            <i className="fas fa-plus" />
-                          </button>
+                        <div className="col-md-3 col-lg-3  d-flex">
+                          <QuantityInput />
                         </div>
                         <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                           <h6 className="mb-0">USD 44.00</h6>
@@ -121,28 +91,15 @@ function Cart() {
                           </h6>
                           <h6 className="text-black mb-0">220 X 110 Cm</h6>
                         </div>
-                        <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                          <button className="btn btn-link px-2">
-                            <i className="fas fa-minus" />
-                          </button>
-                          <input
-                            id="form1"
-                            min={0}
-                            name="quantity"
-                            defaultValue={1}
-                            type="number"
-                            className="form-control form-control-sm"
-                          />
-                          <button className="btn btn-link px-2">
-                            <AiOutlinePlus />
-                          </button>
+                        <div className="col-md-3 col-lg-3  d-flex">
+                          <QuantityInput />
                         </div>
                         <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                           <h6 className="mb-0">USD 44.00</h6>
                         </div>
                         <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                           <a href="#!" className="text-muted">
-                            <i className="fas fa-times" />
+                            x
                           </a>
                         </div>
                       </div>
