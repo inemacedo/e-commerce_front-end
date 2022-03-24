@@ -3,10 +3,12 @@ import Home from "./pages/Home";
 import ProductsList from "./components/ProductsList";
 import Product from "./components/Product";
 import About from "./pages/About";
+import NavbarComponent from "./components/NavbarComponent";
 
 function App() {
   return (
     <div className="App">
+      <NavbarComponent />
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/login" element={<Login />} /> */}
