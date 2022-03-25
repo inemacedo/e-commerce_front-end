@@ -1,11 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsGoogle, BsFacebook, BsTwitter } from "react-icons/bs";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 function Login() {
   return (
     <div style={{ width: "30rem" }} className="container mt-5">
-      <h1 className="mt-4 fs-4 fw-bold">Bienvenido!</h1>
+      <div className="d-flex justify-content-between">
+        <h1 className="mt-4 fs-4 fw-bold">Bienvenido!</h1>
+        <Link to="/">
+          <IoMdCloseCircleOutline
+            style={{ color: "#353333" }}
+            className="mt-4"
+            size={20}
+          />
+        </Link>
+      </div>
+
       <form
         className="d-flex flex-column align-items-center"
         action="#"

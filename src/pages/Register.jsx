@@ -1,11 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsGoogle, BsFacebook, BsTwitter } from "react-icons/bs";
+import { IoMdCloseCircleOutline } from "react-icons/io";
 
 function Register() {
   return (
     <div style={{ width: "30rem" }} className="container mt-5">
-      <h1 className="mt-4 fs-4 fw-bold">REGÍSTRATE AQUÍ</h1>
+      <div className="d-flex justify-content-between">
+        <h1 className="mt-4 fs-4 fw-bold">REGÍSTRATE AQUÍ</h1>
+        <Link to="/">
+          <IoMdCloseCircleOutline
+            style={{ color: "#353333" }}
+            className="mt-4"
+            size={20}
+          />
+        </Link>
+      </div>
       <form className="mt-4">
         {/* 2 column grid layout with text inputs for the first and last names */}
         <div className="row mb-4">
