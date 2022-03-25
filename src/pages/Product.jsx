@@ -23,12 +23,12 @@ function Product() {
     getProduct();
   }, []);
 
-  const handleClick = ()=>{
+  const handleClick = () => {
     dispatch({
       type: "ADD_ITEM_CART",
-      payload: product
+      payload: product,
     });
-  }
+  };
 
   return (
     <div className="m-5">
@@ -82,19 +82,19 @@ function Product() {
 
                 <tr>
                   <td>Medidas:</td>
-                  <td>Mark</td>
+                  <td>{product.measures}</td>
                 </tr>
                 <tr>
                   <td>Material:</td>
-                  <td>Jacob</td>
+                  <td>{product.material}</td>
                 </tr>
                 <tr>
                   <td>Estilo:</td>
-                  <td colSpan="2">Larry the Bird</td>
+                  <td colSpan="2">{product.style}</td>
                 </tr>
                 <tr>
                   <td>Ambiente:</td>
-                  <td colSpan="2">Larry the Bird</td>
+                  <td colSpan="2">{product.environment}</td>
                 </tr>
               </tbody>
             </table>

@@ -9,16 +9,14 @@ function NavbarComponent() {
   return (
     <div>
       <Navbar bg="white" expand="lg" className="border">
-        <Container >
+        <Container>
           <Navbar.Brand className="g-0 p-0" id="navbar-text-logo" href="/">
             HACK HOME
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="me-auto"
-            >
-              <Link className="navbar-links my-0 p-4 " to="/" >
+            <Nav className="me-auto">
+              <Link className="navbar-links my-0 p-4 " to="/">
                 Home
               </Link>
               <Link className="navbar-links my-0 p-4" to="/productos">
@@ -27,23 +25,22 @@ function NavbarComponent() {
               <Link className="navbar-links my-0 p-4" to="/sobre-nosotros">
                 Sobre nosotros
               </Link>
-
             </Nav>
 
-            <Nav
-              className="ms-auto"
-            >
-              <Link className="navbar-links navbar-icon m-0 p-4" to="/login">
+            <Nav className="ms-auto">
+              <Link className="navbar-links navbar-icon m-0 p-4" to="/registro">
                 <AiOutlineUser size={20} />
               </Link>
               <Link className="navbar-links navbar-icon m-0 p-4" to="/search">
                 <IoSearchOutline size={20} />
               </Link>
-              <Link className="navbar-links navbar-icon m-0 p-4" to="/carrito-de-compras">
+              <Link
+                className="navbar-links navbar-icon m-0 p-4"
+                to="/carrito-de-compras"
+              >
                 <BsCart2 size={20} />
               </Link>
             </Nav>
-
           </Navbar.Collapse>
         </Container>
       </Navbar>

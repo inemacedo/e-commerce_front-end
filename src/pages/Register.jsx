@@ -1,38 +1,113 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { BsGoogle, BsFacebook, BsTwitter } from "react-icons/bs";
 
 function Register() {
-  return <div className="register container my-5" >
-    <form className="d-flex flex-wrap" action="#" autoComplete="false" onSubmit={(ev)=> ev.preventDefault()} >
-      <div className="row">
-        <div className="col-md-6">
-          <div className="input-group mb-3">
-            <span className="input-group-text">Firstname</span>
-            <input type="text" className="form-control form-control-lg" name="firstname" placeholder="Username" aria-label="Firstname"/>
+  return (
+    <div style={{ width: "30rem" }} className="container mt-5">
+      <h1 className="mt-4 fs-4 fw-bold">REGÍSTRATE AQUÍ</h1>
+      <form className="mt-4">
+        {/* 2 column grid layout with text inputs for the first and last names */}
+        <div className="row mb-4">
+          <div className="col">
+            <div className="form-outline">
+              <input type="text" id="firstname" className="form-control" />
+              <label className="form-label" htmlFor="firstname">
+                Nombre
+              </label>
+            </div>
+          </div>
+          <div className="col">
+            <div className="form-outline">
+              <input type="text" id="lastname" className="form-control" />
+              <label className="form-label" htmlFor="lastname">
+                Apellido
+              </label>
+            </div>
           </div>
         </div>
 
-        <div className="col-md-6">
-          <div className="input-group mb-3">
-            <span className="input-group-text">Lastname</span>
-            <input type="text" className="form-control form-control-lg" name="lastname" placeholder="Username" aria-label="Lastname"/>
+        <div className="row mb-4">
+          <div className="col">
+            <div className="form-outline">
+              <input type="text" id="phone" className="form-control" />
+              <label className="form-label" htmlFor="phone">
+                Teléfono
+              </label>
+            </div>
+          </div>
+          <div className="col">
+            <div className="form-outline">
+              <input type="text" id="adress" className="form-control" />
+              <label className="form-label" htmlFor="adress">
+                Dirección
+              </label>
+            </div>
           </div>
         </div>
 
-      </div>
+        {/* Email input */}
+        <div className="form-outline mb-4">
+          <input type="email" id="email" className="form-control" />
+          <label className="form-label" htmlFor="email">
+            Email
+          </label>
+        </div>
 
-      <div className="input-group mb-3">
-        <span className="input-group-text">Email</span>
-        <input type="email" className="form-control form-control-lg" name="email" placeholder="Email" aria-label="Email"/>
-      </div>
+        {/* Password input */}
+        <div className="form-outline mb-4">
+          <input type="password" id="form3Example4" className="form-control" />
+          <label className="form-label" htmlFor="password">
+            Password
+          </label>
+        </div>
+        {/* Checkbox */}
+        <div className="form-check d-flex justify-content-center mb-4">
+          <input
+            className="form-check-input me-2"
+            type="checkbox"
+            defaultValue
+            id="form2Example33"
+            defaultChecked
+          />
+          <label className="form-check-label" htmlFor="form2Example33">
+            Subscribete a nuestro newsletter
+          </label>
+        </div>
 
-      <div className="input-group mb-3">
-        <span className="input-group-text">Password</span>
-        <input type="password" className="form-control form-control-lg" name="password" placeholder="Password" aria-label="Password"/>
-      </div>
+        {/* Submit button */}
+        <button type="submit" className="btn btn-dark mb-4 w-100 text-center">
+          Crear cuenta
+        </button>
+        {/* Register buttons */}
+        <div className="text-center">
+          <Link className="text-muted" to="/login">
+            Ya estás registrado? Logueate aquí
+          </Link>
 
-      <input className="btn btn-lg btn-primary ms-auto" type="submit" value="Continue" />
-    </form>
-  </div>;
+          <p>o regístrate con:</p>
+          <button
+            type="button"
+            className="btn btn-secondary btn-floating rounded-circle mx-1"
+          >
+            <BsFacebook size={20} />
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary btn-floating rounded-circle mx-1"
+          >
+            <BsGoogle size={20} />
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary btn-floating rounded-circle mx-1"
+          >
+            <BsTwitter size={20} />
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 }
 
 export default Register;
