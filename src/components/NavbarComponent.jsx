@@ -33,10 +33,10 @@ function NavbarComponent() {
             <Nav
               className="ms-auto"
             >
-              <Link className="navbar-links navbar-icon m-0 p-4" to="/">
+              <Link className="navbar-links navbar-icon m-0 p-4" to="/login">
                 <AiOutlineUser size={20} />
               </Link>
-              <Link className="navbar-links navbar-icon m-0 p-4" to="/">
+              <Link className="navbar-links navbar-icon m-0 p-4" to="/search">
                 <IoSearchOutline size={20} />
               </Link>
               <Link className="navbar-links navbar-icon m-0 p-4" to="/carrito-de-compras">
