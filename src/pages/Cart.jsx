@@ -4,31 +4,33 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 
-
 function Cart() {
-
-  const cart = useSelector(state=>state.cart);
+  const cart = useSelector((state) => state.cart);
   console.log(cart);
 
   const store = [
     {
       title: "Butaca Plegable Chabeli Madera Maciza Acacia",
-      imgUrl: "https://f.fcdn.app/imgs/e9eaa1/www.kavehome.com.uy/kaveuy/6298/webp/catalogo/CC2094J_12_1/900x1125/butaca-plegable-chabeli-madera-maciza-acacia-y-beige-fsc-100.jpg",
+      imgUrl:
+        "https://f.fcdn.app/imgs/e9eaa1/www.kavehome.com.uy/kaveuy/6298/webp/catalogo/CC2094J_12_1/900x1125/butaca-plegable-chabeli-madera-maciza-acacia-y-beige-fsc-100.jpg",
       price: 247,
     },
     {
       title: "Sofá Debra 2 Plazas Terciopelot",
-      imgUrl: "https://f.fcdn.app/imgs/485c46/www.kavehome.com.uy/kaveuy/68f7/webp/catalogo/S547JU_85_1/900x1125/sofa-debra-2-plazas-terciopelo-topo-182-cm.jpg",
+      imgUrl:
+        "https://f.fcdn.app/imgs/485c46/www.kavehome.com.uy/kaveuy/68f7/webp/catalogo/S547JU_85_1/900x1125/sofa-debra-2-plazas-terciopelo-topo-182-cm.jpg",
       price: 928,
     },
     {
-      title: "Mesa Deyanira De Chapa De Roble Y Patas De Madera Maciza De Roble",
-      imgUrl: "https://f.fcdn.app/imgs/28972c/www.kavehome.com.uy/kaveuy/c936/webp/catalogo/IT0288M40_IT0288M40_1/900x1125/mesa-deyanira-de-chapa-de-roble-y-patas-de-madera-maciza-de-roble-220-x-110-cm-mesa-deyanira-de-chapa-de-roble-y-patas-de-madera-maciza-de-roble-220-x-110-cm.jpg",
+      title:
+        "Mesa Deyanira De Chapa De Roble Y Patas De Madera Maciza De Roble",
+      imgUrl:
+        "https://f.fcdn.app/imgs/28972c/www.kavehome.com.uy/kaveuy/c936/webp/catalogo/IT0288M40_IT0288M40_1/900x1125/mesa-deyanira-de-chapa-de-roble-y-patas-de-madera-maciza-de-roble-220-x-110-cm-mesa-deyanira-de-chapa-de-roble-y-patas-de-madera-maciza-de-roble-220-x-110-cm.jpg",
       price: 576,
     },
-  ]
+  ];
 
-  const total = store.reduce( (acc, elem)=> acc+=elem.price , 0 );
+  const total = store.reduce((acc, elem) => (acc += elem.price), 0);
 
   return (
     <section className="h-100 h-custom">
@@ -42,16 +44,17 @@ function Cart() {
                     <div className="">
                       <div className="d-flex justify-content-between align-items-center mb-5">
                         <h1 className="fs-3 mb-0 text-black">Mis compras</h1>
-                        <h6 className="mb-0 text-muted">3 items</h6>
+                        <h6 className="mb-0 text-muted">{cart.length} items</h6>
                       </div>
                       <hr className="my-4" />
-                      { cart.map( elem=><CartItem
+                      {cart.map((elem) => (
+                        <CartItem
                           key={elem.id}
                           title={elem.title}
                           imgUrl={elem.image}
                           price={elem.price}
-                        />) }
-
+                        />
+                      ))}
 
                       <div className="pt-5">
                         <h6 className="mb-0">
@@ -84,8 +87,10 @@ function Cart() {
 
                       <hr className="my-4" />
                       <div className="d-flex justify-content-between mb-5">
-                        <h5 className="text-uppercase">PRECIO TOTAL + 10% de Envío</h5>
-                        <h5>USD {total + (total*0.1)}</h5>
+                        <h5 className="text-uppercase">
+                          PRECIO TOTAL + 10% de Envío
+                        </h5>
+                        <h5>USD {total + total * 0.1}</h5>
                       </div>
                       <button
                         type="button"
