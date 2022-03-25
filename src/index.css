@@ -10,6 +10,10 @@
   --black: #0a0a0a;
 }
 
+body {
+  font-family: "Poppins", sans-serif;
+}
+
 .App {
   min-height: 100vh;
 }
@@ -45,11 +49,12 @@
   .navbar-links::after {
     content: "";
     position: absolute;
+    left: 0;
+    bottom: 0rem;
     display: block;
-    height: 0.2em;
+    height: 2px;
     width: 0%;
     background-color: var(--black);
-    bottom: -2.8rem;
     transition: all ease-in-out 250ms;
   }
   .navbar-links:hover::after {
@@ -62,10 +67,10 @@
     overflow: hidden;
     margin-bottom: 1rem;
   }
-  .navbar-icons {
+  /* .navbar-icons {
     display: flex;
     flex-direction: column;
-  }
+  } */
   .navbar-icon {
     margin-top: 1rem;
     text-align: center;
@@ -119,6 +124,3 @@ font-family: 'Red Hat Display', sans-serif; // cultocafe
 
 */
 
-body {
-  font-family: "Poppins", sans-serif;
-}

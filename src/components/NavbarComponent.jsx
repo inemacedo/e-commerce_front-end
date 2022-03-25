@@ -9,39 +9,41 @@ function NavbarComponent() {
   return (
     <div>
       <Navbar bg="white" expand="lg" className="border">
-        <Container className="my-lg-4 ">
+        <Container >
           <Navbar.Brand className="g-0 p-0" id="navbar-text-logo" href="/">
             HACK HOME
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="me-auto my-lg-0 d-flex"
-              style={{ maxHeight: "100px" }}
-              navbarScroll
+              className="me-auto"
             >
-              <Link className="navbar-links " to="/">
+              <Link className="navbar-links my-0 p-4 " to="/" >
                 Home
               </Link>
-              <Link className="navbar-links" to="/productos">
+              <Link className="navbar-links my-0 p-4" to="/productos">
                 Productos
               </Link>
-              <Link className="navbar-links" to="/sobre-nosotros">
+              <Link className="navbar-links my-0 p-4" to="/sobre-nosotros">
                 Sobre nosotros
+              </Link>
+
+            </Nav>
+
+            <Nav
+              className="ms-auto"
+            >
+              <Link className="navbar-links navbar-icon m-0 p-4" to="/">
+                <AiOutlineUser size={20} />
+              </Link>
+              <Link className="navbar-links navbar-icon m-0 p-4" to="/">
+                <IoSearchOutline size={20} />
+              </Link>
+              <Link className="navbar-links navbar-icon m-0 p-4" to="/carrito-de-compras">
+                <BsCart2 size={20} />
               </Link>
             </Nav>
 
-            <div className="navbar-icons">
-              <Link className="navbar-icon" to="/">
-                <AiOutlineUser className="me-2" size={20} />
-              </Link>
-              <Link className="navbar-icon" to="/">
-                <IoSearchOutline className="me-2" size={20} />
-              </Link>
-              <Link className="navbar-icon" to="/carrito-de-compras">
-                <BsCart2 className="me-2" size={20} />
-              </Link>
-            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
