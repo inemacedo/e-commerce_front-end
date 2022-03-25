@@ -10,25 +10,7 @@ function Cart() {
   const cart = useSelector(state=>state.cart);
   console.log(cart);
 
-  const store = [
-    {
-      title: "Butaca Plegable Chabeli Madera Maciza Acacia",
-      imgUrl: "https://f.fcdn.app/imgs/e9eaa1/www.kavehome.com.uy/kaveuy/6298/webp/catalogo/CC2094J_12_1/900x1125/butaca-plegable-chabeli-madera-maciza-acacia-y-beige-fsc-100.jpg",
-      price: 247,
-    },
-    {
-      title: "Sofá Debra 2 Plazas Terciopelot",
-      imgUrl: "https://f.fcdn.app/imgs/485c46/www.kavehome.com.uy/kaveuy/68f7/webp/catalogo/S547JU_85_1/900x1125/sofa-debra-2-plazas-terciopelo-topo-182-cm.jpg",
-      price: 928,
-    },
-    {
-      title: "Mesa Deyanira De Chapa De Roble Y Patas De Madera Maciza De Roble",
-      imgUrl: "https://f.fcdn.app/imgs/28972c/www.kavehome.com.uy/kaveuy/c936/webp/catalogo/IT0288M40_IT0288M40_1/900x1125/mesa-deyanira-de-chapa-de-roble-y-patas-de-madera-maciza-de-roble-220-x-110-cm-mesa-deyanira-de-chapa-de-roble-y-patas-de-madera-maciza-de-roble-220-x-110-cm.jpg",
-      price: 576,
-    },
-  ]
-
-  const total = store.reduce( (acc, elem)=> acc+=elem.price , 0 );
+  const total = cart.reduce( (acc, elem)=> acc+=Number(elem.price) , 0 );
 
   return (
     <section className="h-100 h-custom">
@@ -55,7 +37,7 @@ function Cart() {
 
                       <div className="pt-5">
                         <h6 className="mb-0">
-                          <Link to="/productos" className="text-body">
+                          <Link to="/productos" className="btn mb-3">
                             <AiOutlineArrowLeft />
                             Volver a lista de productos
                           </Link>

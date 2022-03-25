@@ -17,6 +17,7 @@ function Products() {
 
   return (
     <div className="products my-5">
+      <h2 className="fs-4 text-center mb-5 fw-bold">CATALOG</h2>
       <ProductsList products={products} />
     </div>
   );

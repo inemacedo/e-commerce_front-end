@@ -4,8 +4,10 @@ import { IoSearchOutline } from "react-icons/io5";
 import { BsCart2 } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function NavbarComponent() {
+  const cart = useSelector(state=>state.cart);
   return (
     <div>
       <Navbar bg="white" expand="lg" className="border">
@@ -41,6 +43,7 @@ function NavbarComponent() {
               </Link>
               <Link className="navbar-links navbar-icon m-0 p-4" to="/carrito-de-compras">
                 <BsCart2 size={20} />
+                <span class="badge bg-dark">{cart.length}</span>
               </Link>
             </Nav>
 
