@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import QuantityInput from "../components/QuantityInput";
+import { BsTrash } from "react-icons/bs";
 
 function CartItem({ title, imgUrl, price }) {
   const handleUpdateQtty = () => {
@@ -19,7 +20,12 @@ function CartItem({ title, imgUrl, price }) {
           <QuantityInput handleUpdateQtty={handleUpdateQtty} />
         </div>
         <div className="col-md-3 ms-auto text-end">
-          <h6 className="mb-0">USD {price}.00</h6>
+          <div className="d-flex justify-content-end align-items-end">
+            <h6 className="mb-0 me-3">USD {price}.00</h6>
+            <button className="border-0 bg-white p-0">
+              <BsTrash size={13} color={"grey"} />
+            </button>
+          </div>
         </div>
       </div>
       <hr />
