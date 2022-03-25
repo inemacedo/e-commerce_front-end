@@ -4,9 +4,9 @@
   filter: grayscale(100%);
   background-size: cover;
   background-position: center;
-  height: 40rem;
+  height: 45rem;
   object-fit: contain;
-  margin-bottom: 8rem;
+  margin-bottom: 5rem;
 }
 
 h1 {
