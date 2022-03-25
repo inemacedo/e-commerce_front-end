@@ -21,5 +21,7 @@ input[type="number"]::-webkit-outer-spin-button {
   border-left: none;
   border-right: none;
   width: 3.5rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

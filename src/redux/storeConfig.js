@@ -10,8 +10,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  shoppingCart: shoppingCartReducer, //tweet y users es el nombre de la parte del store donde estan guardados los datos
-  // que van a ser gestionadas por los reducers
+  shoppingCart: shoppingCartReducer,
   user: userReducer,
 });
 

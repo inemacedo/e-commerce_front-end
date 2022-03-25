@@ -18,7 +18,7 @@ function QuantityInput({ handleUpdateQtty }) {
       <button className="quantity-button" onClick={handleDecrement}>
         -
       </button>
-      <span className="quantity-input m-0 py-2" >{quantity}</span>
+      <span className="quantity-input">{quantity}</span>
       <button className="quantity-button" onClick={handleIncrement}>
         +
       </button>

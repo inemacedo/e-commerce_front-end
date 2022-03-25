@@ -23,11 +23,11 @@ function Product() {
             <h2 className="fs-5 fw-bold my-3">USD 756</h2>
             <p>Mesa de centro. Madera maciza. Estilo Colonial.</p>
             <hr />
-            <div className="d-flex my-5">
+            <div className="d-flex flex-wrap my-5">
               <QuantityInput />
               <button
                 type="button"
-                className="btn btn-dark rounded-pill py-3 px-4 fw-bold"
+                className="btn btn-dark rounded-pill py-3 px-4 fw-bold mt-4 mt-md-0"
               >
                 Añadir al Carrito
               </button>
