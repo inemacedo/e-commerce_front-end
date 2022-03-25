@@ -12,7 +12,12 @@ function ProductCard({ product }) {
         ></img>
       </NavLink>
 
-      <p>{product.title}</p>
+      <NavLink
+        className="text-decoration-none text-dark"
+        to={`/producto/${product.id}`}
+      >
+        {product.title}
+      </NavLink>
       <p className="fw-bold">USD {product.price}</p>
     </div>
   );
