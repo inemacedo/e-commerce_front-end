@@ -50,7 +50,7 @@ body {
     content: "";
     position: absolute;
     left: 0;
-    bottom: 0rem;
+    bottom: -0.4rem;
     display: block;
     height: 2px;
     width: 0%;
@@ -123,4 +123,3 @@ font-family: 'Poppins', sans-serif;  //  kevohome
 font-family: 'Red Hat Display', sans-serif; // cultocafe
 
 */
-
