@@ -15,7 +15,6 @@ export function cartReducer(cart = [], action) {
       return [...cart, ...action.payload];
       
     }
-      return [...cart, action.payload];
     case "REMOVE_ITEM_CART":
       return cart;
     default:
