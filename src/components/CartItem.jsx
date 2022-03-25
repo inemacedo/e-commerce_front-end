@@ -1,31 +1,32 @@
 
+import { useDispatch, useSelector } from "react-redux";
 import QuantityInput from "../components/QuantityInput";
 
 
 function CartItem({ title, imgUrl, price }) {
 
+
   const handleUpdateQtty = ()=>{
     console.log("Checkear si hay stock");
   };
   
-  return (<><div className="d-flex justify-content-between align-items-center">
-      <div className="col-md-2 col-lg-2 col-xl-2">
+  return (<><div className="row gy-4 justify-content-between align-items-center">
+      <div className="col-md-3">
         <img
           src={imgUrl}
-          className="img-fluid rounded-3"
+          className="w-100 rounded-3"
           alt="Cotton T-shirt"
         />
       </div>
-      <div className="col-md-3 col-lg-3 col-xl-3">
-        <h6 className="text-muted">
+      <div className="col-md-3 col-lg-6">
+        <h4 className="fs-5 text-muted">
           {title}
-        </h6>
-        <h6 className="text-black mb-0">Beige FSC 100%t</h6>
+        </h4>
       </div>
-      <div className="col-md-3 col-lg-3 d-flex">
+      <div className="col-md-3 ">
         <QuantityInput handleUpdateQtty={handleUpdateQtty} />
       </div>
-      <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+      <div className="col-md-3 ms-auto text-end">
         <h6 className="mb-0">USD {price}.00</h6>
       </div>
     </div>

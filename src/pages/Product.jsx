@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import QuantityInput from "../components/QuantityInput";
 
 import "../styles/Product.css";
 
 function Product() {
+  const dispatch = useDispatch();
   const [product, setProduct] = useState({});
   const params = useParams();
 
@@ -20,6 +22,13 @@ function Product() {
     };
     getProduct();
   }, []);
+
+  const handleClick = ()=>{
+    dispatch({
+      type: "ADD_ITEM_CART",
+      payload: product
+    });
+  }
 
   return (
     <div className="m-5">
@@ -38,11 +47,12 @@ function Product() {
             <h2 className="fs-5 fw-bold my-3">USD {product.price}</h2>
             <p>{product.description}</p>
             <hr />
-            <div className="d-flex flex-wrap my-5">
+            <div className="d-flex justify-content-stretch flex-wrap my-5">
               <QuantityInput />
               <button
                 type="button"
                 className="btn btn-dark rounded-pill py-3 px-4 fw-bold mt-4 mt-md-0"
+                onClick={handleClick}
               >
                 Añadir al Carrito
               </button>

@@ -1,10 +1,14 @@
 import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 
 
 function Cart() {
+
+  const cart = useSelector(state=>state.cart);
+  console.log(cart);
 
   const store = [
     {
@@ -41,9 +45,9 @@ function Cart() {
                         <h6 className="mb-0 text-muted">3 items</h6>
                       </div>
                       <hr className="my-4" />
-                      { store.map( elem=><CartItem
+                      { cart.map( elem=><CartItem
                           title={elem.title}
-                          imgUrl={elem.imgUrl}
+                          imgUrl={elem.image}
                           price={elem.price}
                         />) }
 

@@ -14,12 +14,12 @@ function QuantityInput({ handleUpdateQtty }) {
   };
 
   return (
-    <div className="quantity-wrap">
-      <button className="quantity-button" onClick={handleDecrement}>
+    <div className="d-flex justify-content-stretch w-100">
+      <button className="quantity-item" onClick={handleDecrement}>
         -
       </button>
-      <span className="quantity-input">{quantity}</span>
-      <button className="quantity-button" onClick={handleIncrement}>
+      <span className="quantity-item quantity-input text-center">{quantity}</span>
+      <button className="quantity-item" onClick={handleIncrement}>
         +
       </button>
     </div>
