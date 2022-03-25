@@ -48,15 +48,19 @@ function Product() {
             <h2 className="fs-5 fw-bold my-3">USD {product.price}</h2>
             <p>{product.description}</p>
             <hr />
-            <div className="row gy-3 my-4 align-items-center">
-              <div className="col-12 col-lg-6 d-flex" ><QuantityInput /></div>
+            <div className="row gy-3 my-3 my-md-5 align-items-center">
+              <div className="col-12 col-lg-6 d-flex">
+                <QuantityInput />
+              </div>
               <div className="col-12 col-lg-6 d-flex">
                 <button
                   type="button"
                   className="btn btn-dark rounded-pill fw-bold py-3 px-4 w-100"
                   onClick={handleClick}
-                  style={{"height": "4rem", "border": "none"}}
-                >Añadir al Carrito</button>
+                  style={{ height: "4rem", border: "none" }}
+                >
+                  Añadir al Carrito
+                </button>
               </div>
             </div>
 
