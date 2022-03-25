@@ -5,14 +5,16 @@ import { BsCart2 } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ReactComponent as LogoHackHome } from "../icons/logohackhome.svg";
 
 function NavbarComponent() {
-  const cart = useSelector(state=>state.cart);
+  const cart = useSelector((state) => state.cart);
   return (
     <div>
       <Navbar bg="white" expand="lg" className="border">
         <Container>
           <Navbar.Brand className="g-0 p-0" id="navbar-text-logo" href="/">
+            <LogoHackHome className="mb-2 me-2" style={{ height: "2rem" }} />
             HACK HOME
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
