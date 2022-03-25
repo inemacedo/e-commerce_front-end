@@ -9,7 +9,7 @@ function QuantityInput() {
   };
 
   const handleDecrement = (ev) => {
-    setQuantity((prevValue) => (prevValue > 1 ? prevValue - 1 : prevValue)); //si es mayor a restarle 1, para que no de neg.
+    setQuantity((prevValue) => (prevValue > 1 ? prevValue - 1 : prevValue)); //si es mayor a 1 restarle 1, para que no de neg.
   };
 
   return (

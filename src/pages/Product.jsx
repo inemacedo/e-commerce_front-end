@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import QuantityInput from "../components/QuantityInput";
+
 import "../styles/Product.css";
 
 function Product() {
+  const [product, setProduct] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    console.log("useEffect", process.env.REACT_APP_API_URL);
+    const getProduct = async () => {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/products/${id}`
+      );
+      const data = await response.json();
+      console.log(data);
+      setProduct(data);
+    };
+    getProduct();
+  }, []);
+
   return (
     <div className="m-5">
       <div className="container">
@@ -49,7 +67,7 @@ function Product() {
               </p>
               <p>Costo variable según tamaño del paquete.</p>
             </div>
-            <table class="table ">
+            <table className="table ">
               <tbody>
                 <tr>
                   <td className="fw-bold">CARACTERÍSTICAS</td>
@@ -65,11 +83,11 @@ function Product() {
                 </tr>
                 <tr>
                   <td>Estilo:</td>
-                  <td colspan="2">Larry the Bird</td>
+                  <td colSpan="2">Larry the Bird</td>
                 </tr>
                 <tr>
                   <td>Ambiente:</td>
-                  <td colspan="2">Larry the Bird</td>
+                  <td colSpan="2">Larry the Bird</td>
                 </tr>
               </tbody>
             </table>

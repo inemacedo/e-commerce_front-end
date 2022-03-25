@@ -10,7 +10,7 @@ const persistConfig = {
 };
 
 const rootReducer = combineReducers({
-  shoppingCart: shoppingCartReducer,
+  cart: shoppingCartReducer,
   user: userReducer,
 });
 
