@@ -5,19 +5,19 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Routes, Route  } from "react-router-dom";
-import { Provider } from "react-redux"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
 import { store, persistor } from "./redux/storeConfig";
 import { PersistGate } from "redux-persist/integration/react";
 
-
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store} >
+    <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<Login />} />
+            <Route path="/registro" element={<Register />} />
             <Route path="/register" element={<Register />} />
             <Route path="/*" element={<App />} />
           </Routes>

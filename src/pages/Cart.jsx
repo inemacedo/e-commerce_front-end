@@ -4,10 +4,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CartItem from "../components/CartItem";
 
-
 function Cart() {
-
-  const cart = useSelector(state=>state.cart);
+  const cart = useSelector((state) => state.cart);
   console.log(cart);
 
   const total = cart.reduce( (acc, elem)=> acc+=Number(elem.price) , 0 );
@@ -24,16 +22,17 @@ function Cart() {
                     <div className="">
                       <div className="d-flex justify-content-between align-items-center mb-5">
                         <h1 className="fs-3 mb-0 text-black">Mis compras</h1>
-                        <h6 className="mb-0 text-muted">3 items</h6>
+                        <h6 className="mb-0 text-muted">{cart.length} items</h6>
                       </div>
                       <hr className="my-4" />
-                      { cart.map( elem=><CartItem
+                      {cart.map((elem) => (
+                        <CartItem
                           key={elem.id}
                           title={elem.title}
                           imgUrl={elem.image}
                           price={elem.price}
-                        />) }
-
+                        />
+                      ))}
 
                       <div className="pt-5">
                         <h6 className="mb-0">
@@ -66,8 +65,10 @@ function Cart() {
 
                       <hr className="my-4" />
                       <div className="d-flex justify-content-between mb-5">
-                        <h5 className="text-uppercase">PRECIO TOTAL + 10% de Envío</h5>
-                        <h5>USD {total + (total*0.1)}</h5>
+                        <h5 className="text-uppercase">
+                          PRECIO TOTAL + 10% de Envío
+                        </h5>
+                        <h5>USD {total + total * 0.1}</h5>
                       </div>
                       <button
                         type="button"
