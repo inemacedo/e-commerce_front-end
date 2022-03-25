@@ -27,19 +27,16 @@ function Product() {
         <div className="row g-5">
           <div className="col-md-7">
             <img
-              src="https://f.fcdn.app/imgs/9d72e8/www.kavehome.com.uy/kaveuy/d9bf/webp/catalogo/CC6003M43_CC6003M43_1/900x1125/mesa-de-centro-alaia-de-madera-maciza-de-acacia-con-acabado-natural-115-x-65-cm-mesa-de-centro-alaia-de-madera-maciza-de-acacia-con-acabado-natural-115-x-65-cm.jpg"
-              alt=""
+              src={product.image}
+              alt={product.title}
               className="img-fluid"
             />
           </div>
           <div className="col-md-5">
-            <h1 className="fs-4 fw-bold mb-1">
-              Mesa De Centro Alaia De Madera Maciza De Acacia Con Acabado
-              Natural 115 X 65 Cm
-            </h1>
-            <p className="text-secondary">Art:CC6003M43</p>
-            <h2 className="fs-5 fw-bold my-3">USD 756</h2>
-            <p>Mesa de centro. Madera maciza. Estilo Colonial.</p>
+            <h1 className="fs-4 fw-bold mb-1">{product.title}</h1>
+            <p className="text-secondary">Art:{product.id}</p>
+            <h2 className="fs-5 fw-bold my-3">USD {product.price}</h2>
+            <p>{product.description}</p>
             <hr />
             <div className="d-flex flex-wrap my-5">
               <QuantityInput />
