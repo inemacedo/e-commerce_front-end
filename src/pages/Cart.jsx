@@ -46,6 +46,7 @@ function Cart() {
                       </div>
                       <hr className="my-4" />
                       { cart.map( elem=><CartItem
+                          key={elem.id}
                           title={elem.title}
                           imgUrl={elem.image}
                           price={elem.price}
@@ -63,7 +64,7 @@ function Cart() {
                     </div>
                   </div>
                   <div className="col-12 col-lg-5 col-xlg-4">
-                    <div className="p-5 bg-grey">
+                    <div className="p-5 bg-grey d-flex flex-column">
                       <h3 className="mb-5 fs-3 mt-2 pt-1">Total</h3>
                       <hr className="my-4" />
                       <div className="d-flex justify-content-between mb-4">
@@ -88,7 +89,7 @@ function Cart() {
                       </div>
                       <button
                         type="button"
-                        className="btn btn-dark btn-block btn-lg rounded-pill"
+                        className="btn btn-dark btn-block btn-lg rounded-pill align-self-end"
                         data-mdb-ripple-color="dark"
                       >
                         COMPRAR

@@ -14,7 +14,7 @@ function CartItem({ title, imgUrl, price }) {
       <div className="col-md-3">
         <img
           src={imgUrl}
-          className="w-100 rounded-3"
+          className="w-100"
           alt="Cotton T-shirt"
         />
       </div>
