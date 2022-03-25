@@ -20,7 +20,7 @@ function CartItem({ title, imgUrl, price }) {
           <QuantityInput handleUpdateQtty={handleUpdateQtty} />
         </div>
         <div className="col-md-3 ms-auto text-end">
-          <div className="d-flex justify-content-end align-items-end">
+          <div className="d-flex justify-content-end align-items-center">
             <h6 className="mb-0 me-3">USD {price}.00</h6>
             <button className="border-0 bg-white p-0">
               <BsTrash size={13} color={"grey"} />
