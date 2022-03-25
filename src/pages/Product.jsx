@@ -6,13 +6,13 @@ import "../styles/Product.css";
 
 function Product() {
   const [product, setProduct] = useState({});
-  const { id } = useParams();
+  const params = useParams();
 
   useEffect(() => {
     console.log("useEffect", process.env.REACT_APP_API_URL);
     const getProduct = async () => {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/products/${id}`
+        `${process.env.REACT_APP_API_URL}/products/${params.id}`
       );
       const data = await response.json();
       console.log(data);
