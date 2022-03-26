@@ -52,7 +52,7 @@ function Product() {
               <QuantityInput />
               <button
                 type="button"
-                className="btn btn-dark rounded-pill py-3 px-4 fw-bold mt-4 mt-md-0"
+                className="btn btn-dark rounded-pill py-3 px-4 fw-bold mt-4 mt-md-0 ms-5"
                 onClick={handleClick}
               >
                 Añadir al Carrito

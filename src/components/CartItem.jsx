@@ -16,7 +16,7 @@ function CartItem({ title, imgUrl, price }) {
         <div className="col-md-3 col-lg-6">
           <h4 className="fs-5 text-muted">{title}</h4>
         </div>
-        <div className="col-md-3 ">
+        <div className="col-md-3">
           <QuantityInput handleUpdateQtty={handleUpdateQtty} />
         </div>
         <div className="col-md-3 ms-auto text-end">

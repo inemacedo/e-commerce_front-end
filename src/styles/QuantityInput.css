@@ -7,7 +7,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .quantity-wrap {
   display: flex;
   align-items: stretch;
-  margin-right: 5rem;
+  justify-content: end;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -20,7 +20,7 @@ input[type="number"]::-webkit-outer-spin-button {
   border: 1px solid #e1e1e1;
   border-left: none;
   border-right: none;
-  width: 3rem;
+  width: 3.5rem;
   text-align: center;
   display: flex;
   align-items: center;

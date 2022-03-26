@@ -14,7 +14,7 @@ function QuantityInput({ handleUpdateQtty }) {
   };
 
   return (
-    <div className="quantity-wrap flex-wrap">
+    <div className="quantity-wrap">
       <button className="quantity-button" onClick={handleDecrement}>
         -
       </button>
