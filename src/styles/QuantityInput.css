@@ -4,13 +4,25 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-.quantity-item {
+.quantity-wrap {
+  display: flex;
+  align-items: stretch;
+  margin-right: 5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.quantity-button {
   border: 1px solid #e1e1e1;
   background-color: white;
-  width: calc(100% / 3);
+  width: 2rem;
 }
-
 .quantity-input {
+  border: 1px solid #e1e1e1;
   border-left: none;
   border-right: none;
+  width: 3rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

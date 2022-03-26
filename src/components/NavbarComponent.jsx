@@ -13,7 +13,7 @@ function NavbarComponent() {
     <div>
       <Navbar bg="white" expand="lg" className="border">
         <Container>
-          <Navbar.Brand className="g-0 p-0" id="navbar-text-logo" href="/">
+          <Navbar.Brand className="g-0" id="navbar-text-logo" href="/">
             <LogoHackHome className="mb-2 me-2" style={{ height: "2rem" }} />
             HACK HOME
           </Navbar.Brand>
