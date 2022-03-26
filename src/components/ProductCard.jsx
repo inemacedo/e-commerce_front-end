@@ -6,6 +6,8 @@ function ProductCard({ product }) {
     <div>
       <NavLink to={`/producto/${product.id}`}>
         <img
+          onMouseOver={(e) => (e.currentTarget.src = product.imageenvironment)}
+          onMouseOut={(e) => (e.currentTarget.src = product.image)}
           src={product.image}
           alt={product.title}
           className="mb-2 img-fluid"

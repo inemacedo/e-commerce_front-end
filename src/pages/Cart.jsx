@@ -6,9 +6,8 @@ import CartItem from "../components/CartItem";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
 
-  const total = cart.reduce( (acc, elem)=> acc+=Number(elem.price) , 0 );
+  const total = cart.reduce((acc, elem) => (acc += Number(elem.price)), 0);
 
   return (
     <section className="h-100 h-custom">

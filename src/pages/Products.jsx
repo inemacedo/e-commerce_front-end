@@ -9,7 +9,7 @@ function Products() {
     const getProducts = async () => {
       const response = await fetch(`${process.env.REACT_APP_API_URL}/products`);
       const data = await response.json();
-      console.log(data);
+
       setProducts(data);
     };
     getProducts();
