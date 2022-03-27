@@ -14,7 +14,7 @@ function NavbarComponent() {
       <Navbar bg="white" expand="lg" className="border">
         <Container>
           <Navbar.Brand className="g-0" id="navbar-text-logo" href="/">
-            <LogoHackHome className="mb-2 me-2" style={{ height: "2rem" }} />
+            <LogoHackHome className="mb-3 me-2" style={{ height: "2.2rem" }} />
             HACK HOME
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -43,7 +43,7 @@ function NavbarComponent() {
                 to="/carrito-de-compras"
               >
                 <BsCart2 size={20} />
-                <span class="badge bg-dark">{cart.length}</span>
+                <span class="badge bg-dark ms-1">{cart.length}</span>
               </Link>
             </Nav>
           </Navbar.Collapse>
