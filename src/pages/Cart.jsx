@@ -46,7 +46,7 @@ function Cart() {
                     </div>
                   </div>
                   <div className="col-12 col-lg-5 col-xlg-4">
-                    <div className="px-4 bg-grey d-flex flex-column">
+                    <div className="p-5 bg-grey d-flex flex-column">
                       <h3 className="fw-bold fs-4 p-1">TOTAL</h3>
                       {cart.map((elem) => (
                         <div className="row mt-4 ">
@@ -59,9 +59,8 @@ function Cart() {
 
                       <hr className="my-4" />
                       <div className="d-flex justify-content-between mb-4">
-                        <h5 className="text-uppercase">items 3</h5>
-
-                        <h5>USD {total}.00</h5>
+                        <h5 className="text-uppercase">items {cart.length}</h5>
+                        <h5>USD {total}.00</h5>0
                       </div>
                       <h5 className="text-uppercase mb-3">
                         Dirección de envío
