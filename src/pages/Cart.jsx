@@ -27,12 +27,7 @@ function Cart() {
                       </div>
                       <hr className="my-4" />
                       {cart.map((elem) => (
-                        <CartItem
-                          key={elem.id}
-                          title={elem.title}
-                          imgUrl={elem.image}
-                          price={elem.price}
-                        />
+                        <CartItem key={elem.id} item={elem} />
                       ))}
 
                       <div className="pt-5">

@@ -1,5 +1,4 @@
-export function cartReducer(state = [], action) {
-  // export function cartReducer(cart = [], action) {
+export function cartReducer(cart = [], action) {
   switch (action.type) {
     // case "ADD_ITEM_CART": {
     //   // Si el id es distinto, agrego el elem nuevo, de lo contrario sumo una unidad
@@ -20,16 +19,23 @@ export function cartReducer(state = [], action) {
     // }
 
     case "ADD_ITEM_CART":
-      return [
-        ...state,
-        action.payload, // viene la info dsde el componente
-      ];
-
+      const foundItem = cart.find((item) => item.id === action.payload.id);
+      if (foundItem) {
+        return cart.map((item) => {
+          if (item.id === action.payload.id) item.units += 1;
+          return item;
+        });
+      } else {
+        return [
+          ...cart,
+          action.payload, // viene la info dsde el componente
+        ];
+      }
     case "REMOVE_ITEM_CART":
-      return state.filter((item) => item.id !== action.payload);
+      return cart.filter((item) => item.id !== action.payload);
 
     default:
-      return state;
+      return cart;
   }
 }
 
