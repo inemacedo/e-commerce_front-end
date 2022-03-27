@@ -43,7 +43,7 @@ function NavbarComponent() {
                 to="/carrito-de-compras"
               >
                 <BsCart2 size={20} />
-                <span class="badge bg-dark ms-1">{cart.length}</span>
+                <span className="badge bg-dark ms-1">{cart.length}</span>
               </Link>
             </Nav>
           </Navbar.Collapse>

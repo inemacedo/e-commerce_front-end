@@ -3,8 +3,18 @@ import QuantityInput from "../components/QuantityInput";
 import { BsTrash } from "react-icons/bs";
 
 function CartItem({ title, imgUrl, price }) {
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+
   const handleUpdateQtty = () => {
     console.log("Checkear si hay stock");
+  };
+
+  const handleDelete = () => {
+    dispatch({
+      type: "REMOVE_ITEM_CART",
+      payload: cart.id,
+    });
   };
 
   return (
@@ -22,8 +32,8 @@ function CartItem({ title, imgUrl, price }) {
         <div className="col-md-3 ms-auto text-end">
           <div className="d-flex justify-content-end align-items-center">
             <h6 className="mb-0 me-3">USD {price}.00</h6>
-            <button className="border-0 bg-white p-0">
-              <BsTrash size={14} color={"grey"} />
+            <button className="border-0 bg-white px-0 pt-0 pb-1">
+              <BsTrash size={14} color={"grey"} onClick={handleDelete} />
             </button>
           </div>
         </div>
