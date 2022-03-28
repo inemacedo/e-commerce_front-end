@@ -2,9 +2,10 @@
 export function userReducer(user = [], action) {
   switch (action.type) {
     case "LOGIN":
-      return user;
+      console.log(action);
+      return action.payload;
     case "LOGOUT":
-      return user;
+      return [];
     default:
       return user;
   }
