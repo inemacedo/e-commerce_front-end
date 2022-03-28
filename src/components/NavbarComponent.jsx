@@ -15,9 +15,12 @@ function NavbarComponent() {
     <div>
       <Navbar bg="white" expand="lg" className="border">
         <Container>
-          <Link to="/" className="text-decoration-none" >
+          <Link to="/" className="text-decoration-none">
             <Navbar.Brand className="g-0" id="navbar-text-logo">
-              <LogoHackHome className="mb-3 me-2" style={{ height: "2.2rem" }} />
+              <LogoHackHome
+                className="mb-1 me-2"
+                style={{ height: "2.2rem" }}
+              />
               HACK HOME
             </Navbar.Brand>
           </Link>
