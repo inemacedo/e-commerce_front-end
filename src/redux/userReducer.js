@@ -1,8 +1,8 @@
-
 export function userReducer(user = [], action) {
   switch (action.type) {
+    case "SIGN_UP":
+      return user;
     case "LOGIN":
-      console.log(action);
       return action.payload;
     case "LOGOUT":
       return [];
@@ -10,6 +10,5 @@ export function userReducer(user = [], action) {
       return user;
   }
 }
-
 
 export default userReducer;

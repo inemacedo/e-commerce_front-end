@@ -1,9 +1,56 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { BsGoogle, BsFacebook, BsTwitter } from "react-icons/bs";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import userActions from "../redux/userActions";
 
 function Register() {
+  const accessToken = useSelector((state) => state.user.accessToken);
+  const [user, setUser] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    userName: "",
+    birthDate: "",
+    password: "",
+  });
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (accessToken) {
+      navigate("/home");
+    }
+  }, [accessToken, navigate]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const settings = {
+      method: "POST",
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstname: user.firstname,
+        lastname: user.lastname,
+        email: user.email,
+        adress: user.adress,
+        phone: user.phone,
+        password: user.password,
+      }),
+    };
+    try {
+      const fetchResponse = await fetch(`http://localhost:8000/user`, settings);
+      const data = await fetchResponse.json();
+      return data;
+    } catch (err) {
+      return err;
+    }
+  };
+
   return (
     <div style={{ width: "30rem" }} className="container mt-5">
       <div className="d-flex justify-content-between">
@@ -16,12 +63,20 @@ function Register() {
           />
         </Link>
       </div>
-      <form className="mt-4">
+      <form className="mt-4" onSubmit={handleSubmit}>
         {/* 2 column grid layout with text inputs for the first and last names */}
         <div className="row mb-4">
           <div className="col">
             <div className="form-outline">
-              <input type="text" id="firstname" className="form-control" />
+              <input
+                value={user.firstname}
+                onChange={(ev) => {
+                  setUser({ ...user, firstname: ev.target.value });
+                }}
+                type="text"
+                id="firstname"
+                className="form-control"
+              />
               <label className="form-label" htmlFor="firstname">
                 Nombre
               </label>
@@ -29,7 +84,15 @@ function Register() {
           </div>
           <div className="col">
             <div className="form-outline">
-              <input type="text" id="lastname" className="form-control" />
+              <input
+                value={user.lastname}
+                onChange={(ev) => {
+                  setUser({ ...user, lastname: ev.target.value });
+                }}
+                type="text"
+                id="lastname"
+                className="form-control"
+              />
               <label className="form-label" htmlFor="lastname">
                 Apellido
               </label>
@@ -40,7 +103,15 @@ function Register() {
         <div className="row mb-4">
           <div className="col">
             <div className="form-outline">
-              <input type="text" id="phone" className="form-control" />
+              <input
+                value={user.phone}
+                onChange={(ev) => {
+                  setUser({ ...user, phone: ev.target.value });
+                }}
+                type="text"
+                id="phone"
+                className="form-control"
+              />
               <label className="form-label" htmlFor="phone">
                 Teléfono
               </label>
@@ -48,7 +119,15 @@ function Register() {
           </div>
           <div className="col">
             <div className="form-outline">
-              <input type="text" id="adress" className="form-control" />
+              <input
+                value={user.adress}
+                onChange={(ev) => {
+                  setUser({ ...user, adress: ev.target.value });
+                }}
+                type="text"
+                id="adress"
+                className="form-control"
+              />
               <label className="form-label" htmlFor="adress">
                 Dirección
               </label>
@@ -58,7 +137,15 @@ function Register() {
 
         {/* Email input */}
         <div className="form-outline mb-4">
-          <input type="email" id="email" className="form-control" />
+          <input
+            value={user.email}
+            onChange={(ev) => {
+              setUser({ ...user, email: ev.target.value });
+            }}
+            type="email"
+            id="email"
+            className="form-control"
+          />
           <label className="form-label" htmlFor="email">
             Email
           </label>
@@ -66,7 +153,15 @@ function Register() {
 
         {/* Password input */}
         <div className="form-outline mb-4">
-          <input type="password" id="form3Example4" className="form-control" />
+          <input
+            value={user.password}
+            onChange={(ev) => {
+              setUser({ ...user, password: ev.target.value });
+            }}
+            type="password"
+            id="form3Example4"
+            className="form-control"
+          />
           <label className="form-label" htmlFor="password">
             Password
           </label>
