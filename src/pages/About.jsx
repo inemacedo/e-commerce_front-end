@@ -11,7 +11,6 @@ import {
 } from "react-icons/si";
 import { FaNode, FaGit } from "react-icons/fa";
 
-
 function Home() {
   return (
     <div className="home">
@@ -62,7 +61,7 @@ function Home() {
           <SiReact size={60} /> <SiRedux size={60} />
           <SiMysql size={60} />
           <SiBootstrap size={60} />
-          <JWT style={{ color: "blue", height: "2rem" }} />
+          <JWT style={{ height: "2rem" }} />
           <FaNode size={60} />
           <SiJavascript size={60} />
           <FaGit size={60} />
