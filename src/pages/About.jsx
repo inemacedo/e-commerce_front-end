@@ -10,6 +10,8 @@ import {
   SiSequelize,
 } from "react-icons/si";
 import { FaNode, FaGit } from "react-icons/fa";
+
+
 function Home() {
   return (
     <div className="home">
