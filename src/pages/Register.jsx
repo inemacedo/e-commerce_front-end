@@ -43,7 +43,10 @@ function Register() {
       }),
     };
     try {
-      const fetchResponse = await fetch(`http://localhost:8000/user`, settings);
+      const fetchResponse = await fetch(
+        `${process.env.REACT_APP_API_URL}/users`,
+        settings
+      );
       const data = await fetchResponse.json();
       return data;
     } catch (err) {
