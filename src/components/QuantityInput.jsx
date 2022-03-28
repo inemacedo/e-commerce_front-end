@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "../styles/QuantityInput.css";
 
+//tengo q sumarle o restarle al array de cart
 function QuantityInput({ handleUpdateQtty }) {
   const [quantity, setQuantity] = useState(1);
   const handleIncrement = (ev) => {
@@ -14,12 +15,13 @@ function QuantityInput({ handleUpdateQtty }) {
   };
 
   return (
-    <div className="d-flex justify-content-stretch w-100" style={{"height": "4rem"}} >
-      <button className="quantity-item" onClick={handleDecrement}>
+    <div className="quantity-wrap">
+      <button className="quantity-button" onClick={handleDecrement}>
         -
       </button>
-      <span className="quantity-item quantity-input text-center d-flex align-items-center justify-content-center" >{quantity}</span>
-      <button className="quantity-item" onClick={handleIncrement}>
+      {/* //falta input */}
+      <span className="quantity-input">{quantity}</span>
+      <button className="quantity-button" onClick={handleIncrement}>
         +
       </button>
     </div>

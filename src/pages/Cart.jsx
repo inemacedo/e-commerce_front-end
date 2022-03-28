@@ -6,9 +6,8 @@ import CartItem from "../components/CartItem";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
 
-  const total = cart.reduce( (acc, elem)=> acc+=Number(elem.price) , 0 );
+  const total = cart.reduce((acc, elem) => (acc += Number(elem.price)), 0);
 
   return (
     <section className="h-100 h-custom">
@@ -21,17 +20,14 @@ function Cart() {
                   <div className="col-12 col-lg-7 col-xlg-8">
                     <div className="">
                       <div className="d-flex justify-content-between align-items-center mb-5">
-                        <h1 className="fs-3 mb-0 text-black">Mis compras</h1>
+                        <h1 className="fs-4 fw-bold mb-0 text-black">
+                          MIS COMPRAS
+                        </h1>
                         <h6 className="mb-0 text-muted">{cart.length} items</h6>
                       </div>
                       <hr className="my-4" />
                       {cart.map((elem) => (
-                        <CartItem
-                          key={elem.id}
-                          title={elem.title}
-                          imgUrl={elem.image}
-                          price={elem.price}
-                        />
+                        <CartItem key={elem.id} item={elem} />
                       ))}
 
                       <div className="pt-5">
@@ -46,11 +42,20 @@ function Cart() {
                   </div>
                   <div className="col-12 col-lg-5 col-xlg-4">
                     <div className="p-5 bg-grey d-flex flex-column">
-                      <h3 className="mb-5 fs-3 mt-2 pt-1">Total</h3>
+                      <h3 className="fw-bold fs-4 p-1">TOTAL</h3>
+                      {cart.map((elem) => (
+                        <div className="row mt-4 ">
+                          <div className="col-6">{elem.title} </div>
+                          <div className="col-6 d-flex justify-content-end">
+                            USD {elem.price}
+                          </div>
+                        </div>
+                      ))}
+
                       <hr className="my-4" />
                       <div className="d-flex justify-content-between mb-4">
-                        <h5 className="text-uppercase">items 3</h5>
-                        <h5>USD {total}.00</h5>
+                        <h5 className="text-uppercase">items {cart.length}</h5>
+                        <h5>USD {total}.00</h5>0
                       </div>
                       <h5 className="text-uppercase mb-3">
                         Dirección de envío
@@ -65,10 +70,10 @@ function Cart() {
 
                       <hr className="my-4" />
                       <div className="d-flex justify-content-between mb-5">
-                        <h5 className="text-uppercase">
+                        <h5 className="fw-bold text-uppercase">
                           PRECIO TOTAL + 10% de Envío
                         </h5>
-                        <h5>USD {total + total * 0.1}</h5>
+                        <h5 className="fw-bold">USD {total + total * 0.1}</h5>
                       </div>
                       <button
                         type="button"

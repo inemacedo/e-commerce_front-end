@@ -39,9 +39,8 @@ function Product() {
   };
 
   return (
-    <div className="m-5">
-      { showAlert && <SweetAlert2 />}
-      <div className="container">
+    <div className="container">
+      <div className="product-wrap my-5">
         <div className="row g-5">
           <div className="col-lg-7">
             <img
@@ -52,23 +51,21 @@ function Product() {
           </div>
           <div className="col-lg-5">
             <h1 className="fs-4 fw-bold mb-1">{product.title}</h1>
-            <p className="text-secondary">Art:{product.id}</p>
+            <p className="text-secondary">Art: {product.id}</p>
             <h2 className="fs-5 fw-bold my-3">USD {product.price}</h2>
             <p>{product.description}</p>
             <hr />
-            <div className="row gy-3 my-4 align-items-center">
-              <div className="col-12 col-lg-6 d-flex" ><QuantityInput /></div>
-              <div className="col-12 col-lg-6 d-flex">
-                <button
-                  type="button"
-                  className="btn btn-dark rounded-pill fw-bold py-3 px-4 w-100"
-                  onClick={handleClick}
-                  style={{"height": "4rem", "border": "none"}}
-                >Añadir al Carrito</button>
-              </div>
+            <div className="d-flex flex-wrap my-5">
+              <QuantityInput />
+              <button
+                type="button"
+                className="btn btn-dark rounded-pill py-3 px-4 fw-bold mt-4 mt-md-0 ms-5"
+                onClick={handleClick}
+              >
+                Añadir al Carrito
+              </button>
             </div>
-
-            <div className="mb-5">
+            <div className="mb-5 payment-methods-wrap">
               <p>Métodos y costos de envío</p>
               <p className="fw-bold mb-1">A todo Montevideo:</p>
               <p>
