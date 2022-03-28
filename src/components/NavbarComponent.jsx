@@ -15,10 +15,12 @@ function NavbarComponent() {
     <div>
       <Navbar bg="white" expand="lg" className="border">
         <Container>
-          <Navbar.Brand className="g-0" id="navbar-text-logo" href="/">
-            <LogoHackHome className="mb-3 me-2" style={{ height: "2.2rem" }} />
-            HACK HOME
-          </Navbar.Brand>
+          <Link to="/" className="text-decoration-none" >
+            <Navbar.Brand className="g-0" id="navbar-text-logo">
+              <LogoHackHome className="mb-3 me-2" style={{ height: "2.2rem" }} />
+              HACK HOME
+            </Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto">

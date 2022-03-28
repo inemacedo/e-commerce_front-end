@@ -4,6 +4,18 @@ import { BsGoogle, BsFacebook, BsTwitter } from "react-icons/bs";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 
+async function fetchData({url,method,body}){
+  const response = await fetch(
+    url, {
+      method: method,
+      body: JSON.stringify(body),
+      headers: { 'Content-Type': 'application/json' }
+    }
+  );
+  const data = await response.json();
+  return data;
+}
+
 function Login() {
 
   const user = useSelector(state=>state.user);
@@ -13,20 +25,16 @@ function Login() {
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/tokens`,
-      {
-        method: "POST",
-        body: JSON.stringify({ email, password }),
-        headers: { 'Content-Type': 'application/json' }
-      }
-    );
-    const data = await response.json();
+    const data = await fetchData({
+      url: `${process.env.REACT_APP_API_URL}/tokens`,
+      method: "POST",
+      body: { email, password }
+    });
     console.log(data);
-    dispatch( data );
+    dispatch({type: "LOGIN", payload: data});
   }
 
-  return user ? <Navigate to="/profile" /> : (
+  return user.length !== 0 ? <Navigate to="/profile" /> : (
     <div style={{ width: "30rem" }} className="container mt-5">
       <div className="d-flex justify-content-between">
         <h1 className="mt-4 fs-4 fw-bold">Bienvenido!</h1>
