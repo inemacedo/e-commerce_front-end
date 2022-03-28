@@ -19,6 +19,7 @@ function App() {
         <Route path="/productos" element={<Products />} />
         <Route path="/producto/:id" element={<Product />} />
         <Route path="/carrito-de-compras" element={<Cart />} />
+        <Route path="/profile" element={<input type="text" placeholder="Edita tu Perfil" />} />
       </Routes>
       <Footer />
     </div>

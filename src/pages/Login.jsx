@@ -1,10 +1,32 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import { BsGoogle, BsFacebook, BsTwitter } from "react-icons/bs";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
 
 function Login() {
-  return (
+
+  const user = useSelector(state=>state.user);
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (ev) => {
+    ev.preventDefault();
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}/tokens`,
+      {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
+    const data = await response.json();
+    console.log(data);
+    dispatch( data );
+  }
+
+  return user ? <Navigate to="/profile" /> : (
     <div style={{ width: "30rem" }} className="container mt-5">
       <div className="d-flex justify-content-between">
         <h1 className="mt-4 fs-4 fw-bold">Bienvenido!</h1>
@@ -20,11 +42,11 @@ function Login() {
       <form
         className="d-flex flex-column align-items-center"
         action="#"
-        onSubmit={(ev) => ev.preventDefault()}
+        onSubmit={handleSubmit}
       >
         {/* Email input */}
         <div className="mt-5 form-outline mb-4 w-100">
-          <input type="email" id="email" className="form-control" />
+          <input type="email" id="email" className="form-control" value={email} onChange={(ev)=>setEmail(ev.target.value)} />
           <label className="form-label" htmlFor="email">
             Email
           </label>
@@ -32,7 +54,7 @@ function Login() {
 
         {/* Password input */}
         <div className="form-outline mb-4 w-100">
-          <input type="password" id="form3Example4" className="form-control" />
+          <input type="password" id="form3Example4" className="form-control" value={password} onChange={(ev)=>setPassword(ev.target.value)} />
           <label className="form-label" htmlFor="password">
             Password
           </label>
@@ -44,7 +66,7 @@ function Login() {
         </button>
         {/* Register buttons */}
         <div className="text-center">
-          <Link className="text-muted" to="/login">
+          <Link className="text-muted" to="/register">
             No estás registrado? Click aquí para crear cuenta
           </Link>
 
