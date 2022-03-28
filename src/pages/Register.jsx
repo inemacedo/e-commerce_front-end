@@ -33,16 +33,15 @@ function Register() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: {
+      body: JSON.stringify({
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
         adress: user.adress,
         phone: user.phone,
         password: user.password,
-      },
+      }),
     };
-    console.log(settings);
     try {
       const fetchResponse = await fetch(`http://localhost:8000/user`, settings);
       const data = await fetchResponse.json();
