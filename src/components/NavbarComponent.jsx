@@ -9,6 +9,8 @@ import { ReactComponent as LogoHackHome } from "../icons/logohackhome.svg";
 
 function NavbarComponent() {
   const cart = useSelector((state) => state.cart);
+
+  const total = cart.reduce((acc, elem) => (acc += Number(elem.quantity)), 0);
   return (
     <div>
       <Navbar bg="white" expand="lg" className="border">
@@ -43,7 +45,7 @@ function NavbarComponent() {
                 to="/carrito-de-compras"
               >
                 <BsCart2 size={20} />
-                <span className="badge bg-dark ms-1">{cart.length}</span>
+                <span className="badge bg-dark ms-1">{total}</span>
               </Link>
             </Nav>
           </Navbar.Collapse>

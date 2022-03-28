@@ -15,7 +15,6 @@ function Product() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log("useEffect", process.env.REACT_APP_API_URL);
     const getProduct = async () => {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/products/${params.id}`
@@ -56,7 +55,7 @@ function Product() {
             <p>{product.description}</p>
             <hr />
             <div className="d-flex flex-wrap my-5">
-              <QuantityInput />
+              <QuantityInput product={product} />
               <button
                 type="button"
                 className="btn btn-dark rounded-pill py-3 px-4 fw-bold mt-4 mt-md-0 ms-5"

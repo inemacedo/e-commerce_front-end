@@ -20,15 +20,17 @@ export function cartReducer(cart = [], action) {
 
     case "ADD_ITEM_CART":
       const foundItem = cart.find((item) => item.id === action.payload.id);
+      console.log(cart);
       if (foundItem) {
-        return cart.map((item) => {
-          if (item.id === action.payload.id) item.units += 1;
-          return item;
-        });
+        return cart.map((item) =>
+          item.id === action.payload.id
+            ? { ...foundItem, quantity: foundItem.quantity + 1 }
+            : item
+        );
       } else {
         return [
           ...cart,
-          action.payload, // viene la info dsde el componente
+          { ...action.payload, quantity: 1 }, // viene la info dsde el componente
         ];
       }
     case "REMOVE_ITEM_CART":

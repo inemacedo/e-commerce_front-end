@@ -26,7 +26,11 @@ function CartItem({ item }) {
           <h4 className="fs-5 text-muted">{item.title}</h4>
         </div>
         <div className="col-md-3">
-          <QuantityInput handleUpdateQtty={handleUpdateQtty} />
+          <QuantityInput
+            handleDelete={handleDelete}
+            quantityTotal={item.quantity}
+            handleUpdateQtty={handleUpdateQtty}
+          />
         </div>
         <div className="col-md-3 ms-auto text-end">
           <div className="d-flex justify-content-end align-items-center">

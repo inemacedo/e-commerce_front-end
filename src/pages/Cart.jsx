@@ -7,7 +7,10 @@ import CartItem from "../components/CartItem";
 function Cart() {
   const cart = useSelector((state) => state.cart);
 
-  const total = cart.reduce((acc, elem) => (acc += Number(elem.price)), 0);
+  const total = cart.reduce(
+    (acc, elem) => (acc += Number(elem.price * elem.quantity)),
+    0
+  );
 
   return (
     <section className="h-100 h-custom">
@@ -47,7 +50,7 @@ function Cart() {
                         <div className="row mt-4 ">
                           <div className="col-6">{elem.title} </div>
                           <div className="col-6 d-flex justify-content-end">
-                            USD {elem.price}
+                            USD {elem.price * elem.quantity}
                           </div>
                         </div>
                       ))}
@@ -55,7 +58,7 @@ function Cart() {
                       <hr className="my-4" />
                       <div className="d-flex justify-content-between mb-4">
                         <h5 className="text-uppercase">items {cart.length}</h5>
-                        <h5>USD {total}.00</h5>0
+                        <h5>USD {total}.00</h5>
                       </div>
                       <h5 className="text-uppercase mb-3">
                         Dirección de envío
