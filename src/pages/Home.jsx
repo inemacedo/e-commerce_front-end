@@ -3,6 +3,7 @@ import ProductsList from "../components/ProductsList";
 import Header from "../components/Header";
 import "../styles/Home.css";
 import { Link } from "react-router-dom";
+import Categories from "../components/Categories";
 
 function Home() {
   const [products, setProducts] = useState([]);
@@ -33,6 +34,7 @@ function Home() {
           Ver Todos
         </Link>
       </div>
+      <Categories />
     </div>
   );
 }
