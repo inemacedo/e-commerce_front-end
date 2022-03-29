@@ -8,7 +8,6 @@ import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
 
-
 function App() {
   return (
     <div className="App d-flex flex-column">
@@ -17,7 +16,7 @@ function App() {
         <Route path="/sobre-nosotros" element={<About />} />
         <Route path="/" element={<Home />} />
         <Route path="/productos" element={<Products />} />
-        <Route path="/producto/:id" element={<Product />} />
+        <Route path="/producto/:slug" element={<Product />} />
         <Route path="/carrito-de-compras" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>

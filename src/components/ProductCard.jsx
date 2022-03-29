@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 function ProductCard({ product }) {
   return (
     <div>
-      <NavLink to={`/producto/${product.id}`}>
+      <NavLink to={`/producto/${product.slug}`}>
         <img
           onMouseOver={(e) => (e.currentTarget.src = product.imageenvironment)}
           onMouseOut={(e) => (e.currentTarget.src = product.image)}
