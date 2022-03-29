@@ -4,7 +4,6 @@ import { Navigate, useParams } from "react-router-dom";
 import QuantityInput from "../components/QuantityInput";
 import SweetAlert2 from "../components/utilsComponents/sweetAlert2";
 
-
 import "../styles/Product.css";
 
 function Product() {
@@ -17,7 +16,7 @@ function Product() {
     window.scrollTo(0, 0);
     const getProduct = async () => {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/products/${params.id}`
+        `${process.env.REACT_APP_API_URL}/products/${params.slug}`
       );
       const data = await response.json();
       console.log(data);
@@ -31,9 +30,9 @@ function Product() {
       type: "ADD_ITEM_CART",
       payload: product,
     });
-    setTimeout(()=>{
+    setTimeout(() => {
       setShowAlert(false);
-    }, 1500 );
+    }, 1500);
     setShowAlert(true);
   };
 
