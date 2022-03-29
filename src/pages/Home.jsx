@@ -24,16 +24,17 @@ function Home() {
   return (
     <div className="home">
       <Header />
-      <h2 className="fs-4 text-center mb-5 fw-bold"> DESTACADOS</h2>
+      <h2 className="fs-4 text-center mb-5 fw-bold">DESTACADOS</h2>
       <ProductsList products={products} />
       <div className="text-center">
         <Link
           to="/productos"
-          className="btn btn-dark rounded-pill py-2 px-5 mt-5 fw-bold button-home"
+          className="btn btn-dark rounded-pill py-2 px-5 mt-4 fw-bold button-home"
         >
           Ver Todos
         </Link>
       </div>
+      <h2 className="fs-4 text-center mb-5 fw-bold">CATEGORÍAS</h2>
       <Categories />
     </div>
   );
