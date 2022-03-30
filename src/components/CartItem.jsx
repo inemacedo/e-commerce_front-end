@@ -27,6 +27,7 @@ function CartItem({ item }) {
         </div>
         <div className="col-md-3">
           <QuantityInput
+            product={item}
             handleDelete={handleDelete}
             quantityTotal={item.quantity}
             handleUpdateQtty={handleUpdateQtty}

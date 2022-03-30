@@ -6,9 +6,10 @@ import CartItem from "../components/CartItem";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
+  const hasProducts = cart.length > 0;
 
   const total = cart.reduce(
-    (acc, elem) => (acc += Number(elem.price * elem.quantity)),
+    (acc, product) => (acc += Number(product.price * product.quantity)),
     0
   );
 
@@ -29,10 +30,13 @@ function Cart() {
                         <h6 className="mb-0 text-muted">{cart.length} items</h6>
                       </div>
                       <hr className="my-4" />
-                      {cart.map((elem) => (
-                        <CartItem key={elem.id} item={elem} />
-                      ))}
-
+                      {hasProducts ? (
+                        cart.map((product) => (
+                          <CartItem key={product.id} item={product} />
+                        ))
+                      ) : (
+                        <p>No hay productos en el carrito aún</p>
+                      )}
                       <div className="pt-5">
                         <h6 className="mb-0">
                           <Link to="/productos" className="btn mb-3">
@@ -46,11 +50,11 @@ function Cart() {
                   <div className="col-12 col-lg-5 col-xlg-4">
                     <div className="p-5 bg-grey d-flex flex-column">
                       <h3 className="fw-bold fs-4 p-1">TOTAL</h3>
-                      {cart.map((elem) => (
+                      {cart.map((product) => (
                         <div className="row mt-4 ">
-                          <div className="col-6">{elem.title} </div>
+                          <div className="col-6">{product.title} </div>
                           <div className="col-6 d-flex justify-content-end">
-                            USD {elem.price * elem.quantity}
+                            USD {product.price * product.quantity}
                           </div>
                         </div>
                       ))}
@@ -79,6 +83,7 @@ function Cart() {
                         <h5 className="fw-bold">USD {total + total * 0.1}</h5>
                       </div>
                       <button
+                        disabled={hasProducts ? "" : "disabled"}
                         type="button"
                         className="btn btn-dark btn-block btn-lg rounded-pill align-self-end"
                         data-mdb-ripple-color="dark"

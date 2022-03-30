@@ -54,7 +54,6 @@ function Product() {
             <p>{product.description}</p>
             <hr />
             <div className="d-flex flex-wrap my-5">
-              <QuantityInput product={product} />
               <button
                 type="button"
                 className="btn btn-dark rounded-pill py-3 px-4 fw-bold mt-4 mt-md-0 ms-5"

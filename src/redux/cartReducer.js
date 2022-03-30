@@ -20,7 +20,7 @@ export function cartReducer(cart = [], action) {
 
     case "ADD_ITEM_CART":
       const foundItem = cart.find((item) => item.id === action.payload.id);
-      console.log(cart);
+
       if (foundItem) {
         return cart.map((item) =>
           item.id === action.payload.id
@@ -33,9 +33,17 @@ export function cartReducer(cart = [], action) {
           { ...action.payload, quantity: 1 }, // viene la info dsde el componente
         ];
       }
+    case "REMOVE_UNIT_CART":
+      const existItem = cart.find((item) => item.id === action.payload.id);
+      return cart.map((item) =>
+        item.id === action.payload.id
+          ? { ...existItem, quantity: existItem.quantity - 1 }
+          : item
+      );
     case "REMOVE_ITEM_CART":
       return cart.filter((item) => item.id !== action.payload);
-
+    case "UPDATE_CART_QUANTITY":
+      return action.payload;
     default:
       return cart;
   }
