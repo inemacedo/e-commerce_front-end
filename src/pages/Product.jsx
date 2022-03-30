@@ -61,7 +61,7 @@ function Product() {
           <div className="col-lg-7">
             <ImageGallery
               items={images}
-              showNav={false}
+              /* showNav={false} */
               /* showFullscreenButton={false} */
               showPlayButton={false}
             />

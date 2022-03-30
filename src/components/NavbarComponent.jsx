@@ -33,7 +33,10 @@ function NavbarComponent() {
               <Link className="navbar-links my-0 p-4" to="/productos">
                 Productos
               </Link>
-              <Link className="navbar-links my-0 p-4" to="/sobre-nosotros">
+              <Link
+                className="navbar-links my-0 p-4 fw-bold"
+                to="/sobre-nosotros"
+              >
                 Sobre nosotros
               </Link>
             </Nav>
