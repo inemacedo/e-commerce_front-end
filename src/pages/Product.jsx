@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, useParams } from "react-router-dom";
-import QuantityInput from "../components/QuantityInput";
 import SweetAlert2 from "../components/utilsComponents/sweetAlert2";
-
+import "react-image-gallery/styles/css/image-gallery.css";
 import "../styles/Product.css";
+import ImageGallery from "react-image-gallery";
 
 function Product() {
   const dispatch = useDispatch();
@@ -25,6 +25,24 @@ function Product() {
     getProduct();
   }, []);
 
+  const images = [
+    {
+      original: product.image,
+      thumbnail: product.image,
+      originalHeight: 800,
+    },
+    {
+      original: product.imageenvironment,
+      thumbnail: product.imageenvironment,
+      originalHeight: 800,
+    },
+    {
+      original: product.imagemeasures,
+      thumbnail: product.imagemeasures,
+      originalHeight: 800,
+    },
+  ];
+
   const handleClick = () => {
     dispatch({
       type: "ADD_ITEM_CART",
@@ -41,10 +59,11 @@ function Product() {
       <div className="product-wrap my-5">
         <div className="row g-5">
           <div className="col-lg-7">
-            <img
-              src={product.image}
-              alt={product.title}
-              className="img-fluid"
+            <ImageGallery
+              items={images}
+              showNav={false}
+              /* showFullscreenButton={false} */
+              showPlayButton={false}
             />
           </div>
           <div className="col-lg-5">
