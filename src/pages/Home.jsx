@@ -15,7 +15,7 @@ function Home() {
         `${process.env.REACT_APP_API_URL}/products?featured=true`
       );
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setProducts(data);
     };
     getProducts();

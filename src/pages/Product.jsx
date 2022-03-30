@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Navigate, useParams } from "react-router-dom";
-import QuantityInput from "../components/QuantityInput";
-import SweetAlert2 from "../components/utilsComponents/sweetAlert2";
+import { useParams } from "react-router-dom";
 
 import "../styles/Product.css";
 
@@ -56,7 +54,7 @@ function Product() {
             <div className="d-flex flex-wrap my-5">
               <button
                 type="button"
-                className="btn btn-dark rounded-pill py-3 px-4 fw-bold mt-4 mt-md-0 ms-5"
+                className="btn btn-dark rounded-pill py-3 px-4 fw-bold mt-4 mt-md-0"
                 onClick={handleClick}
               >
                 Añadir al Carrito

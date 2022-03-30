@@ -7,6 +7,7 @@ import NavbarComponent from "./components/NavbarComponent";
 import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
 import Profile from "./pages/Profile";
+import Category from "./pages/Category";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/producto/:slug" element={<Product />} />
         <Route path="/carrito-de-compras" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/categoria/:nombre" element={<Category />} />
       </Routes>
       <Footer />
     </div>
