@@ -20,8 +20,10 @@ function Category() {
   }, []);
 
   return (
-    <div>
-      <h2 className="fs-5 text-center mb-4 fw-bold">CATÁLOGO</h2>
+    <div className="products my-5">
+      <h2 className="fs-5 text-center mb-4 fw-bold text-uppercase">
+        {params.nombre}
+      </h2>
       <ProductsList products={products} />
     </div>
   );
