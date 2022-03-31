@@ -171,13 +171,14 @@ function Register() {
         </div>
         {/* Checkbox */}
         <div className="form-check d-flex justify-content-center mb-4">
-          <input
+          {/*           <input
+            onChange={(ev) => ev.target.value}
             className="form-check-input me-2"
             type="checkbox"
             defaultValue
             id="form2Example33"
             defaultChecked
-          />
+          /> */}
           <label className="form-check-label" htmlFor="form2Example33">
             Subscribete a nuestro newsletter
           </label>
