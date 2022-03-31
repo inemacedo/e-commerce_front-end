@@ -10,7 +10,7 @@ function Category() {
     window.scrollTo(0, 0);
     const getProductsByCategory = async () => {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/products?category=${params.nombre}`
+        `${process.env.REACT_APP_API_URL}/products?category=${params.name}`
       );
       const data = await response.json();
       console.log(data);

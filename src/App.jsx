@@ -20,7 +20,7 @@ function App() {
         <Route path="/producto/:slug" element={<Product />} />
         <Route path="/carrito-de-compras" element={<Cart />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/categoria/:nombre" element={<Category />} />
+        <Route path="/categoria/:name" element={<Category />} />
       </Routes>
       <Footer />
     </div>
