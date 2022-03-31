@@ -27,14 +27,14 @@ function NavbarComponent() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto">
-              <Link className="navbar-links my-0 p-4 " to="/">
+              <Link className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4 " to="/">
                 Home
               </Link>
-              <Link className="navbar-links my-0 p-4" to="/productos">
+              <Link className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4" to="/productos">
                 Productos
               </Link>
               <Link
-                className="navbar-links my-0 p-4 fw-bold"
+                className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4 fw-bold sobre-nosotros"
                 to="/sobre-nosotros"
               >
                 Sobre nosotros

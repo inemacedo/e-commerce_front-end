@@ -40,6 +40,23 @@ body {
   color: var(--dark-grey);
 }
 
+.sobre-nosotros {
+  animation-name: multicolor;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate-reverse;
+}
+@keyframes multicolor {
+  from {
+    color: #de4e60;
+    box-shadow: 0 0 3px 0px #de4e60 inset;
+  }
+  to {
+    color: black;
+  }
+}
+
 @media (min-width: 991px) {
   .navbar-links {
     position: relative;

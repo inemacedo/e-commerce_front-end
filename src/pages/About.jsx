@@ -57,15 +57,16 @@ function Home() {
         </div>
         <hr />
         <h2>Que tecnologias estan presente en este proyecto?</h2>
-        <div className="mt-5 d-flex justify-content-between align-items-center mb-5">
-          <SiReact size={60} /> <SiRedux size={60} />
-          <SiMysql size={60} />
-          <SiBootstrap size={60} />
-          <JWT style={{ height: "2rem" }} />
-          <FaNode size={60} />
-          <SiJavascript size={60} />
-          <FaGit size={60} />
-          <SiSequelize size={60} />
+        <div className="d-flex flex-wrap align-items-center justify-content-evenly my-4">
+          <SiReact className="m-3" size={60} style={{ width: "60px" }} />
+          <SiMysql className="m-3" size={60} style={{ width: "60px" }} />
+          <SiRedux className="m-3" size={60} style={{ width: "60px" }} />
+          <SiBootstrap className="m-3" size={60} style={{ width: "60px" }} />
+          <JWT className="m-3" style={{ height: "2rem" }} />
+          <FaNode className="m-3" size={60} />
+          <SiJavascript className="m-3" size={60} />
+          <FaGit className="m-3" size={60} />
+          <SiSequelize className="m-3" size={60} />
         </div>
       </div>
     </div>
