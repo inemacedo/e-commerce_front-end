@@ -39,6 +39,9 @@ body {
 .navbar-links:hover {
   color: var(--dark-grey);
 }
+.navbar-icon .badge{
+  min-width: 2rem;
+}
 
 .sobre-nosotros {
   animation-name: multicolor;

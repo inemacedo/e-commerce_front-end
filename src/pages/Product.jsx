@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
+import { BsCart2 } from "react-icons/bs";
 import "react-image-gallery/styles/css/image-gallery.css";
 import "../styles/Product.css";
 import ImageGallery from "react-image-gallery";
@@ -11,6 +12,7 @@ function Product() {
   const dispatch = useDispatch();
   const params = useParams();
   const [product, setProduct] = useState({});
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -44,36 +46,39 @@ function Product() {
   ];
 
   const handleClick = () => {
+    setShow(true);
     dispatch({
       type: "ADD_ITEM_CART",
       payload: product,
     });
   };
-
+  // {`${show?"bg-danger":""} p-1`}
   return (
-    <div className="container">
+    <div className="container position-relative">
 
       <div
         aria-live="polite"
         aria-atomic="true"
-        className="bg-dark position-relative"
+        className="bg-dark d-none position-relative"
         style={{ minHeight: '240px' }}
       >
-        <ToastContainer className="p-3" position={"top-end"}>
-          <Toast>
-            <Toast.Header closeButton={false}>
-              <img
-                src="holder.js/20x20?text=%20"
-                className="rounded me-2"
-                alt=""
-              />
-              <strong className="me-auto">Bootstrap</strong>
-              <small>11 mins ago</small>
-            </Toast.Header>
-            <Toast.Body>Hello, world! This is a toast message.</Toast.Body>
-          </Toast>
-        </ToastContainer>
       </div>
+      <ToastContainer style={{transition: "all .15s"}} className={`${show?"opacity-1":"opacity-0"} bg-white m-2 p-0`} position="top-end">
+        <Toast className="bg-" onClose={() => setShow(false)} show={show} delay={5000} autohide >
+          <Link
+            className="text-decoration-none m-0"
+            to="/carrito-de-compras"
+          >
+            <Toast.Header className="d-flex align-items-center" closeButton={false}>
+              <BsCart2 className="text-dark align-self-start" size={24} />
+              <span className="badge bg-dark fs-6 ms-1 pt-1" >+1</span>
+              <strong className="d-block text-dark fs-6 mx-3 my-0">Carrito</strong>
+            </Toast.Header>
+            <Toast.Body className="text-dark" >Item agregado correctamente.</Toast.Body>
+          </Link>
+
+        </Toast>
+      </ToastContainer>
 
 
       <div className="product-wrap my-5">
