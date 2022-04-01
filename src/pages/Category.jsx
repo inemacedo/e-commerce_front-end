@@ -21,7 +21,7 @@ function Category() {
   return (
     <div className="products my-5">
       <h2 className="fs-5 text-center mb-4 fw-bold text-uppercase">
-        {params.nombre}
+        {params.name}
       </h2>
       <ProductsList products={products} />
     </div>
