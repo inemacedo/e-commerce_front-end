@@ -143,10 +143,16 @@ p {
   text-align: center;
   height: 10rem;
 }
-/* ejemplo de uso 
- p {
-  color: var(--pink);
-} */
+
+.quienes-somos {
+  transition: transform 1s;
+}
+
+.quienes-somos:hover {
+  transform: scale(1.08);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: rgb(243, 243, 243);
+}
 
 /* fuentes:
 font-family: 'Poppins', sans-serif;  //  kevohome
