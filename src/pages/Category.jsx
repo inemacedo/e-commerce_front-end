@@ -13,7 +13,6 @@ function Category() {
         `${process.env.REACT_APP_API_URL}/products?category=${params.name}`
       );
       const data = await response.json();
-      console.log(data);
       setProducts(data);
     };
     getProductsByCategory();

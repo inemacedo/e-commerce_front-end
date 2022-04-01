@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { BsGoogle, BsFacebook, BsTwitter } from "react-icons/bs";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,12 +17,6 @@ function Register() {
   });
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (accessToken) {
-      navigate("/home");
-    }
-  }, [accessToken, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,6 +42,8 @@ function Register() {
         settings
       );
       const data = await fetchResponse.json();
+      dispatch({ type: "SIGN_UP", payload: data });
+      navigate("/profile");
       return data;
     } catch (err) {
       return err;

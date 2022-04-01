@@ -43,7 +43,7 @@ p {
 .navbar-links:hover {
   color: var(--dark-grey);
 }
-.navbar-icon .badge{
+.navbar-icon .badge {
   min-width: 2rem;
 }
 
@@ -56,8 +56,8 @@ p {
 }
 @keyframes multicolor {
   from {
-    color: #de4e60;
-    box-shadow: 0 0 3px 0px #de4e60 inset;
+    color: #e98a1d;
+    box-shadow: 0 0 3px 0px #d37509 inset;
   }
   to {
     color: black;
