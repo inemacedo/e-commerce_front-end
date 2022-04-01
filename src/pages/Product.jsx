@@ -21,7 +21,6 @@ function Product() {
         `${process.env.REACT_APP_API_URL}/products/${params.slug}`
       );
       const data = await response.json();
-      console.log(data);
       setProduct(data);
     };
     getProduct();
@@ -55,31 +54,41 @@ function Product() {
   // {`${show?"bg-danger":""} p-1`}
   return (
     <div className="container position-relative">
-
       <div
         aria-live="polite"
         aria-atomic="true"
         className="bg-dark d-none position-relative"
-        style={{ minHeight: '240px' }}
+        style={{ minHeight: "240px" }}
+      ></div>
+      <ToastContainer
+        style={{ transition: "all .15s" }}
+        className={`${show ? "opacity-1" : "opacity-0"} bg-white m-2 p-0`}
+        position="top-end"
       >
-      </div>
-      <ToastContainer style={{transition: "all .15s"}} className={`${show?"opacity-1":"opacity-0"} bg-white m-2 p-0`} position="top-end">
-        <Toast className="bg-" onClose={() => setShow(false)} show={show} delay={5000} autohide >
-          <Link
-            className="text-decoration-none m-0"
-            to="/carrito-de-compras"
-          >
-            <Toast.Header className="d-flex align-items-center" closeButton={false}>
+        <Toast
+          className="bg-"
+          onClose={() => setShow(false)}
+          show={show}
+          delay={5000}
+          autohide
+        >
+          <Link className="text-decoration-none m-0" to="/carrito-de-compras">
+            <Toast.Header
+              className="d-flex align-items-center"
+              closeButton={false}
+            >
               <BsCart2 className="text-dark align-self-start" size={24} />
-              <span className="badge bg-dark fs-6 ms-1 pt-1" >+1</span>
-              <strong className="d-block text-dark fs-6 mx-3 my-0">Carrito</strong>
+              <span className="badge bg-dark fs-6 ms-1 pt-1">+1</span>
+              <strong className="d-block text-dark fs-6 mx-3 my-0">
+                Carrito
+              </strong>
             </Toast.Header>
-            <Toast.Body className="text-dark" >Item agregado correctamente.</Toast.Body>
+            <Toast.Body className="text-dark">
+              Item agregado correctamente.
+            </Toast.Body>
           </Link>
-
         </Toast>
       </ToastContainer>
-
 
       <div className="product-wrap my-5">
         <div className="row g-5">

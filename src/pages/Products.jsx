@@ -8,7 +8,6 @@ function Products() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log("useEffect", process.env.REACT_APP_API_URL);
     const getProducts = async () => {
       try {
         const response = await fetch(`${process.env.REACT_APP_API_URL}/products`);

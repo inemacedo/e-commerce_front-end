@@ -4,21 +4,18 @@ import { BsGoogle, BsFacebook, BsTwitter } from "react-icons/bs";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 
-async function fetchData({url,method,body}){
-  const response = await fetch(
-    url, {
-      method: method,
-      body: JSON.stringify(body),
-      headers: { 'Content-Type': 'application/json' }
-    }
-  );
+async function fetchData({ url, method, body }) {
+  const response = await fetch(url, {
+    method: method,
+    body: JSON.stringify(body),
+    headers: { "Content-Type": "application/json" },
+  });
   const data = await response.json();
   return data;
 }
 
 function Login() {
-
-  const user = useSelector(state=>state.user);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,13 +25,14 @@ function Login() {
     const data = await fetchData({
       url: `${process.env.REACT_APP_API_URL}/tokens`,
       method: "POST",
-      body: { email, password }
+      body: { email, password },
     });
-    console.log(data);
-    dispatch({type: "LOGIN", payload: data});
-  }
+    dispatch({ type: "LOGIN", payload: data });
+  };
 
-  return user.length !== 0 ? <Navigate to="/profile" /> : (
+  return user.length !== 0 ? (
+    <Navigate to="/profile" />
+  ) : (
     <div style={{ width: "30rem" }} className="container mt-5">
       <div className="d-flex justify-content-between">
         <h1 className="mt-4 fs-4 fw-bold">Bienvenido!</h1>
@@ -54,7 +52,13 @@ function Login() {
       >
         {/* Email input */}
         <div className="mt-5 form-outline mb-4 w-100">
-          <input type="email" id="email" className="form-control" value={email} onChange={(ev)=>setEmail(ev.target.value)} />
+          <input
+            type="email"
+            id="email"
+            className="form-control"
+            value={email}
+            onChange={(ev) => setEmail(ev.target.value)}
+          />
           <label className="form-label" htmlFor="email">
             Email
           </label>
@@ -62,7 +66,13 @@ function Login() {
 
         {/* Password input */}
         <div className="form-outline mb-4 w-100">
-          <input type="password" id="form3Example4" className="form-control" value={password} onChange={(ev)=>setPassword(ev.target.value)} />
+          <input
+            type="password"
+            id="form3Example4"
+            className="form-control"
+            value={password}
+            onChange={(ev) => setPassword(ev.target.value)}
+          />
           <label className="form-label" htmlFor="password">
             Password
           </label>

@@ -9,7 +9,6 @@ function Categories() {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    console.log("useEffect", process.env.REACT_APP_API_URL);
     const getCategories = async () => {
       try {
         const response = await fetch(
