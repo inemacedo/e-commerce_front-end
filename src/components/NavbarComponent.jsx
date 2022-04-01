@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { IoSearchOutline } from "react-icons/io5";
 import { BsCart2 } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ReactComponent as LogoHackHome } from "../icons/logohackhome.svg";
 
+// si cambia el params cerrar la nav
+
 function NavbarComponent() {
   const cart = useSelector((state) => state.cart);
+  const params = useParams();
+
+  const [showNav, setShowNav] = useState(false);
+
+  useEffect(()=>{
+    setShowNav(false);
+  } , [params] );
 
   const total = cart.reduce((acc, elem) => (acc += Number(elem.quantity)), 0);
   return (
     <div>
-      <Navbar bg="white" expand="lg" className="border">
+      <Navbar bg="white" expand="lg" className="border" expanded={showNav} onToggle={()=>setShowNav(prev=>!prev)} >
         <Container>
           <Link to="/" className="text-decoration-none">
             <Navbar.Brand className="g-0" id="navbar-text-logo">
@@ -25,7 +34,7 @@ function NavbarComponent() {
             </Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
+          <Navbar.Collapse id="navbarScroll" >
             <Nav className="me-auto">
               <Link className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4 " to="/">
                 Home
