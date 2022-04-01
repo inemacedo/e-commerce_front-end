@@ -6,6 +6,7 @@ import About from "./pages/About";
 import NavbarComponent from "./components/NavbarComponent";
 import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
 import Profile from "./pages/Profile";
 import Category from "./pages/Category";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/productos" element={<Products />} />
         <Route path="/producto/:slug" element={<Product />} />
         <Route path="/carrito-de-compras" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/categoria/:name" element={<Category />} />
       </Routes>
