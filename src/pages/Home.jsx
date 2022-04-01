@@ -9,7 +9,6 @@ function Home() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    console.log("useEffect", process.env.REACT_APP_API_URL);
     const getProducts = async () => {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/products?featured=true`
