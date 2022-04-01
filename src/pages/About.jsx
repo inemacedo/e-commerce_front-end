@@ -15,6 +15,7 @@ import { BsCodeSlash } from "react-icons/bs";
 import { ReactComponent as LogoHackHome } from "../icons/logohackhome.svg";
 import { AiFillGithub, AiOutlineLinkedin } from "react-icons/ai";
 import valeProfileImage from "../img/IMG_9500.png";
+import ineProfileImage from "../img/IMG_9522.jpg";
 function Home() {
   return (
     <div className="home">
@@ -51,7 +52,7 @@ function Home() {
             <img
               style={{ width: "15rem", height: "15rem", objectFit: "cover" }}
               className="rounded-circle border author-profile my-5"
-              src={valeProfileImage}
+              src={ineProfileImage}
               alt="#"
             />
             <h4 className="text-center">Inés Macedo</h4>
