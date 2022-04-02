@@ -24,6 +24,10 @@ p {
 
 /* NAVBAR */
 
+#navbarScrollingDropdown {
+  color: #0a0a0a;
+}
+
 #navbar-text-logo {
   font-family: "Red Hat Display", sans-serif;
   font-size: 2rem;
