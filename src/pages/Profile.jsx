@@ -4,15 +4,16 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 
 function Profile() {
-
-  const user = useSelector(state=>state.user);
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   const handleClick = async () => {
     dispatch({ type: "LOGOUT" });
-  }
+  };
 
-  return user.length === 0 ? <Navigate to="/" /> : (
+  return user.length === 0 ? (
+    <Navigate to="/" />
+  ) : (
     <div style={{ width: "30rem" }} className="container mt-5">
       <div className="d-flex">
         <h1 className="mt-4 fs-4 fw-bold">{user.email}</h1>
@@ -49,8 +50,8 @@ function Profile() {
           </div>
           <div className="col">
             <div className="form-outline">
-              <input type="text" id="adress" className="form-control" />
-              <label className="form-label" htmlFor="adress">
+              <input type="text" id="address" className="form-control" />
+              <label className="form-label" htmlFor="address">
                 Dirección
               </label>
             </div>
@@ -81,7 +82,9 @@ function Profile() {
 
       {/* Logout button */}
       <div className="text-center my-5">
-        <button className="btn btn-danger" onClick={handleClick} >Log out</button>
+        <button className="btn btn-danger" onClick={handleClick}>
+          Log out
+        </button>
       </div>
     </div>
   );
