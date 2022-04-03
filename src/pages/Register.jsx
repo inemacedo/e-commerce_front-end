@@ -183,14 +183,13 @@ function Register() {
         </div>
         {/* Checkbox */}
         <div className="form-check d-flex justify-content-center mb-4">
-          {/*           <input
-            onChange={(ev) => ev.target.value}
+          <input
             className="form-check-input me-2"
             type="checkbox"
             defaultValue
             id="form2Example33"
             defaultChecked
-          /> */}
+          />
           <label className="form-check-label" htmlFor="form2Example33">
             Subscribete a nuestro newsletter
           </label>
@@ -203,10 +202,10 @@ function Register() {
         {/* Register buttons */}
         <div className="text-center">
           <Link className="text-muted" to="/login">
-            Ya estás registrado? Logueate aquí
+            Ya estás registrado? Inicia sesión aquí..
           </Link>
 
-          <p>o regístrate con:</p>
+          <p className="text-center">o regístrate con:</p>
           <button
             type="button"
             className="btn btn-secondary btn-floating rounded-circle mx-1"

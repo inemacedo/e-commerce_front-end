@@ -38,7 +38,6 @@ function NavbarComponent() {
     setShowNav(false);
   }, [params]);
 
-  const total = cart.reduce((acc, elem) => (acc += Number(elem.quantity)), 0);
   return (
     <div>
       <Navbar
@@ -114,7 +113,7 @@ function NavbarComponent() {
                 to="/carrito-de-compras"
               >
                 <BsCart2 size={20} />
-                <span className="badge bg-dark ms-1">{total}</span>
+                <span className="badge bg-dark ms-1">{cart.length}</span>
               </Link>
             </Nav>
           </Navbar.Collapse>
