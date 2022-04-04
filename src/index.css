@@ -156,6 +156,7 @@ p {
   transform: scale(1.08);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: rgb(243, 243, 243);
+  border: #dadada solid 0.0000001rem;
 }
 
 /* fuentes:
