@@ -27,10 +27,12 @@ function Login() {
       method: "POST",
       body: { email, password },
     });
+    if( data.token )
     dispatch({ type: "LOGIN", payload: data });
+    
   };
 
-  return user.length !== 0 ? (
+  return user.token ? (
     <Navigate to="/profile" />
   ) : (
     <div style={{ width: "30rem" }} className="container mt-5">

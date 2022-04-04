@@ -1,4 +1,4 @@
-export function userReducer(user = [], action) {
+export function userReducer(user = {}, action) {
   switch (action.type) {
     case "SIGN_UP":
       return action.payload;
