@@ -44,6 +44,8 @@ export function cartReducer(cart = [], action) {
       return cart.filter((item) => item.id !== action.payload);
     case "UPDATE_CART_QUANTITY":
       return action.payload;
+    case "REMOVE_CART":
+      return [];
     default:
       return cart;
   }

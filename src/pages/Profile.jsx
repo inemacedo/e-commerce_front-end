@@ -8,10 +8,11 @@ function Profile() {
   const dispatch = useDispatch();
 
   const handleClick = async () => {
+    dispatch({ type: "REMOVE_CART" });
     dispatch({ type: "LOGOUT" });
   };
 
-  return user.length === 0 ? (
+  return !user.token ? (
     <Navigate to="/" />
   ) : (
     <div style={{ width: "30rem" }} className="container mt-5">

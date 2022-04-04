@@ -54,54 +54,31 @@ function Cart() {
                   </div>
                   <div className="col-12 col-lg-5 col-xlg-4">
                     <div className="p-5 bg-grey d-flex flex-column">
-                      <h3 className="fw-bold fs-4 p-1">TOTAL</h3>
+                      <h3 className="fw-bold fs-4 text-uppercase">Subtotal</h3>
                       {cart.map((product) => (
                         <div className="row mt-4 ">
                           <div className="col-6">{product.title} </div>
                           <div className="col-6 d-flex justify-content-end">
                             <p>
-                              ({product.quantity} x {product.price} US$){"    "}
                               <span className="fw-bold">
-                                US$ {product.price * product.quantity}
+                                USD {product.price * product.quantity}
                               </span>
                             </p>
                           </div>
                         </div>
                       ))}
 
-                      <hr className="my-4" />
-                      <div className="d-flex justify-content-between mb-4">
-                        <h5 className="text-uppercase">
-                          items {totalCartItems}
-                        </h5>
-                        <h5 className="fw-bold">US$ {total}</h5>
-                      </div>
-                      <h5 className="text-uppercase mb-3">
-                        Dirección de envío
-                      </h5>
-                      <div className="mb-4 pb-2">
-                        <input
-                          type="text"
-                          id="form3Examplea2"
-                          className="form-control form-control-lg"
-                        />
-                      </div>
+                      <hr/>
+                      <p className="fw-bold text-end" >USD {total>1000?total/1000:total}</p>
+                      <hr/>
 
-                      <hr className="my-4" />
-                      <div className="d-flex justify-content-between mb-5">
-                        <h5 className="fw-bold text-uppercase">
-                          PRECIO TOTAL + 10% de Envío
-                        </h5>
-                        <h5 className="fw-bold">US$ {total + total * 0.1}</h5>
-                      </div>
                       <Link
                         to="/checkout"
-                        disabled={hasProducts ? "" : "disabled"}
                         type="button"
-                        className="btn btn-dark btn-block btn-lg rounded-pill align-self-end"
+                        className={`${cart.length>0 ? "" : "disabled"} btn btn-dark btn-block btn-lg rounded-pill align-self-end`}
                         data-mdb-ripple-color="dark"
                       >
-                        COMPRAR
+                        FINALIZAR COMPRA
                       </Link>
                     </div>
                   </div>

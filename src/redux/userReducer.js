@@ -5,7 +5,7 @@ export function userReducer(user = [], action) {
     case "LOGIN":
       return action.payload;
     case "LOGOUT":
-      return [];
+      return {};
     default:
       return user;
   }

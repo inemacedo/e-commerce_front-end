@@ -54,15 +54,10 @@ function Product() {
   // {`${show?"bg-danger":""} p-1`}
   return (
     <div className="container position-relative">
-      <div
-        aria-live="polite"
-        aria-atomic="true"
-        className="bg-dark d-none position-relative"
-        style={{ minHeight: "240px" }}
-      ></div>
+      
       <ToastContainer
-        style={{ transition: "all .15s" }}
-        className={`${show ? "opacity-1" : "opacity-0"} bg-white m-2 p-0`}
+        style={{ transition: "all .15s", zIndex: "2" }}
+        className={`${show ? "opacity-1" : "opacity-0"} bg-white ms-5 m-2 p-0`}
         position="top-end"
       >
         <Toast
@@ -70,7 +65,7 @@ function Product() {
           onClose={() => setShow(false)}
           show={show}
           delay={5000}
-          autohide
+          autohi
         >
           <Link className="text-decoration-none m-0" to="/carrito-de-compras">
             <Toast.Header
@@ -131,30 +126,25 @@ function Product() {
               </p>
               <p>Costo variable según tamaño del paquete.</p>
             </div>
-            <table className="table ">
-              <tbody>
-                <tr>
-                  <td className="fw-bold">CARACTERÍSTICAS</td>
-                </tr>
-
-                <tr>
-                  <td>Medidas:</td>
-                  <td>{product.measures}</td>
-                </tr>
-                <tr>
-                  <td>Material:</td>
-                  <td>{product.material}</td>
-                </tr>
-                <tr>
-                  <td>Estilo:</td>
-                  <td colSpan="2">{product.style}</td>
-                </tr>
-                <tr>
-                  <td>Ambiente:</td>
-                  <td colSpan="2">{product.environment}</td>
-                </tr>
-              </tbody>
-            </table>
+            <h4 className="fw-bold">CARACTERÍSTICAS</h4>
+            <div>
+              <div className="row " >
+                <h5 className="col-md-4" >Medidas:</h5>
+                <p className="col-md" >{product.measures}</p>
+              </div>
+              <div className="row " >
+                <h5 className="col-md-4" >Material:</h5>
+                <p className="col-md" >{product.material}</p>
+              </div>
+              <div className="row " >
+                <h5 className="col-md-4" >Estilo:</h5>
+                <p className="col-md"  colSpan="2">{product.style}</p>
+              </div>
+              <div className="row " >
+                <h5 className="col-md-4" >Ambiente:</h5>
+                <p className="col-md"  colSpan="2">{product.environment}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
