@@ -82,14 +82,15 @@ function Cart() {
                         </h5>
                         <h5 className="fw-bold">USD {total + total * 0.1}</h5>
                       </div>
-                      <button
+                      <Link
+                        to="/checkout"
                         disabled={hasProducts ? "" : "disabled"}
                         type="button"
                         className="btn btn-dark btn-block btn-lg rounded-pill align-self-end"
                         data-mdb-ripple-color="dark"
                       >
                         COMPRAR
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

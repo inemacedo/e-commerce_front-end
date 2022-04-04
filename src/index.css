@@ -154,6 +154,15 @@ p {
   background-color: rgb(243, 243, 243);
 }
 
+/* Product Card */
+.envImg {
+  display: none;
+  pointer-events: none;
+}
+.productImg:hover ~ .envImg {
+  display: block;
+}
+
 /* fuentes:
 font-family: 'Poppins', sans-serif;  //  kevohome
 font-family: 'Red Hat Display', sans-serif; // cultocafe

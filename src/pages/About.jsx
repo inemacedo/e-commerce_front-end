@@ -16,6 +16,8 @@ import { ReactComponent as LogoHackHome } from "../icons/logohackhome.svg";
 import { AiFillGithub, AiOutlineLinkedin } from "react-icons/ai";
 import valeProfileImage from "../img/IMG_9500.png";
 import ineProfileImage from "../img/IMG_9522.jpg";
+import andyProfileImage from "../img/IMG_6236.png";
+
 function Home() {
   return (
     <div className="home">
@@ -31,7 +33,7 @@ function Home() {
             <img
               style={{ width: "15rem", height: "15rem", objectFit: "cover" }}
               className="rounded-circle border author-profile my-5"
-              src={valeProfileImage}
+              src={andyProfileImage}
               alt="#"
             />
             <h4 className="text-center">Andy Nievas</h4>

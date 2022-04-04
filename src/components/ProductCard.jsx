@@ -1,10 +1,14 @@
-import React from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [showSpinner, setShowSpinner] = useState(true);
+  const [envImage, setEnvImage] = useState("");
+
   const handleClick = () => {
     dispatch({
       type: "ADD_ITEM_CART",
@@ -13,15 +17,23 @@ function ProductCard({ product }) {
     navigate(`/producto/${product.slug}`);
   };
   return (
-    <div>
-      <NavLink to={`/producto/${product.slug}`}>
+    <>
+      <NavLink className="d-flex position-relative" to={`/producto/${product.slug}`}>
         <img
-          onMouseOver={(e) => (e.currentTarget.src = product.imageenvironment)}
-          onMouseOut={(e) => (e.currentTarget.src = product.image)}
+          onLoad={()=>setShowSpinner(false)}
           src={product.image}
           alt={product.title}
-          className="mb-2 img-fluid"
-        ></img>
+          className={`${showSpinner?"opacity-0":""} productImg mb-2 img-fluid`}
+          style={{minHeight: "5rem"}}
+        />
+        <img
+          src={product.imageenvironment}
+          alt={product.title}
+          className={`${showSpinner?"opacity-0":""} envImg position-absolute mb-2 img-fluid`}
+          />
+        { showSpinner && <div className="position-absolute start-0 end-0 top-0 bottom-0 d-flex bg-secondary" style={{pointerEvents: "none"}} >
+          <Spinner animation="border m-auto" variant="dark" role="status"></Spinner>
+        </div> }
       </NavLink>
       <button
         onClick={handleClick}
@@ -36,7 +48,7 @@ function ProductCard({ product }) {
         {product.title}
       </NavLink>
       <p className="fw-bold">USD {product.price}</p>
-    </div>
+    </>
   );
 }
 
