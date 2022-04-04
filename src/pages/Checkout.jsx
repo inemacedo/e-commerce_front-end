@@ -1,21 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
-import CartItem from "../components/CartItem";
+import { appendErrors, useForm } from "react-hook-form";
+import { Spinner, ProgressBar } from "react-bootstrap";
+
 
 function Cart() {
   const user = useSelector((state) => state.user);
   const cart = useSelector((state) => state.cart);
-  const hasProducts = cart.length > 0;
+
+  const [thanks, setThanks] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (order)=>{
+    setShowSpinner(true);
+    const settings = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(order)
+    };
+
+    try {
+      const fetchResponse = await fetch(
+        process.env.REACT_APP_API_URL+"/orders",
+        settings
+      );
+      const data = await fetchResponse.json();
+      if( data.status === 200 ){
+        setTimeout( ()=>setThanks(true) , 2000 );
+      }
+      console.log("usuario creado");
+      return data;
+    } catch (err) {
+      return err;
+    }
+  }
 
   const total = cart.reduce(
     (acc, product) => (acc += Number(product.price * product.quantity)),
     0
   );
 
-  return !user.token ? <Navigate to="/login" /> :(
+  return !user.token ? ( thanks ? <Navigate to="/gracias"/> : <Navigate to="/login"/> ) :(
     <div className="container py-5 h-100">
+
+      {showSpinner&&<Spinner animation="border mx-auto" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>}
 
       <div className="row">
 
@@ -50,7 +90,7 @@ function Cart() {
 
           <hr/>
 
-          <form className="mb-4" >
+          <form className="mb-4" onSubmit={handleSubmit(onSubmit)} >
             <label >Numero de tarjeta</label>
             <input
               type="number"
@@ -75,18 +115,18 @@ function Cart() {
               className="form-control form-control-lg mb-2"
               placeholder="Escribe un nombre..."
             />
+            <hr />
+
+            <button
+              disabled={cart.length > 0 ? "" : "disabled"}
+              type="submit"
+              className="btn btn-dark btn-block btn-lg rounded-pill align-self-end"
+              data-mdb-ripple-color="dark"
+            >
+              COMPRAR
+            </button>
           </form>
 
-          <hr />
-
-          <button
-            disabled={hasProducts ? "" : "disabled"}
-            type="button"
-            className="btn btn-dark btn-block btn-lg rounded-pill align-self-end"
-            data-mdb-ripple-color="dark"
-          >
-            COMPRAR
-          </button>
         </div>
 
       </div>
