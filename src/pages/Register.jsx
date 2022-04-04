@@ -38,8 +38,8 @@ function Register() {
       return err;
     }
   };
-  return user.length !== 0 ? (
-    <Navigate to="/profile" />
+  return user.token ? (
+    <Navigate to="/" />
   ) : (
     <div style={{ width: "30rem" }} className="container mt-5">
       <div className="d-flex justify-content-between">

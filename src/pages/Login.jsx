@@ -4,20 +4,23 @@ import { BsGoogle, BsFacebook, BsTwitter } from "react-icons/bs";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { Spinner } from "react-bootstrap";
 
 async function fetchData({ url, method, body }) {
   const response = await fetch(url, {
-    method: method,
+    method,
     body: JSON.stringify(body),
     headers: { "Content-Type": "application/json" },
   });
   const data = await response.json();
-  return data;
+  return {status: response.status , data};
 }
 
 function Login() {
   const user = useSelector((state) => state.user);
+  const path = useSelector((state) => state.path);
   const dispatch = useDispatch();
+  const [showSpinner, setShowSpinner] = useState(false);
   const [showError, setShowError] = useState(false);
 
   const {
@@ -29,17 +32,23 @@ function Login() {
 
   const onSubmit = async (data) => {
     console.log(data);
+    setShowSpinner(true);
     const response = await fetchData({
       url: `${process.env.REACT_APP_API_URL}/tokens`,
       method: "POST",
       body: data,
     });
-    if (response.status !== 200) {
+    console.log(response);
+    if (response.status !== 200){
+      setShowSpinner(false);
       setShowError(true);
-    } else dispatch({ type: "LOGIN", payload: response.data });
+    }
+    else {
+      dispatch({ type: "LOGIN", payload: response.data });
+    }
   };
 
-  return (
+  return user.token ? <Navigate to={path.prevPath?path.prevPath:"/"} /> :(
     <div style={{ width: "30rem" }} className="container mt-5">
       <div className="d-flex justify-content-between">
         <h1 className="mt-4 fs-4 fw-bold">Bienvenido!</h1>
@@ -66,7 +75,7 @@ function Login() {
             aria-describedby="emailHelp"
             placeholder="Insertar mail aquí..."
             defaultValue=""
-            {...register("email", { required: "Por favor, ingresar mail" })}
+            {...register("email", { required: "Por favor, ingresar un valor válido" })}
           />
           <p className="text-danger">{errors.email?.message}</p>
           <label className="form-label" htmlFor="email">
@@ -98,6 +107,11 @@ function Login() {
         <button type="submit" className="btn btn-dark mb-4 w-100 text-center">
           Iniciar sesión
         </button>
+
+        {showSpinner&&<Spinner animation="border mx-auto" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>}
+
         {/* Register buttons */}
         <div className="text-center">
           <Link className="text-muted" to="/register">

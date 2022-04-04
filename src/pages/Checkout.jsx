@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { appendErrors, useForm } from "react-hook-form";
 import { Spinner, ProgressBar } from "react-bootstrap";
@@ -9,6 +9,8 @@ import { Spinner, ProgressBar } from "react-bootstrap";
 function Cart() {
   const user = useSelector((state) => state.user);
   const cart = useSelector((state) => state.cart);
+  const path = useSelector((state) => state.path);
+  const dispatch = useDispatch();
 
   const [thanks, setThanks] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
@@ -49,6 +51,10 @@ function Cart() {
     (acc, product) => (acc += Number(product.price * product.quantity)),
     0
   );
+
+  if( !path.prevPath ){
+    dispatch({ type: "SAVE_PATH", payload: "/checkout" });
+  }
 
   return !user.token ? ( thanks ? <Navigate to="/gracias"/> : <Navigate to="/login"/> ) :(
     <div className="container py-5 h-100">

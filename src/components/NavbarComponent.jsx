@@ -12,6 +12,7 @@ import { ReactComponent as LogoHackHome } from "../icons/logohackhome.svg";
 function NavbarComponent() {
   const [categories, setCategories] = useState([]);
   const cart = useSelector((state) => state.cart);
+  const user = useSelector((state) => state.user);
   const params = useParams();
 
   const [showNav, setShowNav] = useState(false);
@@ -101,7 +102,7 @@ function NavbarComponent() {
             </Nav>
 
             <Nav className="ms-auto mt-3 ">
-              <Link className="navbar-links navbar-icon m-0 p-4" to="/registro">
+              <Link className="navbar-links navbar-icon m-0 p-4" to={user.token?"/profile":"/login"}>
                 <AiOutlineUser size={20} />
               </Link>
               <Link className="navbar-links navbar-icon m-0 p-4" to="/search">

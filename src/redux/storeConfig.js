@@ -1,6 +1,7 @@
 import { combineReducers, createStore } from "redux";
-import cartReducer from "../redux/cartReducer";
+import cartReducer from "./cartReducer";
 import userReducer from "./userReducer";
+import locationReducer from "./locationReducer";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 import { persistStore, persistReducer } from "redux-persist";
 
@@ -12,6 +13,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   cart: cartReducer,
   user: userReducer,
+  path: locationReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
