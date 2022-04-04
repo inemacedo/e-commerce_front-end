@@ -24,6 +24,10 @@ p {
 
 /* NAVBAR */
 
+#navbarScrollingDropdown {
+  color: #0a0a0a;
+}
+
 #navbar-text-logo {
   font-family: "Red Hat Display", sans-serif;
   font-size: 2rem;
@@ -152,6 +156,7 @@ p {
   transform: scale(1.08);
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: rgb(243, 243, 243);
+  border: #dadada solid 0.0000001rem;
 }
 
 /* Product Card */

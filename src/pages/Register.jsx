@@ -3,38 +3,28 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { BsGoogle, BsFacebook, BsTwitter } from "react-icons/bs";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
+import { appendErrors, useForm } from "react-hook-form";
 import userActions from "../redux/userActions";
 
 function Register() {
-  const accessToken = useSelector((state) => state.user.accessToken);
-  const [user, setUser] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    userName: "",
-    birthDate: "",
-    password: "",
-  });
-  const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (body) => {
+    console.log(JSON.stringify(body) + "body");
     const settings = {
       method: "POST",
       headers: {
-        "Access-Control-Allow-Origin": "*",
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        firstname: user.firstname,
-        lastname: user.lastname,
-        email: user.email,
-        adress: user.adress,
-        phone: user.phone,
-        password: user.password,
-      }),
+      body: JSON.stringify(body),
     };
     try {
       const fetchResponse = await fetch(
@@ -44,13 +34,15 @@ function Register() {
       const data = await fetchResponse.json();
       dispatch({ type: "SIGN_UP", payload: data });
       navigate("/profile");
+      console.log("usuario creado");
       return data;
     } catch (err) {
       return err;
     }
   };
-
-  return (
+  return user.length !== 0 ? (
+    <Navigate to="/profile" />
+  ) : (
     <div style={{ width: "30rem" }} className="container mt-5">
       <div className="d-flex justify-content-between">
         <h1 className="mt-4 fs-4 fw-bold">REGÍSTRATE AQUÍ</h1>
@@ -62,39 +54,47 @@ function Register() {
           />
         </Link>
       </div>
-      <form className="mt-4" onSubmit={handleSubmit}>
+      <form className="mt-4" onSubmit={handleSubmit(onSubmit)}>
         {/* 2 column grid layout with text inputs for the first and last names */}
         <div className="row mb-4">
           <div className="col">
             <div className="form-outline">
+              <label className="form-label fw-bold" htmlFor="firstname">
+                Nombre
+              </label>
               <input
-                value={user.firstname}
-                onChange={(ev) => {
-                  setUser({ ...user, firstname: ev.target.value });
-                }}
+                {...register("firstname", {
+                  required: "Por favor, ingresar nombre.",
+                })}
+                defaultValue=""
                 type="text"
                 id="firstname"
                 className="form-control"
+                style={{
+                  border: errors.firstname && "0.1rem solid #dc3545",
+                }}
               />
-              <label className="form-label" htmlFor="firstname">
-                Nombre
-              </label>
+              <p className="text-danger">{errors.firstname?.message}</p>
             </div>
           </div>
           <div className="col">
             <div className="form-outline">
+              <label className="form-label fw-bold" htmlFor="lastname">
+                Apellido
+              </label>
               <input
-                value={user.lastname}
-                onChange={(ev) => {
-                  setUser({ ...user, lastname: ev.target.value });
+                {...register("lastname", {
+                  required: "Por favor, ingresar apellido.",
+                })}
+                style={{
+                  border: errors.lastname && "0.1rem solid #dc3545",
                 }}
+                defaultValue=""
                 type="text"
                 id="lastname"
                 className="form-control"
               />
-              <label className="form-label" htmlFor="lastname">
-                Apellido
-              </label>
+              <p className="text-danger">{errors.lastname?.message}</p>
             </div>
           </div>
         </div>
@@ -102,79 +102,94 @@ function Register() {
         <div className="row mb-4">
           <div className="col">
             <div className="form-outline">
+              <label className="form-label fw-bold" htmlFor="phone">
+                Teléfono
+              </label>
               <input
-                value={user.phone}
-                onChange={(ev) => {
-                  setUser({ ...user, phone: ev.target.value });
-                }}
                 type="text"
                 id="phone"
                 className="form-control"
+                defaultValue=""
+                {...register("phone", {
+                  required: "Por favor, ingresar teléfono.",
+                })}
+                style={{
+                  border: errors.phone && "0.1rem solid #dc3545",
+                }}
               />
-              <label className="form-label" htmlFor="phone">
-                Teléfono
-              </label>
+              <p className="text-danger">{errors.phone?.message}</p>
             </div>
           </div>
           <div className="col">
             <div className="form-outline">
-              <input
-                value={user.adress}
-                onChange={(ev) => {
-                  setUser({ ...user, adress: ev.target.value });
-                }}
-                type="text"
-                id="adress"
-                className="form-control"
-              />
-              <label className="form-label" htmlFor="adress">
+              <label className="form-label fw-bold" htmlFor="address">
                 Dirección
               </label>
+              <input
+                {...register("address", {
+                  required: "Ingresar dirección",
+                })}
+                defaultValue=""
+                style={{
+                  border: errors.address && "0.1rem solid #dc3545",
+                }}
+                type="text"
+                id="address"
+                className="form-control"
+              />
+              <p className="text-danger">{errors.address?.message}</p>
             </div>
           </div>
         </div>
 
         {/* Email input */}
         <div className="form-outline mb-4">
+          <label className="form-label fw-bold" htmlFor="email">
+            Email
+          </label>
           <input
-            value={user.email}
-            onChange={(ev) => {
-              setUser({ ...user, email: ev.target.value });
+            {...register("email", {
+              required: "Por favor, ingresar email.",
+            })}
+            defaultValue=""
+            style={{
+              border: errors.email && "0.1rem solid #dc3545",
             }}
             type="email"
             id="email"
             className="form-control"
           />
-          <label className="form-label" htmlFor="email">
-            Email
-          </label>
+          <p className="text-danger">{errors.email?.message}</p>
         </div>
 
         {/* Password input */}
         <div className="form-outline mb-4">
+          <label className="form-label fw-bold" htmlFor="password">
+            Password
+          </label>
           <input
-            value={user.password}
-            onChange={(ev) => {
-              setUser({ ...user, password: ev.target.value });
+            {...register("password", {
+              required: "Por favor, ingresar password.",
+            })}
+            defaultValue=""
+            style={{
+              border: errors.password && "0.1rem solid #dc3545",
             }}
             type="password"
             id="form3Example4"
             className="form-control"
           />
-          <label className="form-label" htmlFor="password">
-            Password
-          </label>
+          <p className="text-danger">{errors.password?.message}</p>
         </div>
         {/* Checkbox */}
         <div className="form-check d-flex justify-content-center mb-4">
-          {/*           <input
-            onChange={(ev) => ev.target.value}
+          <input
             className="form-check-input me-2"
             type="checkbox"
             defaultValue
             id="form2Example33"
             defaultChecked
-          /> */}
+          />
           <label className="form-check-label" htmlFor="form2Example33">
             Subscribete a nuestro newsletter
           </label>
@@ -187,10 +202,10 @@ function Register() {
         {/* Register buttons */}
         <div className="text-center">
           <Link className="text-muted" to="/login">
-            Ya estás registrado? Logueate aquí
+            Ya estás registrado? Inicia sesión aquí..
           </Link>
 
-          <p>o regístrate con:</p>
+          <p className="text-center">o regístrate con:</p>
           <button
             type="button"
             className="btn btn-secondary btn-floating rounded-circle mx-1"

@@ -7,7 +7,10 @@ import CartItem from "../components/CartItem";
 function Cart() {
   const cart = useSelector((state) => state.cart);
   const hasProducts = cart.length > 0;
-
+  const totalCartItems = cart.reduce(
+    (acc, elem) => (acc += Number(elem.quantity)),
+    0
+  );
   const total = cart.reduce(
     (acc, product) => (acc += Number(product.price * product.quantity)),
     0
@@ -27,7 +30,9 @@ function Cart() {
                         <h1 className="fs-4 fw-bold mb-0 text-black">
                           MIS COMPRAS
                         </h1>
-                        <h6 className="mb-0 text-muted">{cart.length} items</h6>
+                        <h6 className="mb-0 text-muted">
+                          {totalCartItems} items
+                        </h6>
                       </div>
                       <hr className="my-4" />
                       {hasProducts ? (
@@ -54,15 +59,22 @@ function Cart() {
                         <div className="row mt-4 ">
                           <div className="col-6">{product.title} </div>
                           <div className="col-6 d-flex justify-content-end">
-                            USD {product.price * product.quantity}
+                            <p>
+                              ({product.quantity} x {product.price} US$){"    "}
+                              <span className="fw-bold">
+                                US$ {product.price * product.quantity}
+                              </span>
+                            </p>
                           </div>
                         </div>
                       ))}
 
                       <hr className="my-4" />
                       <div className="d-flex justify-content-between mb-4">
-                        <h5 className="text-uppercase">items {cart.length}</h5>
-                        <h5>USD {total}.00</h5>
+                        <h5 className="text-uppercase">
+                          items {totalCartItems}
+                        </h5>
+                        <h5 className="fw-bold">US$ {total}</h5>
                       </div>
                       <h5 className="text-uppercase mb-3">
                         Dirección de envío
@@ -80,7 +92,7 @@ function Cart() {
                         <h5 className="fw-bold text-uppercase">
                           PRECIO TOTAL + 10% de Envío
                         </h5>
-                        <h5 className="fw-bold">USD {total + total * 0.1}</h5>
+                        <h5 className="fw-bold">US$ {total + total * 0.1}</h5>
                       </div>
                       <Link
                         to="/checkout"

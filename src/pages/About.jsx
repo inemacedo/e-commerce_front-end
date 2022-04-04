@@ -124,9 +124,10 @@ function Home() {
                 <span className="fw-bold">
                   bootcamp de desarrollo web full-stack{" "}
                 </span>
-                teórico-práctico intensivo con una duración tal de{" "}
-                <span className="fw-bold">3 meses</span>, donde se realizaron
-                más de 600 horas de programación de código.
+                , un curso de fuerte carga teórico-práctica intensivo con una
+                duración de <span className="fw-bold">3 meses</span>, el cual
+                tuvo apróximadamente <span className="fw-bold">600 horas</span>{" "}
+                de dedicación
               </p>
             </div>
           </div>
@@ -181,13 +182,14 @@ function Home() {
               </a>{" "}
               nos inpiró para recrear una maquetación similar.
             </p>
-            <h4 className="fs-4 mt-5">3 - Metdología de trabajo</h4>
+            <h4 className="fs-4 mt-5">3 - Metodología de trabajo</h4>
             <p className="p-1">
               Utilizamos <span className="fw-bold">Trello</span> para la
               organización y distribución de tareas. La organización y creación
               del sitio fue hecha de forma{" "}
               <span className="fw-bold">100% remota</span>, utilizando Discord
-              para comunicarnos entre nosotros.
+              para comunicarnos entre nosotros en conjunto con la metodología{" "}
+              <span className="fw-bold">Scrum</span>.
             </p>
             <h4 className="fs-4 mt-5">
               4 - Elección de tecnologías a utilizar{" "}
@@ -196,7 +198,7 @@ function Home() {
               Analizamos el proyecto y concluímos que lo mejor era tener una{" "}
               <span className="fw-bold">base de datos relacional:</span> MySQL
               utilizamos <fw-bold>MySQL</fw-bold>. Para el almacenamiento de
-              imágenenes utilizamos un servidor externo (
+              imágenes utilizamos un servidor externo (
               <span className="fw-bold">Supabase</span>)
             </p>
           </div>
