@@ -14,7 +14,7 @@ function Categories() {
           `${process.env.REACT_APP_API_URL}/categories`
         );
         const data = await response.json();
-        console.log(data);
+
         setCategories(data);
       } catch (error) {
         if (error.message === "Failed to fetch") {

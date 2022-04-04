@@ -17,7 +17,6 @@ function Register() {
   } = useForm();
 
   const onSubmit = async (body) => {
-    console.log(JSON.stringify(body) + "body");
     const settings = {
       method: "POST",
       headers: {
@@ -34,7 +33,6 @@ function Register() {
       const data = await fetchResponse.json();
       dispatch({ type: "SIGN_UP", payload: data });
       navigate("/profile");
-      console.log("usuario creado");
       return data;
     } catch (err) {
       return err;
