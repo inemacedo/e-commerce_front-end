@@ -92,8 +92,7 @@ function Product() {
               items={images}
               onImageLoad={(ev)=>{
                 console.log("Imagen cargada", ev);
-                // ev.target.parentElement.classList.add("loading");
-                ev.target.classList.toggle("opacity-1");
+                ev.target.classList.add("opacity-1");
               }}
               /* showNav={false} */
               /* showFullscreenButton={false} */
