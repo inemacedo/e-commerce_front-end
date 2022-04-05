@@ -90,6 +90,11 @@ function Product() {
           <div className="col-lg-7">
             <ImageGallery
               items={images}
+              onImageLoad={(ev)=>{
+                console.log("Imagen cargada", ev);
+                ev.target.parentElement.classList.toggle("loading");
+                // ev.target.classList.toggle("opacity-1");
+              }}
               /* showNav={false} */
               /* showFullscreenButton={false} */
               showPlayButton={false}

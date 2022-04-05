@@ -16,6 +16,7 @@ function NavbarComponent() {
   const params = useParams();
 
   const [showNav, setShowNav] = useState(false);
+  const [showNavDropdown, setShowNavDropdown] = useState(false);
 
   useEffect(() => {
     const getCategories = async () => {
@@ -34,7 +35,10 @@ function NavbarComponent() {
     getCategories();
   }, []);
 
+  let canToggle = true;
+
   useEffect(() => {
+    setShowNavDropdown(false);
     setShowNav(false);
   }, [params]);
 
@@ -67,14 +71,22 @@ function NavbarComponent() {
                 Home
               </Link>
               <NavDropdown
-                className="navbar-links m-0 ms-xl-4 mb-0 ms-xxl-5 pointer d-flex align-items-stretch"
-                title="Categorías"
+                className={`navbar-links m-0 ms-xl-4 mb-lg-0 ms-xxl-5 pointer d-flex flex-column align-items-center ${showNavDropdown?"mb-4":""}`}
+                title="Productos"
                 id="navbarScrollingDropdown"
+                show={showNavDropdown}
+                onToggle={()=>{
+                  if(canToggle) setShowNavDropdown(prev=>!prev);
+                  canToggle = false;
+                  setTimeout(()=>{
+                    canToggle = true;
+                  }, 100);
+                }}
               >
                 {categories.map((category) => (
                   <Link key={category.id} 
                     to={`/categoria/${category.name}`}
-                    className="text-decoration-none text-dark dropdown-item text-capitalize"
+                    className="text-decoration-none text-dark dropdown-item text-capitalize mb-2"
                     >
                     {category.name}
                   </Link>

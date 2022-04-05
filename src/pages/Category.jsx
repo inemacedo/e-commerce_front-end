@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductsList from "../components/ProductsList";
+import { Spinner } from "react-bootstrap";
 
 function Category() {
   const [products, setProducts] = useState([]);
@@ -23,7 +24,15 @@ function Category() {
       <h2 className="fs-5 text-center mb-4 fw-bold text-uppercase">
         {params.name}
       </h2>
-      <ProductsList products={products} />
+      {products.length === 0 ? 
+      <div className="d-flex" >
+       <Spinner animation="border mx-auto" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+
+      </div>
+      :
+        <ProductsList products={products} />}
     </div>
   );
 }

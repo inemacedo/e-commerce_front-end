@@ -168,6 +168,50 @@ p {
   align-items: center;
 }
 
+#navbarScrollingDropdown {
+  display: block;
+  width: 100%;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.image-gallery-image {
+  position: relative;
+  opacity: 0.2;
+  transition: opacity 1s;
+}
+.image-gallery-slide::after {
+  content: "Cargando imagen";
+  background-color: var(--darker-grey);
+  color: white;
+  width: 100%;
+  padding: 1.5rem 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+}
+.image-gallery-slide.loading::after {
+  content: "";
+}
+/* .image-gallery-image::after {
+  content: "Cargando imagen";
+  background-color: var(--darker-grey);
+  color: white;
+  width: 100%;
+  padding: 1.5rem 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+} */
+.image-gallery-image.opacity-1 {
+  opacity: 1;
+}
+
 /* Product Card */
 .envImg {
   display: none;
