@@ -36,7 +36,7 @@ function Categories() {
       </Spinner>
     </div>
   ) : (
-    <div className="mb-5">
+    <div className="home-images-responsive mb-5">
       <div className="row g-0">
         {categories.map((category) => (
           <div className="col-md-4" key={category.id}>

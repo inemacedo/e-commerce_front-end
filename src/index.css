@@ -160,7 +160,7 @@ p {
 }
 
 .bg-semi-transparent {
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .pointer a {
@@ -226,3 +226,11 @@ font-family: 'Poppins', sans-serif;  //  kevohome
 font-family: 'Red Hat Display', sans-serif; // cultocafe
 
 */
+
+@media (min-width: 1800px) {
+  .home-images-responsive {
+    width: 100rem;
+    height: 65rem;
+    margin: auto;
+  }
+}
