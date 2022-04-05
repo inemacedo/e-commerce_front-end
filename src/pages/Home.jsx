@@ -17,8 +17,10 @@ function Home() {
         const response = await fetch(
           `${process.env.REACT_APP_API_URL}/products?featured=true`
         );
-        const data = await response.json();
-        setProducts(data);
+        if(response.status===200){
+          const data = await response.json();
+          setProducts(data);
+        }
         
       } catch (error) {
         if(error.message === "Failed to fetch"){

@@ -177,10 +177,10 @@ p {
 
 .image-gallery-image {
   position: relative;
-  opacity: 0.2;
+  opacity: 0.7;
   transition: opacity 1s;
 }
-.image-gallery-slide::after {
+/* .image-gallery-slide::after {
   content: "Cargando imagen";
   background-color: var(--darker-grey);
   color: white;
@@ -193,11 +193,11 @@ p {
   z-index: 5;
 }
 .image-gallery-slide.loading::after {
-  content: "";
-}
-/* .image-gallery-image::after {
+  display: none;
+} */
+.image-gallery-image::after {
   content: "Cargando imagen";
-  background-color: var(--darker-grey);
+  background-color: black;
   color: white;
   width: 100%;
   padding: 1.5rem 0;
@@ -207,9 +207,12 @@ p {
   left: 0;
   right: 0;
   z-index: 5;
-} */
+}
 .image-gallery-image.opacity-1 {
   opacity: 1;
+}
+.image-gallery-image.opacity::after {
+  background-color: red;
 }
 
 /* Product Card */

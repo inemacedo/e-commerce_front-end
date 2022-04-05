@@ -24,8 +24,10 @@ function NavbarComponent() {
         const response = await fetch(
           `${process.env.REACT_APP_API_URL}/categories`
         );
-        const data = await response.json();
-        setCategories(data);
+        if(response.status===200){
+          const data = await response.json();
+          setCategories(data);
+        }
       } catch (error) {
         if (error.message === "Failed to fetch") {
           setCategories("Failed to fetch");
