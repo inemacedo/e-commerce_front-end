@@ -82,7 +82,7 @@ function Cart() {
               className={`${cart.length > 0 ? "" : "disabled"} btn btn-dark btn-block btn-lg rounded-pill align-self-end`}
               data-mdb-ripple-color="dark"
             >
-              FINALIZAR COMPRA
+              CONTINUAR
             </Link>
           </div>
 
