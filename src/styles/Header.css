@@ -10,6 +10,14 @@
   margin-bottom: 6rem;
 }
 
+@media (min-width: 1800px) {
+  .container-header {
+    width: 110rem;
+    height: 60rem;
+    margin: auto;
+  }
+}
+
 h1 {
   font-size: 2rem;
 }
