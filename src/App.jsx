@@ -10,6 +10,7 @@ import Checkout from "./pages/Checkout";
 import Profile from "./pages/Profile";
 import Category from "./pages/Category";
 import ThankYou from "./pages/ThankYou";
+import Error404 from "./pages/404";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/categoria/:name" element={<Category />} />
         <Route path="/gracias" element={<ThankYou />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
       <Footer />
     </div>

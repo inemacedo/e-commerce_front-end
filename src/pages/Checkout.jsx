@@ -37,7 +37,7 @@ function Cart() {
         settings
       );
       const data = await fetchResponse.json();
-      if( data.status === 200 ){
+      if( fetchResponse.status === 200 ){
         setTimeout( ()=>setThanks(true) , 2000 );
       }
       console.log("usuario creado");
@@ -59,9 +59,13 @@ function Cart() {
   return !user.token ? ( thanks ? <Navigate to="/gracias"/> : <Navigate to="/login"/> ) :(
     <div className="container py-5 h-100">
 
-      {showSpinner&&<Spinner animation="border mx-auto" role="status">
+      {showSpinner&&<div className=" bg-semi-transparent d-flex align-items-center justify-content-center position-fixed top-0 bottom-0 start-0 end-0" >
+        <Spinner animation="border mx-auto" role="status" variant={"white"}>
           <span className="visually-hidden">Loading...</span>
-        </Spinner>}
+        </Spinner>
+      </div>}
+      
+      
 
       <div className="row">
 

@@ -61,47 +61,42 @@ function NavbarComponent() {
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto">
               <Link
-                className="navbar-links m-0 mt-2 ms-xl-4 ms-xxl-5 p-4 "
+                className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4 "
                 to="/"
               >
                 Home
               </Link>
               <NavDropdown
-                className="navbar-links m-0 ms-xl-4 mb-0 ms-xxl-5 p-4"
+                className="navbar-links m-0 ms-xl-4 mb-0 ms-xxl-5 pointer d-flex align-items-stretch"
                 title="Categorías"
                 id="navbarScrollingDropdown"
               >
                 {categories.map((category) => (
-                  <NavDropdown.Item>
-                    <NavLink
-                      key={category.id}
-                      to={`/categoria/${category.name}`}
-                      className="text-decoration-none text-dark text-capitalize"
+                  <NavDropdown.Item key={category.id} 
+                    to={`/categoria/${category.name}`}
+                    className="text-capitalize"
                     >
-                      {category.name}
-                    </NavLink>
+                    {category.name}
                   </NavDropdown.Item>
                 ))}
                 <NavDropdown.Divider />
-                <NavDropdown.Item>
-                  <NavLink
-                    to={`/productos`}
-                    className="text-decoration-none text-dark"
+                <NavDropdown.Item
+                  to={`/productos`}
+                  className="text-decoration-none text-dark"
                   >
-                    Ver todos los productos
-                  </NavLink>
+                  Ver todos los productos
                 </NavDropdown.Item>
               </NavDropdown>
 
               <Link
-                className="navbar-links m-0 mt-2 ms-xl-4 ms-xxl-5 p-4 fw-bold sobre-nosotros"
+                className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4 fw-bold sobre-nosotros"
                 to="/sobre-nosotros"
               >
                 Sobre nosotros
               </Link>
             </Nav>
 
-            <Nav className="ms-auto mt-3 ">
+            <Nav className="ms-auto ">
               <Link className="navbar-links navbar-icon m-0 p-4" to={user.token?"/profile":"/login"}>
                 <AiOutlineUser size={20} />
               </Link>
