@@ -26,7 +26,8 @@ function Cart() {
     const settings = {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${user.token}`
       },
       body: JSON.stringify(order)
     };
@@ -36,14 +37,16 @@ function Cart() {
         process.env.REACT_APP_API_URL+"/orders",
         settings
       );
-      const data = await fetchResponse.json();
       if( fetchResponse.status === 200 ){
-        setTimeout( ()=>setThanks(true) , 2000 );
-      }
-      console.log("usuario creado");
-      return data;
+        const data = await fetchResponse.json();
+        setTimeout( ()=>{
+          setShowSpinner(false);
+          setThanks(true)
+        } , 2000 );
+        console.log(data);
+      }else console.log("ELSE");
     } catch (err) {
-      return err;
+      console.log(err);
     }
   }
 

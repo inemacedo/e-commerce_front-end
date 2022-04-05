@@ -72,20 +72,20 @@ function NavbarComponent() {
                 id="navbarScrollingDropdown"
               >
                 {categories.map((category) => (
-                  <NavDropdown.Item key={category.id} 
+                  <Link key={category.id} 
                     to={`/categoria/${category.name}`}
-                    className="text-capitalize"
+                    className="text-decoration-none text-dark dropdown-item text-capitalize"
                     >
                     {category.name}
-                  </NavDropdown.Item>
+                  </Link>
                 ))}
                 <NavDropdown.Divider />
-                <NavDropdown.Item
+                <Link
                   to={`/productos`}
-                  className="text-decoration-none text-dark"
+                  className="text-decoration-none text-dark dropdown-item text-capitalize"
                   >
                   Ver todos los productos
-                </NavDropdown.Item>
+                </Link>
               </NavDropdown>
 
               <Link

@@ -16,7 +16,7 @@ function Category() {
       setProducts(data);
     };
     getProductsByCategory();
-  }, []);
+  }, [params]);
 
   return (
     <div className="products my-5">
