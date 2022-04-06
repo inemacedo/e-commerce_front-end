@@ -54,7 +54,6 @@ function Product() {
   // {`${show?"bg-danger":""} p-1`}
   return (
     <div className="container position-relative">
-      
       <ToastContainer
         style={{ transition: "all .15s", zIndex: "2" }}
         className={`${show ? "opacity-1" : "opacity-0"} bg-white ms-5 m-2 p-0`}
@@ -104,7 +103,7 @@ function Product() {
             <div className="d-flex flex-wrap my-5">
               <button
                 type="button"
-                className="btn btn-dark rounded-pill py-3 px-4 fw-bold mt-4 mt-md-0"
+                className="btn btn-dark rounded-pill py-3 px-4 mt-4 mt-md-0"
                 onClick={handleClick}
               >
                 Añadir al Carrito
@@ -128,21 +127,25 @@ function Product() {
             </div>
             <h4 className="fw-bold">CARACTERÍSTICAS</h4>
             <div>
-              <div className="row " >
-                <h5 className="col-md-4" >Medidas:</h5>
-                <p className="col-md" >{product.measures}</p>
+              <div className="row ">
+                <h5 className="col-md-4">Medidas:</h5>
+                <p className="col-md">{product.measures}</p>
               </div>
-              <div className="row " >
-                <h5 className="col-md-4" >Material:</h5>
-                <p className="col-md" >{product.material}</p>
+              <div className="row ">
+                <h5 className="col-md-4">Material:</h5>
+                <p className="col-md">{product.material}</p>
               </div>
-              <div className="row " >
-                <h5 className="col-md-4" >Estilo:</h5>
-                <p className="col-md"  colSpan="2">{product.style}</p>
+              <div className="row ">
+                <h5 className="col-md-4">Estilo:</h5>
+                <p className="col-md" colSpan="2">
+                  {product.style}
+                </p>
               </div>
-              <div className="row " >
-                <h5 className="col-md-4" >Ambiente:</h5>
-                <p className="col-md"  colSpan="2">{product.environment}</p>
+              <div className="row ">
+                <h5 className="col-md-4">Ambiente:</h5>
+                <p className="col-md" colSpan="2">
+                  {product.environment}
+                </p>
               </div>
             </div>
           </div>
