@@ -64,14 +64,14 @@ function Cart() {
             <hr />
 
             <Link
-              to="/checkout"
+              to="/login"
               type="button"
               className={`${
                 cart.length > 0 ? "" : "disabled"
               } btn btn-dark btn-block btn-lg rounded-pill align-self-end px-4 py-2 me-auto mt-3`}
               data-mdb-ripple-color="dark"
             >
-              CONTINUAR
+              FINALIZAR COMPRA
             </Link>
           </div>
         </div>

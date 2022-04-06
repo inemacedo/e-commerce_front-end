@@ -74,7 +74,7 @@ function Checkout() {
           </form>
         </div>
         <div className="col-12 col-lg-5">
-          <div className="p-5 bg-grey d-flex flex-column">
+          <div className="p-5 bg-grey d-flex flex-column mb-5">
             <h3 className="fw-bold fs-4 text-uppercase">Tu Pedido</h3>
             {cart.map((product) => (
               <div className="row mt-4 ">
