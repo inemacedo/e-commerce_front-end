@@ -71,7 +71,7 @@ function Cart() {
               } btn btn-dark btn-block btn-lg rounded-pill align-self-end px-4 py-2 me-auto mt-3`}
               data-mdb-ripple-color="dark"
             >
-              FINALIZAR COMPRA
+              CONTINUAR
             </Link>
           </div>
         </div>

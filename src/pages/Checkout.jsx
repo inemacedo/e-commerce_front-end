@@ -12,6 +12,49 @@ function Checkout() {
     (acc, elem) => (acc += Number(elem.quantity)),
     0
   );
+  const path = useSelector((state) => state.path);
+  const dispatch = useDispatch();
+
+  const [thanks, setThanks] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (order) => {
+    setShowSpinner(true);
+    
+    try {
+      const settings = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${user.token}`
+        },
+        body: JSON.stringify(order)
+      };
+      setTimeout(async () => {
+        const fetchResponse = await fetch(
+          process.env.REACT_APP_API_URL + "/orders",
+          settings
+        );
+        if (fetchResponse.status === 200) {
+          const data = await fetchResponse.json();
+          console.log(data);
+        } else console.log("ELSE");
+
+        setShowSpinner(false);
+        setThanks(true)
+      }, 2000);
+
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   const total = cart.reduce(
     (acc, product) => (acc += Number(product.price * product.quantity)),
     0
@@ -38,11 +81,6 @@ function Checkout() {
           <h4 className="fs-5 fw-bold mt-4 mb-4">
             Ingresá los datos de la tarjeta
           </h4>
-          {/* <img
-            src="https://azioqgupehjwofkjwddr.supabase.co/storage/v1/object/public/e-commerce/paymentmethods/payment.jpg"
-            alt=""
-            className="payment mt-4 mb-md-5 mb-3"
-          /> */}
 
           <form>
             <div className="mb-4">
@@ -89,6 +127,19 @@ function Checkout() {
               </div>
             ))}
 
+  if (!path.prevPath) {
+    dispatch({ type: "SAVE_PATH", payload: "/checkout" });
+  }
+
+  return !user.token ? (thanks ? <Navigate to="/gracias" /> : <Navigate to="/login" />) : (
+    <div className="container py-5 h-100">
+
+      {showSpinner && <div className=" bg-semi-transparent d-flex align-items-center justify-content-center position-fixed top-0 bottom-0 start-0 end-0" >
+        <Spinner animation="border mx-auto" role="status" variant={"white"}>
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      </div>}
+      
             <hr />
             <div className="d-flex justify-content-between fw-bold pt-3">
               <p>Importe total</p>

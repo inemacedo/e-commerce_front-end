@@ -168,6 +168,21 @@ p {
   align-items: center;
 }
 
+#navbarScrollingDropdown {
+  display: block;
+  width: 100%;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.image-gallery-image {
+  position: relative;
+  opacity: 0.3;
+}
+.image-gallery-image.opacity-1 {
+  opacity: 1;
+}
+
 /* Product Card */
 .envImg {
   display: none;

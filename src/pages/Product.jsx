@@ -89,6 +89,10 @@ function Product() {
           <div className="col-lg-7">
             <ImageGallery
               items={images}
+              onImageLoad={(ev)=>{
+                console.log("Imagen cargada", ev);
+                ev.target.classList.add("opacity-1");
+              }}
               /* showNav={false} */
               /* showFullscreenButton={false} */
               showPlayButton={false}
