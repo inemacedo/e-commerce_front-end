@@ -18,35 +18,19 @@ function Cart() {
 
   return (
     <section className="container py-5 h-100">
-      <div className="row">
-
+      <div className="row g-5">
         <div className="col-12 col-lg-7">
-          <div className="d-flex justify-content-between align-items-center mb-5">
-            <h1 className="fs-4 fw-bold mb-0 text-black">
-              MIS COMPRAS
-            </h1>
-            <h6 className="mb-0 text-muted">
-              {totalCartItems} items
-            </h6>
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <h1 className="fs-4 fw-bold mb-0 text-black">MIS COMPRAS</h1>
+            <h6 className="mb-0 text-muted">{totalCartItems} items</h6>
           </div>
           <hr className="my-4" />
-          <table className="w-100" >
-            <thead>
-              <tr className="text-center border-bottom" >
-                <th>Imagen</th>
-                <th>Nombre</th>
-                <th>Cantidad</th>
-                <th>Precio unitario</th>
-              </tr>
-            </thead>
-            {hasProducts ? (
-              cart.map((product) => (
-                <CartItem key={product.id} item={product} />
-              ))
-            ) : (
-              <p>No hay productos en el carrito aún</p>
-            )}
-          </table>
+
+          {hasProducts ? (
+            cart.map((product) => <CartItem key={product.id} item={product} />)
+          ) : (
+            <p>No hay productos en el carrito aún</p>
+          )}
           <div className="pt-5">
             <h6 className="mb-0">
               <Link to="/productos" className="btn mb-3">
@@ -73,19 +57,23 @@ function Cart() {
             ))}
 
             <hr />
-            <p className="fw-bold text-end" >USD {total > 1000 ? total / 1000 : total}</p>
+            <div className="d-flex justify-content-between fw-bold pt-3">
+              <p>Importe total</p>
+              <p>USD {total > 1000 ? total / 1000 : total}</p>
+            </div>
             <hr />
 
             <Link
               to="/checkout"
               type="button"
-              className={`${cart.length > 0 ? "" : "disabled"} btn btn-dark btn-block btn-lg rounded-pill align-self-end`}
+              className={`${
+                cart.length > 0 ? "" : "disabled"
+              } btn btn-dark btn-block btn-lg rounded-pill align-self-end px-4 py-2 me-auto mt-3`}
               data-mdb-ripple-color="dark"
             >
-              FINALIZAR COMPRA
+              Finalizar Compra
             </Link>
           </div>
-
         </div>
       </div>
     </section>
