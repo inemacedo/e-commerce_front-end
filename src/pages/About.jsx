@@ -15,7 +15,7 @@ import { BsCodeSlash } from "react-icons/bs";
 import { ReactComponent as LogoHackHome } from "../icons/logohackhome.svg";
 import { AiFillGithub, AiOutlineLinkedin } from "react-icons/ai";
 import valeProfileImage from "../img/IMG_9500.png";
-import ineProfileImage from "../img/IMG_9522.jpg";
+import ineProfileImage from "../img/IMG_3011.png";
 import andyProfileImage from "../img/IMG_6236.png";
 
 function Home() {
