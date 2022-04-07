@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import "../styles/Checkout.css";
 import { useNavigate } from "react-router-dom";
@@ -23,6 +23,7 @@ function Checkout() {
   const user = useSelector((state) => state.user);
   const [userInfo, setUserInfo] = useState({});
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const total = cart.reduce(
     (acc, product) => (acc += Number(product.price * product.quantity)),
@@ -52,6 +53,7 @@ function Checkout() {
     });
     navigate("/gracias");
     console.log(ev);
+    dispatch({ type: "REMOVE_CART" });
   };
 
   return (
