@@ -28,21 +28,22 @@ function Product() {
 
   const images = [
     {
-      original: product.image,
-      thumbnail: product.image,
+      original: product.imgBaseUrl + "/" + product.image,
+      thumbnail: product.imgBaseUrl + "/" + product.image,
       originalHeight: 800,
     },
     {
-      original: product.imageenvironment,
-      thumbnail: product.imageenvironment,
+      original: product.imgBaseUrl + "/" + product.imageenvironment,
+      thumbnail: product.imgBaseUrl + "/" + product.imageenvironment,
       originalHeight: 800,
     },
     {
-      original: product.imagemeasures,
-      thumbnail: product.imagemeasures,
+      original: product.imgBaseUrl + "/" + product.imagemeasures,
+      thumbnail: product.imgBaseUrl + "/" + product.imagemeasures,
       originalHeight: 800,
     },
   ];
+  console.log(images);
 
   const handleClick = () => {
     setShow(true);
@@ -89,7 +90,7 @@ function Product() {
           <div className="col-lg-7">
             <ImageGallery
               items={images}
-              onImageLoad={(ev)=>{
+              onImageLoad={(ev) => {
                 console.log("Imagen cargada", ev);
                 ev.target.classList.add("opacity-1");
               }}
