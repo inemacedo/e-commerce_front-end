@@ -105,7 +105,7 @@ function Checkout() {
             </div>
             <div className="row">
               <div className="col-md-6">
-                <label className="form-label">Fecha de nacimiento *</label>
+                <label className="form-label">Fecha de vencimiento *</label>
                 <input type="date" className="form-control me-5" />
               </div>
               <div className="col-md-6">
