@@ -35,7 +35,7 @@ function CartItem({ item }) {
         </div>
         <div className="col-md-3 ms-auto text-end">
           <div className="d-flex justify-content-end align-items-center">
-            <h6 className="mb-0 me-3">USD {item.price * item.quantity}.00 </h6>
+            <h6 className="mb-0 me-3">USD {item.price}.00 </h6>
             <button
               className="border-0 bg-white px-0 pt-0 pb-1"
               onClick={handleDelete}

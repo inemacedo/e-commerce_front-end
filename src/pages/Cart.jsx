@@ -68,7 +68,7 @@ function Cart() {
               type="button"
               className={`${
                 cart.length > 0 ? "" : "disabled"
-              } btn btn-dark btn-block btn-lg rounded-pill align-self-end px-4 py-2 me-auto mt-3`}
+              } btn btn-dark btn-block btn-lg rounded-pill align-self-end px-4 py-2 me-auto mt-4`}
               data-mdb-ripple-color="dark"
             >
               FINALIZAR COMPRA

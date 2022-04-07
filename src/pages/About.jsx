@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../components/Header";
 import { ReactComponent as JWT } from "../icons/jwt.svg";
 import {
   SiJavascript,
@@ -20,7 +19,7 @@ import andyProfileImage from "../img/IMG_6236.png";
 
 function Home() {
   return (
-    <div className="home">
+    <div className="home mb-5">
       {/*       <div className="text-center mt-5">
         <button className="btn btn-outline-dark mt-2">
           Iniciar sesión como administrador

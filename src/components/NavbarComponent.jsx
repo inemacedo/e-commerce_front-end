@@ -18,13 +18,15 @@ function NavbarComponent() {
   const [showNav, setShowNav] = useState(false);
   const [showNavDropdown, setShowNavDropdown] = useState(false);
 
+  const totalItems = cart.reduce((acc, product) => acc + product.quantity, 0);
+
   useEffect(() => {
     const getCategories = async () => {
       try {
         const response = await fetch(
           `${process.env.REACT_APP_API_URL}/categories`
         );
-        if(response.status===200){
+        if (response.status === 200) {
           const data = await response.json();
           setCategories(data);
         }
@@ -66,30 +68,30 @@ function NavbarComponent() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto">
-              <Link
-                className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4 "
-                to="/"
-              >
+              <Link className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4 " to="/">
                 Home
               </Link>
               <NavDropdown
-                className={`navbar-links m-0 ms-xl-4 mb-lg-0 ms-xxl-5 pointer d-flex flex-column align-items-center ${showNavDropdown?"mb-4":""}`}
+                className={`navbar-links m-0 ms-xl-4 mb-lg-0 ms-xxl-5 pointer d-flex flex-column align-items-center ${
+                  showNavDropdown ? "mb-4" : ""
+                }`}
                 title="Productos"
                 id="navbarScrollingDropdown"
                 show={showNavDropdown}
-                onToggle={()=>{
-                  if(canToggle) setShowNavDropdown(prev=>!prev);
+                onToggle={() => {
+                  if (canToggle) setShowNavDropdown((prev) => !prev);
                   canToggle = false;
-                  setTimeout(()=>{
+                  setTimeout(() => {
                     canToggle = true;
                   }, 100);
                 }}
               >
                 {categories.map((category) => (
-                  <Link key={category.id} 
+                  <Link
+                    key={category.id}
                     to={`/categoria/${category.name}`}
                     className="text-decoration-none text-dark dropdown-item text-capitalize mb-2"
-                    >
+                  >
                     {category.name}
                   </Link>
                 ))}
@@ -97,7 +99,7 @@ function NavbarComponent() {
                 <Link
                   to={`/productos`}
                   className="text-decoration-none text-dark dropdown-item text-capitalize"
-                  >
+                >
                   Ver todos los productos
                 </Link>
               </NavDropdown>
@@ -111,7 +113,10 @@ function NavbarComponent() {
             </Nav>
 
             <Nav className="ms-auto ">
-              <Link className="navbar-links navbar-icon m-0 p-4" to={user.token?"/profile":"/login"}>
+              <Link
+                className="navbar-links navbar-icon m-0 p-4"
+                to={user.token ? "/profile" : "/login"}
+              >
                 <AiOutlineUser size={20} />
               </Link>
               <Link className="navbar-links navbar-icon m-0 p-4" to="/search">
@@ -122,7 +127,7 @@ function NavbarComponent() {
                 to="/carrito-de-compras"
               >
                 <BsCart2 size={20} />
-                <span className="badge bg-dark ms-1">{cart.length}</span>
+                <span className="badge bg-dark ms-1">{totalItems}</span>
               </Link>
             </Nav>
           </Navbar.Collapse>
