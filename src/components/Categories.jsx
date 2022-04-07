@@ -54,7 +54,7 @@ function Categories() {
                   backgroundSize: "cover",
                 }}
               ></div>
-              <h3 className="text-dark fs-5 text-uppercase mt-2">
+              <h3 className="text-dark fs-5 text-uppercase mt-2 text-center">
                 {category.name}
               </h3>
               {/* <p className="text-center text-dark fs-6">Descubrir</p> */}

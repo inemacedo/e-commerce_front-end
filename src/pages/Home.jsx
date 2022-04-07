@@ -7,7 +7,6 @@ import Categories from "../components/Categories";
 
 import { Spinner, ProgressBar } from "react-bootstrap";
 
-
 function Home() {
   const [products, setProducts] = useState([]);
 
@@ -17,13 +16,12 @@ function Home() {
         const response = await fetch(
           `${process.env.REACT_APP_API_URL}/products?featured=true`
         );
-        if(response.status===200){
+        if (response.status === 200) {
           const data = await response.json();
           setProducts(data);
         }
-        
       } catch (error) {
-        if(error.message === "Failed to fetch"){
+        if (error.message === "Failed to fetch") {
           setProducts("Failed to fetch");
         }
       }
@@ -36,13 +34,19 @@ function Home() {
       <Header />
       <h2 className="fs-4 text-center mb-5 fw-bold">DESTACADOS</h2>
 
-      { products==="Failed to fetch" ?
-      <h3 className="text-center text-secondary" >Lo sentimos mucho, estamos teniendo problemas con el servidor.</h3>
-      : products.length===0 ? <div className="d-flex" >
-        <Spinner animation="border mx-auto" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      </div> : <ProductsList products={products} /> }
+      {products === "Failed to fetch" ? (
+        <h3 className="text-center text-secondary">
+          Lo sentimos mucho, estamos teniendo problemas con el servidor.
+        </h3>
+      ) : products.length === 0 ? (
+        <div className="d-flex">
+          <Spinner animation="border mx-auto" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      ) : (
+        <ProductsList products={products} />
+      )}
 
       {/* <ProgressBar animated variant="dark" now={45} /> */}
 
