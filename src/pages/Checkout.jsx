@@ -1,155 +1,131 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
-import { appendErrors, useForm } from "react-hook-form";
-import { Spinner, ProgressBar } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import CartItem from "../components/CartItem";
+import "../styles/Checkout.css";
 
-
-function Cart() {
-  const user = useSelector((state) => state.user);
+function Checkout() {
   const cart = useSelector((state) => state.cart);
-  const path = useSelector((state) => state.path);
-  const dispatch = useDispatch();
-
-  const [thanks, setThanks] = useState(false);
-  const [showSpinner, setShowSpinner] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = async (order) => {
-    setShowSpinner(true);
-    
-    try {
-      const settings = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${user.token}`
-        },
-        body: JSON.stringify(order)
-      };
-      setTimeout(async () => {
-        const fetchResponse = await fetch(
-          process.env.REACT_APP_API_URL + "/orders",
-          settings
-        );
-        if (fetchResponse.status === 200) {
-          const data = await fetchResponse.json();
-          console.log(data);
-        } else console.log("ELSE");
-
-        setShowSpinner(false);
-        setThanks(true)
-      }, 2000);
-
-    } catch (err) {
-      console.log(err);
-    }
-  }
-
+  const hasProducts = cart.length > 0;
+  const totalCartItems = cart.reduce(
+    (acc, elem) => (acc += Number(elem.quantity)),
+    0
+  );
   const total = cart.reduce(
     (acc, product) => (acc += Number(product.price * product.quantity)),
     0
   );
 
-  if (!path.prevPath) {
-    dispatch({ type: "SAVE_PATH", payload: "/checkout" });
-  }
-
-  return !user.token ? (thanks ? <Navigate to="/gracias" /> : <Navigate to="/login" />) : (
-    <div className="container py-5 h-100">
-
-      {showSpinner && <div className=" bg-semi-transparent d-flex align-items-center justify-content-center position-fixed top-0 bottom-0 start-0 end-0" >
-        <Spinner animation="border mx-auto" role="status" variant={"white"}>
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      </div>}
-
-
-
+  return (
+    <section className="container py-5 h-100">
       <div className="row g-5">
+        <div className="col-12 col-lg-7">
+          <div className="d-flex justify-content-between align-items-center mb-3">
+            <h1 className="fs-4 fw-bold mb-0 text-black">
+              DETALLES FACTURACIÓN
+            </h1>
+          </div>
+          <hr className="my-4" />
 
-        <div className="col-12 col-lg-6" style={{ minWidth: "240px" }} >
-          <form className="bg-grey p-4" onSubmit={handleSubmit(onSubmit)} >
-            <label >Numero de tarjeta</label>
-            <input
-              type="number"
-              className="form-control form-control-lg mb-2"
-              placeholder="Escribe un número..."
-            />
-            <label >Nombre y apellido del titular de la tarjeta</label>
-            <input
-              type="text"
-              className="form-control form-control-lg mb-2"
-              placeholder="Escribe un nombre..."
-            />
-            <label >Fecha de vencimiento de la tarjeta</label>
-            <input
-              type="text"
-              className="form-control form-control-lg mb-2"
-              placeholder="Escribe un nombre..."
-            />
-            <label >Security code</label>
-            <input
-              type="text"
-              className="form-control form-control-lg mb-2"
-              placeholder="Escribe un nombre..."
-            />
+          <div className="mb-5">
+            <p>Nombre y Apellido:</p>
+            <p>Dirección:</p>
+            <p>Email:</p>
+            <p>Teléfono:</p>
+          </div>
+
+          <h4 className="fs-5 fw-bold mt-4 mb-4">
+            Ingresá los datos de la tarjeta
+          </h4>
+          {/* <img
+            src="https://azioqgupehjwofkjwddr.supabase.co/storage/v1/object/public/e-commerce/paymentmethods/payment.jpg"
+            alt=""
+            className="payment mt-4 mb-md-5 mb-3"
+          /> */}
+
+          <form>
+            <div className="mb-4">
+              <label className="form-label">Número de tarjeta *</label>
+              <input type="number" className="form-control" />
+            </div>
+            <div className="mb-4">
+              <label className="form-label">
+                Nombre y apellido titular de la tarjeta *
+              </label>
+              <input type="text" className="form-control" />
+            </div>
+
+            <div className="row">
+              <div className="col-md-6">
+                <label className="form-label">Fecha de nacimiento *</label>
+                <input type="date" className="form-control me-5" />
+              </div>
+              <div className="col-md-6">
+                <label className="form-label">Código de Seguridad *</label>
+                <input type="email" className="form-control me-5" />
+              </div>
+              <img
+                src="https://azioqgupehjwofkjwddr.supabase.co/storage/v1/object/public/e-commerce/paymentmethods/payment.jpg"
+                alt=""
+                className="payment mt-5 mb-md-5 mb-3"
+              />
+            </div>
+          </form>
+        </div>
+        <div className="col-12 col-lg-5">
+          <div className="p-5 bg-grey d-flex flex-column mb-5">
+            <h3 className="fw-bold fs-4 text-uppercase">Tu Pedido</h3>
+            {cart.map((product) => (
+              <div className="row mt-4 ">
+                <div className="col-6">{product.title} </div>
+                <div className="col-6 d-flex justify-content-end">
+                  <p>
+                    <span className="fw-bold">
+                      USD {product.price * product.quantity}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            ))}
+
             <hr />
-
-            <button
-              disabled={cart.length > 0 ? "" : "disabled"}
-              type="submit"
-              className="btn btn-dark btn-block btn-lg rounded-pill align-self-end"
+            <div className="d-flex justify-content-between fw-bold pt-3">
+              <p>Importe total</p>
+              <p>USD {total > 1000 ? total / 1000 : total}</p>
+            </div>
+            <hr />
+            <p className="m-1 fw-bold ms-0 mt-3">Aclaraciones</p>
+            <div className="refund-details mb-1">
+              <span className="fw-bold">Cambios: </span>
+              <span>
+                todos los productos cuentan con 30 días para realizar cambios
+                (es necesaria la factura y el producto en perfecto estado).
+              </span>
+            </div>
+            <div className="refund-details">
+              <span className="fw-bold">Devoluciones: </span>
+              <span>
+                Todos los productos cuentan con 5 días para devolución y
+                reembolso del dinero. Envíos desde el interior corren por cuenta
+                del cliente.
+              </span>
+            </div>
+            <Link
+              to="/gracias"
+              type="button"
+              className={`${
+                cart.length > 0 ? "" : "disabled"
+              } btn btn-dark btn-block btn-lg rounded-pill align-self-end px-4 py-2 me-auto mt-4`}
               data-mdb-ripple-color="dark"
             >
-              CONFIRMAR COMPRA
-            </button>
-          </form>
-
-        </div>
-
-        <div className="col-12 col-lg-6">
-          <h3 className="fw-bold fs-4 p-1">TU PEDIDO</h3>
-          <hr />
-          {cart.map((product) => (
-            <div>
-              <div className="d-flex justify-content-between my-3">
-                <p className="">{product.title} x{product.quantity}</p>
-                <span className="fw-bold">
-                  USD {product.price * product.quantity}
-                </span>
-              </div>
-              <hr className="w-100" />
-            </div>
-          ))}
-
-          <div className="d-flex justify-content-between">
-            <p>Subtotal</p>
-            <span className="fw-bold">
-              USD {total}
-            </span>
+              REALIZAR PEDIDO
+            </Link>
           </div>
-
-          <div className="d-flex justify-content-between">
-            <p>Total</p>
-            <span className="fw-bold">
-              USD {total}
-            </span>
-          </div>
-
         </div>
-
       </div>
-
-
-    </div>
+    </section>
   );
 }
 
-export default Cart;
+export default Checkout;
