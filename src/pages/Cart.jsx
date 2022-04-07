@@ -42,7 +42,7 @@ function Cart() {
         </div>
         <div className="col-12 col-lg-5">
           <div className="p-5 bg-grey d-flex flex-column">
-            <h3 className="fw-bold fs-4 text-uppercase">Subtotal</h3>
+            <h3 className="fw-bold fs-4">SUBTOTAL</h3>
             {cart.map((product) => (
               <div className="row mt-4 ">
                 <div className="col-6">{product.title} </div>
