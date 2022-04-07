@@ -64,7 +64,7 @@ function Cart() {
             <hr />
 
             <Link
-              to="/login"
+              to="/checkout"
               type="button"
               className={`${
                 cart.length > 0 ? "" : "disabled"
