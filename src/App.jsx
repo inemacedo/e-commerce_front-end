@@ -13,6 +13,7 @@ import ThankYou from "./pages/ThankYou";
 import Error404 from "./pages/404";
 import MyOrders from "./pages/MyOrders";
 import PrivateRoute from "./components/PrivateRoute";
+import EditProfile from "./pages/EditProfile";
 
 function App() {
   return (
@@ -29,8 +30,9 @@ function App() {
           path="/checkout"
           element={<PrivateRoute element={<Checkout />} />}
         />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/compras" element={<MyOrders />} />
+        <Route path="/mi-perfil" element={<Profile />} />
+        <Route path="/mis-pedidos" element={<MyOrders />} />
+        <Route path="/editar-perfil" element={<EditProfile />} />
         <Route path="/categoria/:name" element={<Category />} />
         <Route path="/gracias" element={<ThankYou />} />
         <Route path="*" element={<Error404 />} />

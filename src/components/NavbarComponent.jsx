@@ -72,8 +72,9 @@ function NavbarComponent() {
                 Home
               </Link>
               <NavDropdown
-                className={`navbar-links m-0 ms-xl-4 mb-lg-0 ms-xxl-5 pointer d-flex flex-column align-items-center ${showNavDropdown ? "mb-4" : ""
-                  }`}
+                className={`navbar-links m-0 ms-xl-4 mb-lg-0 ms-xxl-5 pointer d-flex flex-column align-items-center ${
+                  showNavDropdown ? "mb-4" : ""
+                }`}
                 title="Productos"
                 id="navbarScrollingDropdown"
                 show={showNavDropdown}
@@ -114,7 +115,7 @@ function NavbarComponent() {
             <Nav className="ms-auto ">
               <Link
                 className="navbar-links navbar-icon m-0 p-4"
-                to={user.token ? "/compras" : "/login"}
+                to={user.token ? "/mi-perfil" : "/login"}
               >
                 <AiOutlineUser size={20} />
               </Link>
