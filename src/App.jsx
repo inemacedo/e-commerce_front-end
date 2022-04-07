@@ -11,7 +11,7 @@ import Profile from "./pages/Profile";
 import Category from "./pages/Category";
 import ThankYou from "./pages/ThankYou";
 import Error404 from "./pages/404";
-import Login from "./pages/Login";
+import MyOrders from "./pages/MyOrders";
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
@@ -30,10 +30,10 @@ function App() {
           element={<PrivateRoute element={<Checkout />} />}
         />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/compras" element={<MyOrders />} />
         <Route path="/categoria/:name" element={<Category />} />
         <Route path="/gracias" element={<ThankYou />} />
         <Route path="*" element={<Error404 />} />
-        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </div>
