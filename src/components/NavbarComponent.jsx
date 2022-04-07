@@ -122,7 +122,7 @@ function NavbarComponent() {
                 to="/carrito-de-compras"
               >
                 <BsCart2 size={20} />
-                <span className="badge bg-dark ms-1">{cart.length}</span>
+                <span className="badge bg-dark ms-1">{cart.reduce( (acc, item)=> acc+=item.quantity , 0 )}</span>
               </Link>
             </Nav>
           </Navbar.Collapse>

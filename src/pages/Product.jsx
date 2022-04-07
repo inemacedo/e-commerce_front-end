@@ -65,7 +65,7 @@ function Product() {
           onClose={() => setShow(false)}
           show={show}
           delay={5000}
-          autohi
+          autohide
         >
           <Link className="text-decoration-none m-0" to="/carrito-de-compras">
             <Toast.Header

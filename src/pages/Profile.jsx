@@ -1,94 +1,68 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
+import EditUserForm from "../components/EditUserForm";
 
 function Profile() {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
-  const handleClick = async () => {
-    dispatch({ type: "REMOVE_CART" });
-    dispatch({ type: "LOGOUT" });
-  };
+  const [showEditForm, setShowEditForm] = useState(false);
+
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const response = await fetch();
+        if (response.status === 200) {
+          const data = response.json();
+        }
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getOrders();
+
+  }, []);
 
   return !user.token ? (
     <Navigate to="/" />
-  ) : (
-    <div style={{ width: "30rem" }} className="container mt-5">
-      <div className="d-flex">
-        <h1 className="mt-4 fs-4 fw-bold">{user.email}</h1>
+  ) : showEditForm ? (<EditUserForm />) :
+    <div className="container mt-5">
+
+      <h2 className="text-uppercase mb-4" >My Orders</h2>
+
+      <div className="row g-2 pb-2 rounded bg-secondary">
+        <div className="col-12 col-md-4">
+          <div className="card">
+            <div className="card-header">
+              Artículos
+            </div>
+            <div className="card-body">
+              Mesa 1
+              Mesa 2
+              Silla
+            </div>
+          </div>
+        </div>
+        <div className="col-12 col-md-4">
+          <div className="card">
+            <div className="card-header">Info de la compra</div>
+          </div>
+        </div>
+        <div className="col-12 col-md-4">
+          <div className="card">
+            <div className="card-header">
+              Acciones de la compra
+            </div>
+          </div>
+        </div>
       </div>
-      <form className="mt-4">
-        {/* 2 column grid layout with text inputs for the first and last names */}
-        <div className="row mb-4">
-          <div className="col">
-            <div className="form-outline">
-              <input type="text" id="firstname" className="form-control" />
-              <label className="form-label" htmlFor="firstname">
-                Nombre
-              </label>
-            </div>
-          </div>
-          <div className="col">
-            <div className="form-outline">
-              <input type="text" id="lastname" className="form-control" />
-              <label className="form-label" htmlFor="lastname">
-                Apellido
-              </label>
-            </div>
-          </div>
-        </div>
+      <hr />
 
-        <div className="row mb-4">
-          <div className="col">
-            <div className="form-outline">
-              <input type="text" id="phone" className="form-control" />
-              <label className="form-label" htmlFor="phone">
-                Teléfono
-              </label>
-            </div>
-          </div>
-          <div className="col">
-            <div className="form-outline">
-              <input type="text" id="address" className="form-control" />
-              <label className="form-label" htmlFor="address">
-                Dirección
-              </label>
-            </div>
-          </div>
-        </div>
+    </div>;
 
-        {/* Email input */}
-        <div className="form-outline mb-4">
-          <input type="email" id="email" className="form-control" />
-          <label className="form-label" htmlFor="email">
-            Email
-          </label>
-        </div>
-
-        {/* Password input */}
-        <div className="form-outline mb-4">
-          <input type="password" id="form3Example4" className="form-control" />
-          <label className="form-label" htmlFor="password">
-            Password
-          </label>
-        </div>
-
-        {/* Submit button */}
-        <button type="submit" className="btn btn-dark mb-4 w-100 text-center">
-          Guardar datos
-        </button>
-      </form>
-
-      {/* Logout button */}
-      <div className="text-center my-5">
-        <button className="btn btn-danger" onClick={handleClick}>
-          Log out
-        </button>
-      </div>
-    </div>
-  );
 }
 
 export default Profile;
