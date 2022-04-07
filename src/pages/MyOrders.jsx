@@ -106,7 +106,7 @@ function MyOrders() {
               <span>Teléfono: </span> <span>{userInfo.phone}</span>
             </div>
             <Link
-              to="/login"
+              to="/profile"
               type="button"
               className="btn btn-dark btn-block btn-lg rounded-pill align-self-end px-4 py-2 me-auto mt-4"
               data-mdb-ripple-color="dark"

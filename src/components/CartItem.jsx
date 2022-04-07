@@ -40,7 +40,7 @@ function CartItem({ item }) {
               className="border-0 bg-white px-0 pt-0 pb-1"
               onClick={handleDelete}
             >
-              <BsTrash size={14} color={"grey"} />
+              <BsTrash size={16} color={"grey"} />
             </button>
           </div>
         </div>
