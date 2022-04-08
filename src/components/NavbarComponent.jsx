@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
+import React, { useEffect, useState, useRef } from "react";
+import {
+  Container,
+  Navbar,
+  Nav,
+  NavDropdown,
+  Overlay,
+  Popover,
+} from "react-bootstrap";
 import { IoSearchOutline } from "react-icons/io5";
 import { BsCart2 } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 import { Link, NavLink, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as LogoHackHome } from "../icons/logohackhome.svg";
 
 // si cambia el params cerrar la nav
@@ -14,6 +21,21 @@ function NavbarComponent() {
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
   const params = useParams();
+  const dispatch = useDispatch();
+
+  const handleLogout = async () => {
+    dispatch({ type: "REMOVE_CART" });
+    dispatch({ type: "LOGOUT" });
+  };
+
+  const [showPopover, setShowPopover] = useState(false);
+  const [target, setTarget] = useState(null);
+  const ref = useRef(null);
+
+  const handleClickPopover = (event) => {
+    setShowPopover(!showPopover);
+    setTarget(event.target);
+  };
 
   const [showNav, setShowNav] = useState(false);
   const [showNavDropdown, setShowNavDropdown] = useState(false);
@@ -113,12 +135,75 @@ function NavbarComponent() {
             </Nav>
 
             <Nav className="ms-auto ">
-              <Link
-                className="navbar-links navbar-icon m-0 p-4"
-                to={user.token ? "/mi-perfil" : "/login"}
-              >
-                <AiOutlineUser size={20} />
-              </Link>
+              <div className="text-center" ref={ref}>
+                <button
+                  onClick={handleClickPopover}
+                  type="button"
+                  className="navbar-links navbar-icon m-0 p-4 bg-white border-0 text-center"
+
+                  /* to={user.token ? "/mi-perfil" : "/login"} */
+                >
+                  <AiOutlineUser size={20} />
+                </button>
+                {user.token ? (
+                  <Overlay
+                    show={showPopover}
+                    target={target}
+                    placement="bottom"
+                    container={ref}
+                    containerPadding={20}
+                  >
+                    <Popover id="popover-contained">
+                      <Popover.Header as="h3">
+                        Hola {user.user.firstname}!
+                      </Popover.Header>
+                      <Popover.Body className="d-flex flex-column">
+                        <Link
+                          className="text-dark text-decoration-none"
+                          to="/mi-perfil"
+                        >
+                          Mi perfil
+                        </Link>
+                        <Link
+                          to="/mis-pedidos"
+                          className="text-decoration-none text-dark mt-2"
+                        >
+                          Mis compras
+                        </Link>
+                        <div
+                          style={{ cursor: "pointer" }}
+                          onClick={handleLogout}
+                          className="text-decoration-none mt-2 text-danger"
+                        >
+                          Cerrar sesión
+                        </div>
+                      </Popover.Body>
+                    </Popover>
+                  </Overlay>
+                ) : (
+                  <Overlay
+                    show={showPopover}
+                    target={target}
+                    placement="bottom"
+                    container={ref}
+                    containerPadding={20}
+                  >
+                    <Popover id="popover-contained">
+                      <Popover.Header as="h3">Iniciar sesión</Popover.Header>
+                      <Popover.Body className="d-flex flex-column">
+                        <Link className="btn btn-outline-dark " to="/login">
+                          Login
+                        </Link>
+                        <span className="mt-3">No estás registrado? </span>
+                        <Link to="/registro" className="text-dark">
+                          Create una cuenta!{" "}
+                        </Link>
+                      </Popover.Body>
+                    </Popover>
+                  </Overlay>
+                )}
+              </div>
+
               <Link className="navbar-links navbar-icon m-0 p-4" to="/search">
                 <IoSearchOutline size={20} />
               </Link>
