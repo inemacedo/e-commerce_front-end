@@ -58,7 +58,6 @@ function Home() {
             />
             <h4 className="text-center mb-2">Inés Macedo</h4>
             <h5 className="text-secondary fs-5 mb-0">Desarrolladora Web Jr</h5>
-            <h5 className="text-secondary fs-5">Arquitecta</h5>
             <div className="d-flex justify-content-center mt-4">
               <a
                 href="https://www.linkedin.com/in/inesmacedo/"
