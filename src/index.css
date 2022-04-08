@@ -145,7 +145,20 @@ p {
 
 .author-profile {
   text-align: center;
+  width: 10rem;
   height: 10rem;
+}
+@media (min-width: 992px) {
+  .author-profile {
+    width: 13rem;
+    height: 13rem;
+  }
+}
+@media (min-width: 1200px) {
+  .author-profile {
+    width: 16rem;
+    height: 16rem;
+  }
 }
 
 .quienes-somos {
@@ -204,6 +217,25 @@ font-family: 'Red Hat Display', sans-serif; // cultocafe
     height: 65rem;
     margin: auto;
   }
+}
+
+/* Floating About Us Button */
+#floatingAboutUs {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 20;
+  transform: translate( calc(50% - 1rem) , -50%) rotate(-90deg);
+}
+#floatingAboutUs .text-dark {
+  opacity: 0.5;
+  display: block;
+  background: #ffcdd2;
+  border-radius: 10px 10px 0 0;
+  transition: opacity .3s;
+}
+#floatingAboutUs .text-dark:hover{
+  opacity: 1;
 }
 
 /* profile */

@@ -40,9 +40,9 @@ function Categories() {
     </div>
   ) : (
     <div className="home-images-responsive mb-5">
-      <div className="row g-1">
+      <div className="d-flex">
         {categories.map((category) => (
-          <div className="col-md-4" key={category.id}>
+          <div className="col-12 col-md-4" key={category.id}>
             <NavLink
               to={`/categoria/${category.name}`}
               className="text-decoration-none"

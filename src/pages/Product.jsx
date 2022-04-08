@@ -15,7 +15,6 @@ function Product() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     const getProduct = async () => {
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/products/${params.slug}`

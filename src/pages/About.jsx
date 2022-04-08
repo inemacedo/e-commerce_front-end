@@ -28,12 +28,12 @@ function Home() {
       <h2 className="fw-bold mt-5 text-center">¿Quiénes somos?</h2>
       <div className="container ">
         <div className="row my-5 ">
-          <div className="col-md-4 text-center p-4  quienes-somos">
+          <div className="col-md-4 text-center p-4 quienes-somos">
             <img
-              style={{ width: "15rem", height: "15rem", objectFit: "cover" }}
+              style={{ objectFit: "cover" }}
               className="rounded-circle border author-profile my-5"
               src={andyProfileImage}
-              alt="#"
+              alt="web developer profile picture"
             />
             <h4 className="text-center mb-2">Andy Nievas</h4>
             <h5 className="text-secondary fs-5">Desarrollador Web Jr</h5>
@@ -51,7 +51,7 @@ function Home() {
           </div>
           <div className="col-md-4 text-center p-4 quienes-somos">
             <img
-              style={{ width: "15rem", height: "15rem", objectFit: "cover" }}
+              style={{ objectFit: "cover" }}
               className="rounded-circle border author-profile my-5"
               src={ineProfileImage}
               alt="#"
@@ -73,7 +73,7 @@ function Home() {
           </div>
           <div className="col-md-4 text-center p-4 quienes-somos">
             <img
-              style={{ width: "15rem", height: "15rem", objectFit: "cover" }}
+              style={{ objectFit: "cover" }}
               className="rounded-circle border author-profile my-5"
               src={valeProfileImage}
               alt="#"

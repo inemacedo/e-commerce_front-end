@@ -14,8 +14,18 @@ import Error404 from "./pages/404";
 import MyOrders from "./pages/MyOrders";
 import PrivateRoute from "./components/PrivateRoute";
 import EditProfile from "./pages/EditProfile";
+import FloatingAboutUs from "./components/FloatingAboutUs";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 function App() {
+
+  const params = useParams();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [params]);
+
   return (
     <div className="App d-flex flex-column">
       <NavbarComponent />
@@ -37,6 +47,7 @@ function App() {
         <Route path="/gracias" element={<ThankYou />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
+      <FloatingAboutUs />
       <Footer />
     </div>
   );
