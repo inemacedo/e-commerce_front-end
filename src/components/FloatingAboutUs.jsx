@@ -8,9 +8,9 @@ function FloatingAboutUs() {
     <div id="floatingAboutUs">
       <Link
         className="text-decoration-none text-dark px-4 py-1 shadow-lg"
-        to="/sobre-nosotros"
+        to="/sobre-este-proyecto"
       >
-        <span>Sobre nosotros</span>
+        <span>Sobre este proyecto</span>
       </Link>
     </div>
   );
