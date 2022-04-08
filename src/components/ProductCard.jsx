@@ -18,29 +18,45 @@ function ProductCard({ product }) {
   };
   return (
     <>
-      <NavLink className="d-flex position-relative" to={`/producto/${product.slug}`}>
+      <NavLink
+        className="d-flex position-relative"
+        to={`/producto/${product.slug}`}
+      >
         <img
           onLoad={() => setShowSpinner(false)}
           src={product.imgBaseUrl + "/" + product.image}
           alt={product.title}
-          className={`${showSpinner ? "opacity-0" : ""} productImg mb-2 img-fluid`}
+          className={`${
+            showSpinner ? "opacity-0" : ""
+          } productImg mb-2 img-fluid`}
           style={{ minHeight: "5rem" }}
         />
         <img
           src={product.imgBaseUrl + "/" + product.imageenvironment}
           alt={product.title}
-          className={`${showSpinner ? "opacity-0" : ""} envImg position-absolute mb-2 img-fluid`}
+          className={`${
+            showSpinner ? "opacity-0" : ""
+          } envImg position-absolute mb-2 img-fluid`}
         />
-        {showSpinner && <div className="position-absolute start-0 end-0 top-0 bottom-0 d-flex bg-secondary" style={{ pointerEvents: "none" }} >
-          <Spinner animation="border m-auto" variant="dark" role="status"></Spinner>
-        </div>}
+        {showSpinner && (
+          <div
+            className="position-absolute start-0 end-0 top-0 bottom-0 d-flex bg-secondary"
+            style={{ pointerEvents: "none" }}
+          >
+            <Spinner
+              animation="border m-auto"
+              variant="dark"
+              role="status"
+            ></Spinner>
+          </div>
+        )}
       </NavLink>
-      <button
+      {/* <button
         onClick={handleClick}
         className="btn border btn-outline-dark w-100 mb-2"
       >
         Agregar al Carrito
-      </button>
+      </button> */}
       <NavLink
         className="text-decoration-none text-dark"
         to={`/producto/${product.id}`}

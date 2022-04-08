@@ -20,7 +20,11 @@ function CartItem({ item }) {
     <>
       <div className="row gy-4 justify-content-between align-items-center">
         <div className="col-md-3">
-          <img src={item.image} className="w-100" alt={item.title} />
+          <img
+            src={item.imgBaseUrl + "/" + item.image}
+            className="w-100"
+            alt={item.title}
+          />
         </div>
         <div className="col-md-3 col-lg-6">
           <h4 className="fs-5 text-muted">{item.title}</h4>

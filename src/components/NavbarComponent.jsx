@@ -90,12 +90,10 @@ function NavbarComponent() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto">
-              <Link className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4 " to="/">
-                Home
-              </Link>
               <NavDropdown
-                className={`navbar-links m-0 ms-xl-4 mb-lg-0 ms-xxl-5 pointer d-flex flex-column align-items-center ${showNavDropdown ? "mb-4" : ""
-                  }`}
+                className={`navbar-links m-0 ms-xl-4 mb-lg-0 ms-xxl-5 pointer d-flex flex-column align-items-center ${
+                  showNavDropdown ? "mb-4" : ""
+                }`}
                 title="Productos"
                 id="navbarScrollingDropdown"
                 show={showNavDropdown}
@@ -126,11 +124,18 @@ function NavbarComponent() {
               </NavDropdown>
 
               <Link
-                className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4 fw-bold sobre-nosotros"
+                className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4 sobre-nosotros"
                 to="/sobre-este-proyecto"
               >
                 Sobre este proyecto
               </Link>
+              <a
+                className="navbar-links m-0 ms-xl-4 ms-xxl-5 p-4 "
+                href="https://e-commerce-front-end-admin.vercel.app"
+                target="_blank"
+              >
+                Admin
+              </a>
             </Nav>
 
             <Nav className="ms-auto ">
@@ -140,7 +145,7 @@ function NavbarComponent() {
                   type="button"
                   className="navbar-links navbar-icon m-0 p-4 bg-white border-0 text-center"
 
-                /* to={user.token ? "/mi-perfil" : "/login"} */
+                  /* to={user.token ? "/mi-perfil" : "/login"} */
                 >
                   <AiOutlineUser size={20} />
                 </button>
