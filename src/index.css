@@ -48,7 +48,7 @@ p {
   color: var(--dark-grey);
 }
 .navbar-icon .badge {
-  min-width: 2rem;
+  min-width: 1.5rem;
 }
 
 /* .sobre-nosotros {
