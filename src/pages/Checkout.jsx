@@ -83,9 +83,9 @@ function Checkout() {
             <div className="mb-4">
               <label className="form-label">Número de tarjeta *</label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
-                placeholder="XXXX-XXXX-XXXX-XXXX"
+                value="1534-5627-9994-4444"
               />
             </div>
             <div className="mb-4">
@@ -95,20 +95,24 @@ function Checkout() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Nombre Apellido"
+                value={`${user.firstname} ${user.lastname}`}
               />
             </div>
             <div className="row">
               <div className="col-md-6">
                 <label className="form-label">Fecha de vencimiento *</label>
-                <input type="date" className="form-control me-5" />
+                <input
+                  type="date"
+                  className="form-control me-5"
+                  value="2024-07-22"
+                />
               </div>
               <div className="col-md-6">
                 <label className="form-label">Código de Seguridad *</label>
                 <input
-                  type="email"
+                  type="number"
                   className="form-control me-5"
-                  placeholder="XXX"
+                  value="552"
                 />
               </div>
               <img
