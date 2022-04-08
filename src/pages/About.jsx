@@ -25,7 +25,7 @@ function Home() {
           Iniciar sesión como administrador
         </button>
       </div> */}
-      <h2 className="fw-bold my-5 text-center">¿Quiénes somos?</h2>
+      <h2 className="fw-bold mt-5 text-center">¿Quiénes somos?</h2>
       <div className="container ">
         <div className="row my-5 ">
           <div className="col-md-4 text-center p-4  quienes-somos">
@@ -35,13 +35,13 @@ function Home() {
               src={andyProfileImage}
               alt="#"
             />
-            <h4 className="text-center">Andy Nievas</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-              natus deleniti dolore dolores dolorem minima?
-            </p>
-            <div className="d-flex justify-content-evenly">
-              <a href="https://www.linkedin.com/in/andy-nievas/">
+            <h4 className="text-center mb-2">Andy Nievas</h4>
+            <h5 className="text-secondary fs-5">Desarrollador Web Jr</h5>
+            <div className="d-flex justify-content-center mt-4">
+              <a
+                href="https://www.linkedin.com/in/andy-nievas/"
+                className="me-2"
+              >
                 <AiOutlineLinkedin color="#333333" size={35} />
               </a>
               <a href="https://github.com/andynievas">
@@ -56,13 +56,14 @@ function Home() {
               src={ineProfileImage}
               alt="#"
             />
-            <h4 className="text-center">Inés Macedo</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae
-              natus deleniti dolore dolores dolorem minima?
-            </p>
-            <div className="d-flex justify-content-evenly">
-              <a href="https://www.linkedin.com/in/inesmacedo/">
+            <h4 className="text-center mb-2">Inés Macedo</h4>
+            <h5 className="text-secondary fs-5 mb-0">Desarrolladora Web Jr</h5>
+            <h5 className="text-secondary fs-5">Arquitecta</h5>
+            <div className="d-flex justify-content-center mt-4">
+              <a
+                href="https://www.linkedin.com/in/inesmacedo/"
+                className="me-2"
+              >
                 <AiOutlineLinkedin color="#333333" size={35} />
               </a>
               <a href="https://github.com/inemacedo/">
@@ -77,16 +78,13 @@ function Home() {
               src={valeProfileImage}
               alt="#"
             />
-            <h4 className="text-center">Valentina Giusti</h4>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Inventore esse vitae quod, quos accusamus voluptate aliquid
-              suscipit totam, similique officiis consectetur assumenda
-              exercitationem quae at nulla delectus soluta, harum odio?
-            </p>
-
-            <div className="d-flex justify-content-evenly">
-              <a href="https://www.linkedin.com/in/valentinamgo/">
+            <h4 className="text-center mb-2">Valentina Giusti</h4>
+            <h5 className="text-secondary fs-5 mb-0">Desarrolladora Web Jr</h5>
+            <div className="d-flex justify-content-center mt-4">
+              <a
+                href="https://www.linkedin.com/in/valentinamgo/"
+                className="me-2"
+              >
                 <AiOutlineLinkedin color="#333333" size={35} />
               </a>
               <a href="https://github.com/valentinagiusti">
@@ -109,13 +107,13 @@ function Home() {
               <p className="fs-5">
                 <span className="fw-bold">Hack Home</span> es una aplicación web
                 creada por estudiantes de Hack Academy con el fin de poner en
-                práctica los conocimientos adquiridos para poder maquetar un
+                práctica los conocimientos adquiridos para poder desarrollar un
                 e-commerce en un{" "}
                 <span className="fw-bold">plazo de 3 semanas</span> de curso.
               </p>
             </div>
             <div className="col-sm-4  text-center d-flex flex-column">
-              <LogoHackHome style={{ height: "10rem" }} />
+              <LogoHackHome style={{ height: "8rem" }} />
             </div>
             <div className="col-sm-4">
               <p className="fs-5">
@@ -126,7 +124,7 @@ function Home() {
                 , un curso de fuerte carga teórico-práctica intensivo con una
                 duración de <span className="fw-bold">3 meses</span>, el cual
                 tuvo apróximadamente <span className="fw-bold">600 horas</span>{" "}
-                de dedicación
+                de dedicación.
               </p>
             </div>
           </div>
