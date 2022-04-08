@@ -7,10 +7,10 @@ function FloatingAboutUs() {
   return (
     <div id="floatingAboutUs">
       <Link
-        className="text-decoration-none text-dark px-4 py-1 shadow-lg"
-        to="/sobre-nosotros"
+        className="text-decoration-none link px-4 py-1 shadow-lg"
+        to="/sobre-este-proyecto"
       >
-        <span>Sobre nosotros</span>
+        <span>Sobre este proyecto</span>
       </Link>
     </div>
   );

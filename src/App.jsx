@@ -29,7 +29,7 @@ function App() {
     <div className="App d-flex flex-column">
       <NavbarComponent />
       <Routes>
-        <Route path="/sobre-nosotros" element={<About />} />
+        <Route path="/sobre-este-proyecto" element={<About />} />
         <Route path="/" element={<Home />} />
         <Route path="/productos" element={<Products />} />
         <Route path="/producto/:slug" element={<Product />} />

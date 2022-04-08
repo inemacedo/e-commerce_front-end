@@ -20,8 +20,7 @@ async function fetchData({ url, method, token, body }) {
 
 function Checkout() {
   const cart = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.user);
-  const [userInfo, setUserInfo] = useState({});
+  const { user, token } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   const total = cart.reduce(
@@ -29,25 +28,13 @@ function Checkout() {
     0
   );
 
-  useEffect(() => {
-    const getUser = async () => {
-      const data = await fetchData({
-        url: process.env.REACT_APP_API_URL + `/users/${user.id}`,
-        method: "GET",
-        token: user.token,
-      });
-      setUserInfo(data);
-    };
-    getUser();
-  }, []);
-
   const handleSubmit = async (ev) => {
     ev.preventDefault();
 
     await fetchData({
       url: process.env.REACT_APP_API_URL + "/orders",
       method: "POST",
-      token: user.token,
+      token: token,
       body: { cart, total },
     });
     navigate("/gracias");
