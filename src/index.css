@@ -51,6 +51,10 @@ p {
   min-width: 2rem;
 }
 
+.text-decoration-none.text-dark.dropdown-item:active {
+  background-color: #bebebe;
+}
+
 .sobre-nosotros {
   animation-name: multicolor;
   animation-duration: 1s;
