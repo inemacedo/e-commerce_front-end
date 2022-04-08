@@ -19,7 +19,6 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
 function App() {
-
   const params = useParams();
 
   useEffect(() => {
@@ -41,7 +40,7 @@ function App() {
           element={<PrivateRoute element={<Checkout />} />}
         />
         <Route path="/mi-perfil" element={<Profile />} />
-        <Route path="/mis-pedidos" element={<MyOrders />} />
+        <Route path="/mis-compras" element={<MyOrders />} />
         <Route path="/editar-perfil" element={<EditProfile />} />
         <Route path="/categoria/:name" element={<Category />} />
         <Route path="/gracias" element={<ThankYou />} />

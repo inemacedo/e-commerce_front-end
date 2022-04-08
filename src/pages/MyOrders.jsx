@@ -40,7 +40,7 @@ function MyOrders() {
         <div className="col-12 col-lg-7">
           <div className="d-flex justify-content-between align-items-center mb-3"></div>
           <div className="d-flex justify-content-between align-items-center mb-3">
-            <h1 className="fs-4 fw-bold mb-0 text-black">MIS ORDENES</h1>
+            <h1 className="fs-4 fw-bold mb-0 text-black">MIS COMPRAS</h1>
             {/* <Link to="/profile" className="btn btn-dark ms-auto">
           Editar usuario
         </Link> */}

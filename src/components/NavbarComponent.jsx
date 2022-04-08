@@ -165,7 +165,7 @@ function NavbarComponent() {
                           Mi perfil
                         </Link>
                         <Link
-                          to="/mis-pedidos"
+                          to="/mis-compras"
                           className="text-decoration-none text-dark mt-2"
                         >
                           Mis compras
