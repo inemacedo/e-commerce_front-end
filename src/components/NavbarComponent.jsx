@@ -203,7 +203,10 @@ function NavbarComponent() {
                 )}
               </div>
 
-              <Link className="navbar-links navbar-icon m-0 p-4" to="/search">
+              <Link
+                className="navbar-links navbar-icon m-0 p-4"
+                to="/productos"
+              >
                 <IoSearchOutline size={20} />
               </Link>
               <Link

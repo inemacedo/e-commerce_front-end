@@ -13,7 +13,7 @@ async function fetchData({ url, method, body }) {
     headers: { "Content-Type": "application/json" },
   });
   const data = await response.json();
-  return {status: response.status , data};
+  return { status: response.status, data };
 }
 
 function Login() {
@@ -27,6 +27,7 @@ function Login() {
     register,
     handleSubmit,
     watch,
+    setValue,
     formState: { errors },
   } = useForm();
 
@@ -39,17 +40,18 @@ function Login() {
       body: data,
     });
     console.log(response);
-    if (response.status !== 200){
+    if (response.status !== 200) {
       setShowSpinner(false);
       setShowError(true);
-    }
-    else {
+    } else {
       dispatch({ type: "LOGIN", payload: response.data });
     }
   };
 
-  return user.token ? <Navigate to={path.prevPath?path.prevPath:"/"} /> :(
-    <div style={{ width: "30rem" }} className="container mt-5">
+  return user.token ? (
+    <Navigate to={path.prevPath ? path.prevPath : "/"} />
+  ) : (
+    <div style={{ width: "30rem" }} className="container-fluid mt-5">
       <div className="d-flex justify-content-between">
         <h1 className="mt-4 fs-4 fw-bold">Bienvenido!</h1>
         <Link to="/">
@@ -74,8 +76,10 @@ function Login() {
             className={`form-control ${showError ? "border-danger" : ""}`}
             aria-describedby="emailHelp"
             placeholder="Insertar mail aquí..."
-            defaultValue=""
-            {...register("email", { required: "Por favor, ingresar un valor válido" })}
+            defaultValue={""}
+            {...register("email", {
+              required: "Por favor, ingresar un valor válido",
+            })}
           />
           <p className="text-danger">{errors.email?.message}</p>
           <label className="form-label" htmlFor="email">
@@ -108,9 +112,11 @@ function Login() {
           Iniciar sesión
         </button>
 
-        {showSpinner&&<Spinner animation="border mx-auto" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>}
+        {showSpinner && (
+          <Spinner animation="border mx-auto" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        )}
 
         {/* Register buttons */}
         <div className="text-center">
@@ -119,24 +125,32 @@ function Login() {
           </Link>
 
           <p>o inicia sesión con:</p>
-          <button
-            type="button"
-            className="btn btn-secondary btn-floating rounded-circle mx-1"
+          {/*           <button
+            onClick={handleAutocomplete}
+            className="btn btn-outline-dark mb-5"
           >
-            <BsFacebook size={20} />
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary btn-floating rounded-circle mx-1"
-          >
-            <BsGoogle size={20} />
-          </button>
-          <button
-            type="button"
-            className="btn btn-secondary btn-floating rounded-circle mx-1"
-          >
-            <BsTwitter size={20} />
-          </button>
+            Autocompletar
+          </button> */}
+          <div className="d-flex justify-content-center">
+            <button
+              type="button"
+              className="btn btn-secondary btn-floating rounded-circle mx-1"
+            >
+              <BsFacebook size={20} />
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary btn-floating rounded-circle mx-1"
+            >
+              <BsGoogle size={20} />
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary btn-floating rounded-circle mx-1"
+            >
+              <BsTwitter size={20} />
+            </button>
+          </div>
         </div>
       </form>
     </div>
