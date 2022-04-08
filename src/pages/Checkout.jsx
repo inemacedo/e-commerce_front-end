@@ -20,7 +20,7 @@ async function fetchData({ url, method, token, body }) {
 
 function Checkout() {
   const cart = useSelector((state) => state.cart);
-  const user = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.user);
   const [userInfo, setUserInfo] = useState({});
   const navigate = useNavigate();
 
@@ -68,20 +68,20 @@ function Checkout() {
 
             <div className="mb-2">
               <span className="fw-bold">Nombre y Apellido: </span>
-              <span>{userInfo.firstname} </span>
-              <span>{userInfo.lastname}</span>
+              <span>{user.firstname} </span>
+              <span>{user.lastname}</span>
             </div>
             <div className="mb-2">
               <span className="fw-bold">Dirección: </span>
-              <span>{userInfo.address} </span>
+              <span>{user.address} </span>
             </div>
             <div className="mb-2">
               <span className="fw-bold">Email: </span>
-              <span>{userInfo.address}</span>
+              <span>{user.address}</span>
             </div>
             <div className="mb-2">
               <span className="fw-bold">Teléfono: </span>
-              <span>{userInfo.phone}</span>
+              <span>{user.phone}</span>
             </div>
 
             <h4 className="fs-5 fw-bold mt-4 mb-4">
@@ -95,13 +95,21 @@ function Checkout() {
 
             <div className="mb-4">
               <label className="form-label">Número de tarjeta *</label>
-              <input type="number" className="form-control" />
+              <input
+                type="number"
+                className="form-control"
+                placeholder="XXXX-XXXX-XXXX-XXXX"
+              />
             </div>
             <div className="mb-4">
               <label className="form-label">
                 Nombre y apellido titular de la tarjeta *
               </label>
-              <input type="text" className="form-control" />
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Nombre Apellido"
+              />
             </div>
             <div className="row">
               <div className="col-md-6">
@@ -110,7 +118,11 @@ function Checkout() {
               </div>
               <div className="col-md-6">
                 <label className="form-label">Código de Seguridad *</label>
-                <input type="email" className="form-control me-5" />
+                <input
+                  type="email"
+                  className="form-control me-5"
+                  placeholder="XXX"
+                />
               </div>
               <img
                 src="https://azioqgupehjwofkjwddr.supabase.co/storage/v1/object/public/e-commerce/paymentmethods/payment.jpg"

@@ -44,7 +44,7 @@ function Profile() {
         </div>
         <div className="col-8  text-center">
           <div className="d-flex flex-column ms-5">
-            <Link to="/mis-pedidos" className="btn btn-outline-dark mt-4">
+            <Link to="/mis-compras" className="btn btn-outline-dark mt-4">
               Mis pedidos
             </Link>
           </div>
@@ -67,14 +67,14 @@ function Profile() {
       </div>
 
       {/* Logout button */}
-      <div className="text-center my-5">
+      {/*       <div className="text-center my-5">
         <button
           className="btn btn-outline-danger fw-bolder"
           onClick={handleClick}
         >
           Cerrar sesión
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
