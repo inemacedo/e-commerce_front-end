@@ -71,11 +71,14 @@ function Product() {
               className="d-flex align-items-center"
               closeButton={false}
             >
-              <BsCart2 className="text-dark align-self-start" size={24} />
-              <span className="badge bg-dark fs-6 ms-1 pt-1">+1</span>
-              <strong className="d-block text-dark fs-6 mx-3 my-0">
+              <BsCart2 className="text-dark align-self-start" size={22} />
+              <span className="ms-2 fw-bold text-dark">+ 1</span>
+              {/* <span className="badge badge-toast bg-dark fs-6 ms-1 pt-1">
+                + 1
+              </span> */}
+              {/* <strong className="d-block text-dark fs-6 mx-3 my-0">
                 Carrito
-              </strong>
+              </strong> */}
             </Toast.Header>
             <Toast.Body className="text-dark">
               Item agregado correctamente.
@@ -110,7 +113,7 @@ function Product() {
                 className="btn btn-dark rounded-pill py-3 px-4 mt-4 mt-md-0"
                 onClick={handleClick}
               >
-                Añadir al Carrito
+                AÑADIR AL CARRITO
               </button>
             </div>
             <div className="mb-5 payment-methods-wrap">
@@ -129,24 +132,25 @@ function Product() {
               </p>
               <p>Costo variable según tamaño del paquete.</p>
             </div>
-            <h4 className="fw-bold">CARACTERÍSTICAS</h4>
+            <h4 className="fw-bold">Características</h4>
+            <hr />
             <div>
-              <div className="row ">
-                <h5 className="col-md-4">Medidas:</h5>
+              <div className="row g-1 ">
+                <p className="col-md-3">Medidas:</p>
                 <p className="col-md">{product.measures}</p>
               </div>
               <div className="row ">
-                <h5 className="col-md-4">Material:</h5>
+                <p className="col-md-3">Material:</p>
                 <p className="col-md">{product.material}</p>
               </div>
               <div className="row ">
-                <h5 className="col-md-4">Estilo:</h5>
+                <p className="col-md-3">Estilo:</p>
                 <p className="col-md" colSpan="2">
                   {product.style}
                 </p>
               </div>
               <div className="row ">
-                <h5 className="col-md-4">Ambiente:</h5>
+                <p className="col-md-3">Ambiente:</p>
                 <p className="col-md" colSpan="2">
                   {product.environment}
                 </p>
