@@ -67,14 +67,14 @@ function Profile() {
       </div>
 
       {/* Logout button */}
-      <div className="text-center my-5">
+      {/*       <div className="text-center my-5">
         <button
           className="btn btn-outline-danger fw-bolder"
           onClick={handleClick}
         >
           Cerrar sesión
         </button>
-      </div>
+      </div> */}
     </div>
   );
 }
