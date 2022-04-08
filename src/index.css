@@ -112,6 +112,16 @@ p {
   }
 }
 
+/* HEADER */
+.header-background {
+  max-height: 90vh;
+}
+.header-background .btn-light:hover{
+  background-color: #212529;
+  color: #eae6e1;
+}
+
+
 /* FOOTER */
 
 .footer-link {
@@ -231,15 +241,22 @@ font-family: 'Red Hat Display', sans-serif; // cultocafe
   z-index: 20;
   transform: translate(calc(50% - 1rem), -50%) rotate(-90deg);
 }
-#floatingAboutUs .text-dark {
-  opacity: 0.5;
+#floatingAboutUs .link {
+  /* opacity: 0.8; */
   display: block;
-  background: #ffcdd2;
+  /* background: #ffcdd2; */
+  background: white;
+  color: #4c4c49;
+  font-weight: 600;
   border-radius: 10px 10px 0 0;
-  transition: opacity 0.3s;
+  transition: color, background-color 0.3s;
 }
-#floatingAboutUs .text-dark:hover {
+#floatingAboutUs .link:hover {
   opacity: 1;
+  /* background: white;
+  color: #0a0a0a; */
+  background-color: #0a0a0a;
+  color: white;
 }
 
 /* profile */
