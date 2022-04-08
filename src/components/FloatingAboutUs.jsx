@@ -10,7 +10,7 @@ function FloatingAboutUs() {
         className="text-decoration-none text-dark px-4 py-1 shadow-lg"
         to="/sobre-nosotros"
       >
-        <h5>Sobre nosotros</h5>
+        <span>Sobre nosotros</span>
       </Link>
     </div>
   );
