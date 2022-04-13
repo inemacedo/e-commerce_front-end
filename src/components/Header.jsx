@@ -8,7 +8,9 @@ function Header({ title }) {
       <h1 className="text-light m-5 m-md-0">
         {title ? title : "Tu casa, tu lugar en el mundo"}
       </h1>
-      <Link className="btn btn-lg btn-light mt-5" to="/productos" >Explorar</Link>
+      <Link className="btn btn-lg btn-light mt-5" to="/productos">
+        Explorar
+      </Link>
     </div>
   );
 }
