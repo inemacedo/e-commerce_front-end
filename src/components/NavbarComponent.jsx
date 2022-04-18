@@ -17,19 +17,21 @@ import { ReactComponent as LogoHackHome } from "../icons/logohackhome.svg";
 // si cambia el params cerrar la nav
 
 function NavbarComponent() {
-  const [categories, setCategories] = useState([]);
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
   const params = useParams();
   const dispatch = useDispatch();
+  const [categories, setCategories] = useState([]);
+  const [showPopover, setShowPopover] = useState(false);
+  const [target, setTarget] = useState(null);
+  const [showNav, setShowNav] = useState(false);
+  const [showNavDropdown, setShowNavDropdown] = useState(false);
 
   const handleLogout = async () => {
     dispatch({ type: "REMOVE_CART" });
     dispatch({ type: "LOGOUT" });
   };
 
-  const [showPopover, setShowPopover] = useState(false);
-  const [target, setTarget] = useState(null);
   const ref = useRef(null);
 
   const handleClickPopover = (event) => {
@@ -37,8 +39,6 @@ function NavbarComponent() {
     setTarget(event.target);
   };
 
-  const [showNav, setShowNav] = useState(false);
-  const [showNavDropdown, setShowNavDropdown] = useState(false);
 
   const totalItems = cart.reduce((acc, product) => acc + product.quantity, 0);
 
@@ -66,7 +66,11 @@ function NavbarComponent() {
   useEffect(() => {
     setShowNavDropdown(false);
     setShowNav(false);
+    setShowPopover(false);
   }, [params]);
+  useEffect(() => {
+    setShowPopover(false);
+  }, [showNav]);
 
   return (
     <div>
@@ -91,9 +95,8 @@ function NavbarComponent() {
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto">
               <NavDropdown
-                className={`navbar-links m-0 ms-xl-4 mb-lg-0 ms-xxl-5 pointer d-flex flex-column align-items-center ${
-                  showNavDropdown ? "mb-4" : ""
-                }`}
+                className={`navbar-links m-0 ms-xl-4 mb-lg-0 ms-xxl-5 pointer d-flex flex-column align-items-center ${showNavDropdown ? "mb-4" : ""
+                  }`}
                 title="Productos"
                 id="navbarScrollingDropdown"
                 show={showNavDropdown}
@@ -145,7 +148,7 @@ function NavbarComponent() {
                   type="button"
                   className="navbar-links navbar-icon m-0 p-4 bg-white border-0 text-center"
 
-                  /* to={user.token ? "/mi-perfil" : "/login"} */
+                /* to={user.token ? "/mi-perfil" : "/login"} */
                 >
                   <AiOutlineUser size={20} />
                 </button>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Spinner, ProgressBar } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import Order from "../components/Order";
 
 function MyOrders() {
@@ -40,20 +40,17 @@ function MyOrders() {
         <div className="col-12 col-lg-7">
           <div className="d-flex justify-content-between align-items-center mb-3"></div>
           <div className="d-flex justify-content-between align-items-center mb-3">
-            <h1 className="fs-4 fw-bold mb-0 text-black">MIS COMPRAS</h1>
+            <h1 className="fs-4 fw-bold mb-0 text-black">MIS ÓRDENES</h1>
             {/* <Link to="/profile" className="btn btn-dark ms-auto">
           Editar usuario
         </Link> */}
           </div>
           <hr className="my-4" />
 
-          {/* 
-      </div> */}
-
-          {orders ? (
+          {orders[0] ? (
             orders.map((order) => <Order order={order} key={order.id} />)
           ) : (
-            <div className="mb-5 d-flex justify-content-center">
+            <div className="mb-5 d-flex justify-content-center ">
               <Spinner animation="border" role="status">
                 <span className="visually-hidden">Loading...</span>
               </Spinner>
@@ -64,19 +61,19 @@ function MyOrders() {
           <div className="p-5 bg-grey d-flex flex-column">
             <h3 className="fw-bold fs-4 mb-4">MIS DATOS</h3>
             <div>
-              <span>Nombre: </span> <span>{user.firstname}</span>
+              <span>Nombre: {user.firstname}</span>
             </div>
             <div>
-              <span>Apellido: </span> <span>{user.lastname}</span>
+              <span>Apellido: {user.lastname}</span>
             </div>
             <div>
-              <span>Email: </span> <span>{user.email}</span>
+              <span>Email: {user.email}</span>
             </div>
             <div>
-              <span>Dirección: </span> <span>{user.address}</span>
+              <span>Dirección: {user.address}</span>
             </div>
             <div>
-              <span>Teléfono: </span> <span>{user.phone}</span>
+              <span>Teléfono: {user.phone}</span>
             </div>
           </div>
         </div>

@@ -1,8 +1,13 @@
 import { format, parseISO } from "date-fns";
+import { useState } from "react";
 import { BsTrash } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 function Order({ order }) {
+
+  const [showOptions, setShowOptions] = useState(false);
+
   return (
     <div>
       <h5 className="fw-bold">Orden {order.id}</h5>
@@ -25,14 +30,21 @@ function Order({ order }) {
           ))}
         </div>
       </div>
-      {/* <div className="d-flex justify-content-end align-items-center">
+      <div className="d-flex justify-content-end align-items-center">
         <button className="border-0 bg-white px-0 pt-0 pb-1 mt-3 me-2">
           <FiEdit size={16} color={"grey"} />
         </button>
         <button className="border-0 bg-white px-0 pt-0 pb-1 mt-3">
           <BsTrash size={16} color={"grey"} />
         </button>
-      </div> */}
+      </div>
+
+      <button>ooo</button>
+
+      <div className={`${showOptions ? "d-nonde" : "d-block"}`} >
+        <p>BORRAR ORDEN</p>
+      </div>
+
       <hr className="mb-4" />
     </div>
   );
