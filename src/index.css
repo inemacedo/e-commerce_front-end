@@ -32,6 +32,7 @@ p {
   font-family: "Red Hat Display", sans-serif;
   font-size: 2rem;
 }
+
 .navbar-icon {
   color: black;
 }
@@ -44,9 +45,11 @@ p {
   text-decoration: none;
   color: black;
 }
+
 .navbar-links:hover {
   color: var(--dark-grey);
 }
+
 .navbar-icon .badge {
   min-width: 1.5rem;
 }
@@ -78,6 +81,7 @@ p {
     transition: all ease-in-out 250ms;
     margin-left: 2rem;
   }
+
   .navbar-links::after {
     content: "";
     position: absolute;
@@ -89,6 +93,7 @@ p {
     background-color: var(--black);
     transition: all ease-in-out 250ms;
   }
+
   .navbar-links:hover::after {
     width: 100%;
   }
@@ -99,6 +104,7 @@ p {
     overflow: hidden;
     margin-bottom: 1rem;
   }
+
   /* .navbar-icons {
     display: flex;
     flex-direction: column;
@@ -107,6 +113,7 @@ p {
     margin-top: 1rem;
     text-align: center;
   }
+
   .navbar-links {
     text-align: center;
   }
@@ -116,7 +123,8 @@ p {
 .header-background {
   max-height: 90vh;
 }
-.header-background .btn-light:hover{
+
+.header-background .btn-light:hover {
   background-color: #212529;
   color: #eae6e1;
 }
@@ -128,6 +136,7 @@ p {
   color: black;
   text-decoration: none;
 }
+
 .footer-link:hover {
   color: var(--dark-grey);
 }
@@ -162,12 +171,14 @@ p {
   width: 10rem;
   height: 10rem;
 }
+
 @media (min-width: 992px) {
   .author-profile {
     width: 13rem;
     height: 13rem;
   }
 }
+
 @media (min-width: 1200px) {
   .author-profile {
     width: 16rem;
@@ -206,6 +217,7 @@ p {
   position: relative;
   opacity: 0.3;
 }
+
 .image-gallery-image.opacity-1 {
   opacity: 1;
 }
@@ -215,7 +227,8 @@ p {
   display: none;
   pointer-events: none;
 }
-.productImg:hover ~ .envImg {
+
+.productImg:hover~.envImg {
   display: block;
 }
 
@@ -241,6 +254,7 @@ font-family: 'Red Hat Display', sans-serif; // cultocafe
   z-index: 20;
   transform: translate(calc(50% - 1rem), -50%) rotate(-90deg);
 }
+
 #floatingAboutUs .link {
   /* opacity: 0.8; */
   display: block;
@@ -251,6 +265,7 @@ font-family: 'Red Hat Display', sans-serif; // cultocafe
   border-radius: 10px 10px 0 0;
   transition: color, background-color 0.3s;
 }
+
 #floatingAboutUs .link:hover {
   opacity: 1;
   /* background: white;
@@ -276,4 +291,12 @@ font-family: 'Red Hat Display', sans-serif; // cultocafe
   .circle-profile {
     display: none;
   }
+}
+
+/* Orders */
+
+.order-options-menu {
+  position: absolute;
+  right: 60px;
+  top: 0;
 }

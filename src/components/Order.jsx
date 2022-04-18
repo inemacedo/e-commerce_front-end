@@ -1,16 +1,23 @@
 import { format, parseISO } from "date-fns";
 import { useState } from "react";
 import { BsTrash } from "react-icons/bs";
-import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
+// import { Modal }
+import { ToastContainer, Toast } from "react-bootstrap";
 
-function Order({ order }) {
+function Order({ order, handleDelete }) {
 
-  const [showOptions, setShowOptions] = useState(false);
+  const { products } = order;
 
   return (
     <div>
-      <h5 className="fw-bold">Orden {order.id}</h5>
+
+      <div className="my-2 d-flex align-items-center justify-content-between" >
+        <h5 className="fw-bold m-0">Orden {order.id}</h5>
+        <button className="btn p-0" onClick={() => handleDelete(order)} >
+          <BsTrash size={20} color={"grey"} />
+        </button>
+      </div>
       <div className="row">
         <div className="col-md-6">
           <p className="my-0">Direccion: {order.address}</p>
@@ -23,26 +30,12 @@ function Order({ order }) {
         </div>
         <div className="col-md-6">
           Articulos:
-          {order.products.map((product) => (
-            <p key={product.id} className="my-0">
-              - {product.title}
-            </p>
-          ))}
+          <ul>
+            {products[0] && products.map((product) => (
+              <li key={product.id} className="my-0">{product.title} (x{product.quantity})</li>
+            ))}
+          </ul>
         </div>
-      </div>
-      <div className="d-flex justify-content-end align-items-center">
-        <button className="border-0 bg-white px-0 pt-0 pb-1 mt-3 me-2">
-          <FiEdit size={16} color={"grey"} />
-        </button>
-        <button className="border-0 bg-white px-0 pt-0 pb-1 mt-3">
-          <BsTrash size={16} color={"grey"} />
-        </button>
-      </div>
-
-      <button>ooo</button>
-
-      <div className={`${showOptions ? "d-nonde" : "d-block"}`} >
-        <p>BORRAR ORDEN</p>
       </div>
 
       <hr className="mb-4" />

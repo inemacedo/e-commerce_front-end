@@ -6,7 +6,6 @@ import CartItem from "../components/CartItem";
 
 function Cart() {
   const cart = useSelector((state) => state.cart);
-  const hasProducts = cart.length > 0;
   const totalCartItems = cart.reduce(
     (acc, elem) => (acc += Number(elem.quantity)),
     0
@@ -26,7 +25,7 @@ function Cart() {
           </div>
           <hr className="my-4" />
 
-          {hasProducts ? (
+          {cart[0] ? (
             cart.map((product) => <CartItem key={product.id} item={product} />)
           ) : (
             <p>No hay productos en el carrito aún</p>
@@ -44,7 +43,7 @@ function Cart() {
           <div className="p-5 bg-grey d-flex flex-column">
             <h3 className="fw-bold fs-4">SUBTOTAL</h3>
             {cart.map((product) => (
-              <div className="row mt-4 ">
+              <div key={product.id} className="row mt-4">
                 <div className="col-6">{product.title} </div>
                 <div className="col-6 d-flex justify-content-end">
                   <p>
@@ -66,9 +65,8 @@ function Cart() {
             <Link
               to="/checkout"
               type="button"
-              className={`${
-                cart.length > 0 ? "" : "disabled"
-              } btn btn-dark btn-block btn-lg rounded-pill align-self-end px-4 py-2 me-auto mt-4`}
+              className={`${cart.length > 0 ? "" : "disabled"
+                } btn btn-dark btn-block btn-lg rounded-pill align-self-end px-4 py-2 me-auto mt-4`}
               data-mdb-ripple-color="dark"
             >
               FINALIZAR COMPRA

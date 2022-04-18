@@ -21,6 +21,7 @@ const cartActions = {
     };
   },
   removeItemCart: { type: "REMOVE_ITEM_CART" },
+  clearCart: { type: "REMOVE_CART" },
 };
 
 export default cartActions;

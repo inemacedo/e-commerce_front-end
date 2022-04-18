@@ -134,7 +134,7 @@ function Home() {
       </div>
 
       <div className="container">
-        <h2 className="fw-bold mb-5">¿Cómo fue el proceso?</h2>
+        <h2 className="fw-bold mb-5">¿Cómo fué el proceso?</h2>
         <div className="row">
           <div
             className="col-md-6 text-center "
@@ -236,7 +236,7 @@ function Home() {
 
       <div className="container">
         <h2 className="fw-bold mb-5">
-          ¿Qué tecnologias fueron usadas en este proyecto?
+          ¿Qué tecnologías fueron usadas en este proyecto?
         </h2>
         <div className="row">
           <div className="col-md-6">

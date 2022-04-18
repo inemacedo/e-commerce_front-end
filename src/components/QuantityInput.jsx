@@ -25,7 +25,8 @@ function QuantityInput({ handleUpdateQtty, quantityTotal, product }) {
       <button className="quantity-button" onClick={handleRemoveUnit}>
         -
       </button>
-      <input value={quantity} type="number" className="quantity-input" />
+      {/* <input value={quantity} type="number" className="quantity-input" /> */}
+      <span className="quantity-input" >{quantity}</span>
       <button className="quantity-button" onClick={handleAddUnit}>
         +
       </button>

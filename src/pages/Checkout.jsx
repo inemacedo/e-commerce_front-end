@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../styles/Checkout.css";
 import { useNavigate } from "react-router-dom";
@@ -21,6 +21,7 @@ async function fetchData({ url, method, token, body }) {
 function Checkout() {
   const cart = useSelector((state) => state.cart);
   const { user, token } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const total = cart.reduce(
@@ -31,14 +32,19 @@ function Checkout() {
   const handleSubmit = async (ev) => {
     ev.preventDefault();
 
-    await fetchData({
-      url: process.env.REACT_APP_API_URL + "/orders",
-      method: "POST",
-      token: token,
-      body: { cart, total },
-    });
-    navigate("/gracias");
-    console.log(ev);
+    try {
+      await fetchData({
+        url: process.env.REACT_APP_API_URL + "/orders",
+        method: "POST",
+        token: token,
+        body: { cart, total },
+      });
+      dispatch({ type: "REMOVE_CART" });
+      navigate("/gracias");
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -86,6 +92,7 @@ function Checkout() {
                 type="text"
                 className="form-control"
                 value="1534-5627-9994-4444"
+                onChange={() => { }}
               />
             </div>
             <div className="mb-4">
@@ -96,6 +103,7 @@ function Checkout() {
                 type="text"
                 className="form-control"
                 value={`${user.firstname} ${user.lastname}`}
+                onChange={() => { }}
               />
             </div>
             <div className="row">
@@ -105,6 +113,7 @@ function Checkout() {
                   type="date"
                   className="form-control me-5"
                   value="2024-07-22"
+                  onChange={() => { }}
                 />
               </div>
               <div className="col-md-6">
@@ -113,6 +122,7 @@ function Checkout() {
                   type="number"
                   className="form-control me-5"
                   value="552"
+                  onChange={() => { }}
                 />
               </div>
               <img
@@ -125,8 +135,8 @@ function Checkout() {
           <div className="col-12 col-lg-5">
             <div className="p-5 bg-grey d-flex flex-column mb-5">
               <h3 className="fw-bold fs-4">TU PEDIDO</h3>
-              {cart.map((product) => (
-                <div className="row mt-4 ">
+              {cart[0] && cart.map((product) => (
+                <div className="row mt-4" key={product.id} >
                   <div className="col-6">{product.title} </div>
                   <div className="col-6 d-flex justify-content-end">
                     <p>
@@ -162,9 +172,8 @@ function Checkout() {
               </div>
               <button
                 type="submit"
-                className={`${
-                  cart.length > 0 ? "" : "disabled"
-                } btn btn-dark btn-block btn-lg rounded-pill align-self-end px-4 py-2 me-auto mt-4`}
+                className={`${cart.length > 0 ? "" : "disabled"
+                  } btn btn-dark btn-block btn-lg rounded-pill align-self-end px-4 py-2 me-auto mt-4`}
                 data-mdb-ripple-color="dark"
               >
                 REALIZAR PEDIDO
