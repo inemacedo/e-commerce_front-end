@@ -45,6 +45,7 @@ function Product() {
   console.log(images);
 
   const handleClick = () => {
+    window.scrollTo(0, 0);
     setShow(true);
     dispatch({
       type: "ADD_ITEM_CART",

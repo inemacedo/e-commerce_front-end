@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../styles/Checkout.css";
 import { useNavigate } from "react-router-dom";
+import { Spinner, ProgressBar } from "react-bootstrap";
 
 async function fetchData({ url, method, token, body }) {
   const response = await fetch(url, {
@@ -19,6 +20,7 @@ async function fetchData({ url, method, token, body }) {
 }
 
 function Checkout() {
+  const [showSpinner, setShowSpinner] = useState(false);
   const cart = useSelector((state) => state.cart);
   const { user, token } = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -31,27 +33,39 @@ function Checkout() {
 
   const handleSubmit = async (ev) => {
     ev.preventDefault();
+    setShowSpinner(true);
+    setTimeout(async () => {
+      try {
+        await fetchData({
+          url: process.env.REACT_APP_API_URL + "/orders",
+          method: "POST",
+          token: token,
+          body: { cart, total },
+        });
+        dispatch({ type: "REMOVE_CART" });
+        // setShowSpinner(false);
+        navigate("/gracias");
 
-    try {
-      await fetchData({
-        url: process.env.REACT_APP_API_URL + "/orders",
-        method: "POST",
-        token: token,
-        body: { cart, total },
-      });
-      dispatch({ type: "REMOVE_CART" });
-      navigate("/gracias");
-
-    } catch (error) {
-      console.log(error);
-    }
+      } catch (error) {
+        console.log(error);
+      }
+    }, 5000);
   };
 
   return (
     <section className="container py-5 h-100">
+      {showSpinner && <div className="dark-background-spinner d-flex flex-column align-items-center justify-content-center">
+        <div className="d-flex flex-column align-items-center justify-content-center p-5 rounded" >
+          <Spinner animation="border mx-auto" role="status" variant="light">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+          <span className="text-center mx-0 mt-5 mb-0" >Estamos procesando los datos de pago...</span>
+          <span className="text-center mx-0 mt-2 mb-0" >Esto solo toma un par de segundos</span>
+        </div>
+      </div>}
       <form onSubmit={handleSubmit}>
-        <div className="row g-5">
-          <div className="col-12 col-lg-7">
+        <div className="row g-0 g-lg-5">
+          <div className="col-12 col-lg-7 pe-4 pe-sm-0">
             <div className="d-flex justify-content-between align-items-center mb-3">
               <h1 className="fs-4 fw-bold mb-0 text-black">
                 DETALLES FACTURACIÓN
@@ -70,7 +84,7 @@ function Checkout() {
             </div>
             <div className="mb-2">
               <span className="fw-bold">Email: </span>
-              <span>{user.address}</span>
+              <span>{user.email}</span>
             </div>
             <div className="mb-2">
               <span className="fw-bold">Teléfono: </span>

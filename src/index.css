@@ -224,12 +224,16 @@ p {
 
 /* Product Card */
 .envImg {
-  display: none;
+  /* display: none; */
   pointer-events: none;
+  opacity: 0;
+  transition: opacity .6s;
 }
 
 .productImg:hover~.envImg {
-  display: block;
+  opacity: 1;
+  /* display: block; */
+  /* animation: fade-in 1s; */
 }
 
 /* fuentes:
