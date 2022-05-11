@@ -58,22 +58,9 @@ p {
   background-color: #bebebe;
 }
 
-/*.sobre-nosotros {
-  animation-name: multicolor;
-  animation-duration: 1s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-direction: alternate-reverse;
+#sobre-nosotros {
+  background-color: white;
 }
-@keyframes multicolor {
-  from {
-    color: #e98a1d;
-    box-shadow: 0 0 3px 0px #d37509 inset;
-  }
-  to {
-    color: black;
-  }
-} */
 
 @media (min-width: 991px) {
   .navbar-links {
@@ -303,4 +290,17 @@ font-family: 'Red Hat Display', sans-serif; // cultocafe
   position: absolute;
   right: 60px;
   top: 0;
+}
+
+.dark-opacity-bg {
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.zindex-4 {
+  z-index: 4;
 }

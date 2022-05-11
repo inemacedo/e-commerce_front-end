@@ -4,6 +4,7 @@ import Products from "./pages/Products";
 import Product from "./pages/Product";
 import About from "./pages/About";
 import NavbarComponent from "./components/NavbarComponent";
+import ModalBootstrap from "./components/Modal";
 import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
@@ -15,11 +16,29 @@ import MyOrders from "./pages/MyOrders";
 import PrivateRoute from "./components/PrivateRoute";
 import EditProfile from "./pages/EditProfile";
 import FloatingAboutUs from "./components/FloatingAboutUs";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 
 function App() {
+  const welcomeModal = useSelector((state) => state.welcome);
+  const [show, setShow] = useState(welcomeModal.show);
   const params = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleClose = (link) => {
+    if (link === "Sobre este proyecto") {
+      setTimeout(() => {
+        dispatch({ type: "HIDE_MODAL" });
+        navigate("/sobre-este-proyecto");
+      }, 100);
+    } else setTimeout(() => {
+      dispatch({ type: "HIDE_MODAL" });
+    }, 2000);
+    setShow(false);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -46,6 +65,8 @@ function App() {
         <Route path="/gracias" element={<ThankYou />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
+      <ModalBootstrap show={show} handleClose={handleClose} />
+      {welcomeModal.show && <div className="position-fixed dark-opacity-bg" ></div>}
       <FloatingAboutUs />
       <Footer />
     </div>
