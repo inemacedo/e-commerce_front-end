@@ -8,7 +8,7 @@ function ModalBootstrap({ show, handleClose }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({reset:true}),
-    });
+    }).then(()=>location.reload());
     handleClose();
   }
 
