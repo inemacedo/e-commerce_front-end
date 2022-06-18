@@ -6,6 +6,7 @@ function ModalBootstrap({ show, handleClose }) {
   const resetDB = async ()=>{
     fetch("https://api-ecommerce-ha.vercel.app/db/reset", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({reset:true}),
     });
     handleClose();
