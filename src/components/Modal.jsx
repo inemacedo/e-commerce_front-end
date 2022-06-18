@@ -2,6 +2,14 @@
 import { Button, Modal } from "react-bootstrap";
 
 function ModalBootstrap({ show, handleClose }) {
+  
+  const resetDB = async ()=>{
+    fetch("https://api-ecommerce-ha.vercel.app/db/reset", {
+      method: "POST",
+      body: JSON.stringify({reset:true}),
+    });
+    handleClose();
+  }
 
   return (<Modal size="lg" show={show} onHide={handleClose} centered >
     <Modal.Header closeButton>
@@ -13,7 +21,7 @@ function ModalBootstrap({ show, handleClose }) {
       <p >Te invitamos a que visites la sección <b>Sobre este proyecto</b> para más información.</p>
     </Modal.Body>
     <Modal.Footer>
-      <Button variant="outline-dark" onClick={handleClose}>
+      <Button variant="outline-dark" onClick={resetDB}>
         Reset DataBase
       </Button>
       <Button variant="dark" onClick={() => handleClose("Sobre este proyecto")}>
