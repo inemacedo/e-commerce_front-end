@@ -65,7 +65,7 @@ function Footer() {
             </div>
 
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold">Suíguenos!</h6>
+              <h6 className="text-uppercase fw-bold">Síguenos!</h6>
               <hr
                 className="mb-4 mt-0 d-inline-block mx-auto"
                 style={{
