@@ -1,15 +1,17 @@
 
 import { Button, Modal } from "react-bootstrap";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function ModalBootstrap({ show, handleClose }) {
-  
-  const resetDB = async ()=>{
-    fetch("https://api-ecommerce-ha.vercel.app/db/reset", {
+
+  const resetDB = async () => {
+    await fetch("https://api-ecommerce-ha.vercel.app/db/reset", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({reset:true}),
-    }).then(()=>location.reload());
-    handleClose();
+      body: JSON.stringify({ reset: true }),
+    });
+    handleClose("reset");
+
   }
 
   return (<Modal size="lg" show={show} onHide={handleClose} centered >

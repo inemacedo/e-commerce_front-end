@@ -13,10 +13,10 @@ function Categories() {
         const response = await fetch(
           `${process.env.REACT_APP_API_URL}/categories`
         );
-        console.log(response);
+        // console.log(response);
         if (response.status === 200) {
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           setCategories(data);
         }
       } catch (error) {

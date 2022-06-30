@@ -47,7 +47,7 @@ function Checkout() {
         navigate("/gracias");
 
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     }, 5000);
   };

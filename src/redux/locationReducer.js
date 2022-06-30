@@ -1,7 +1,7 @@
 export function locationReducer(path = {}, action) {
   switch (action.type) {
     case "SAVE_PATH":
-      console.log(action);
+      // console.log(action);
       return {
         prevPath: action.payload
       };

@@ -42,7 +42,7 @@ function Product() {
       originalHeight: 800,
     },
   ];
-  console.log(images);
+  // console.log(images);
 
   const handleClick = () => {
     window.scrollTo(0, 0);
@@ -94,7 +94,7 @@ function Product() {
             <ImageGallery
               items={images}
               onImageLoad={(ev) => {
-                console.log("Imagen cargada", ev);
+                // console.log("Imagen cargada", ev);
                 ev.target.classList.add("opacity-1");
               }}
               /* showNav={false} */

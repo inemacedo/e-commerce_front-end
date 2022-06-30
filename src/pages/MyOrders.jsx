@@ -26,7 +26,7 @@ function MyOrders() {
         }
       });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 
@@ -44,11 +44,11 @@ function MyOrders() {
         );
         if (response.status === 200) {
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           setOrders(data);
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     getOrders();

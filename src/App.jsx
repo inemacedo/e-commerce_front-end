@@ -29,7 +29,12 @@ function App() {
   const navigate = useNavigate();
 
   const handleClose = (link) => {
-    if (link === "Sobre este proyecto") {
+    if (link === "reset") {
+      dispatch({ type: "HIDE_MODAL" });
+      setShow(false);
+      window.location.reload();
+    }
+    else if (link === "Sobre este proyecto") {
       setTimeout(() => {
         dispatch({ type: "HIDE_MODAL" });
         navigate("/sobre-este-proyecto");

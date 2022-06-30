@@ -6,7 +6,7 @@ function CartItem({ item }) {
   const dispatch = useDispatch();
 
   const handleUpdateQtty = () => {
-    console.log("Checkear si hay stock");
+    // console.log("Checkear si hay stock");
   };
 
   const handleDelete = () => {

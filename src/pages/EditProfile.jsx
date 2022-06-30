@@ -43,7 +43,7 @@ function EditProfile() {
     dispatch({ type: "LOGOUT" });
   };
   const onSubmit = async (data) => {
-    console.log(user);
+    // console.log(user);
     await fetchData({
       url: process.env.REACT_APP_API_URL + `/users/${user.id}`,
       method: "PATCH",

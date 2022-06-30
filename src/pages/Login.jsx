@@ -32,14 +32,14 @@ function Login() {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     setShowSpinner(true);
     const response = await fetchData({
       url: `${process.env.REACT_APP_API_URL}/tokens`,
       method: "POST",
       body: data,
     });
-    console.log(response);
+    // console.log(response);
     if (response.status !== 200) {
       setShowSpinner(false);
       setShowError(true);
@@ -91,9 +91,8 @@ function Login() {
         <div className="form-outline mb-4 w-100">
           <input
             type="password"
-            className={`form-control form-control-user ${
-              showError ? "border-danger" : ""
-            }`}
+            className={`form-control form-control-user ${showError ? "border-danger" : ""
+              }`}
             id="inputPassword"
             placeholder="Password"
             defaultValue=""
