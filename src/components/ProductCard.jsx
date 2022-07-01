@@ -1,6 +1,8 @@
+
+import "../styles/productCard.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Navigate, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
 
 function ProductCard({ product }) {
@@ -17,26 +19,24 @@ function ProductCard({ product }) {
     navigate(`/producto/${product.slug}`);
   };
   return (
-    <>
-      <NavLink
-        className="d-flex position-relative"
-        to={`/producto/${product.slug}`}
-      >
+    <Link
+      className="product text-decoration-none"
+      to={`/producto/${product.slug}`}
+    >
+      <div className="d-flex position-relative" >
         <img
           onLoad={() => setShowSpinner(false)}
           src={product.imgBaseUrl + "/" + product.image}
           alt={product.title}
-          className={`${
-            showSpinner ? "opacity-0" : ""
-          } productImg mb-2 img-fluid`}
+          className={`${showSpinner ? "opacity-0" : ""
+            } productImg mb-2 img-fluid`}
           style={{ minHeight: "5rem" }}
         />
         <img
           src={product.imgBaseUrl + "/" + product.imageenvironment}
           alt={product.title}
-          className={`${
-            showSpinner ? "opacity-0" : ""
-          } envImg position-absolute mb-2 img-fluid`}
+          className={`${showSpinner ? "opacity-0" : ""
+            } envImg position-absolute mb-2 img-fluid`}
         />
         {showSpinner && (
           <div
@@ -50,21 +50,11 @@ function ProductCard({ product }) {
             ></Spinner>
           </div>
         )}
-      </NavLink>
-      {/* <button
-        onClick={handleClick}
-        className="btn border btn-outline-dark w-100 mb-2"
-      >
-        Agregar al Carrito
-      </button> */}
-      <NavLink
-        className="text-decoration-none text-dark"
-        to={`/producto/${product.id}`}
-      >
-        {product.title}
-      </NavLink>
-      <p className="fw-bold">USD {product.price}</p>
-    </>
+      </div>
+      <p className="fw-bold"> {product.title} USD {product.price}</p>
+
+    </Link>
+
   );
 }
 

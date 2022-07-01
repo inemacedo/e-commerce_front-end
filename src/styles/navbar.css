@@ -1,0 +1,90 @@
+/* NAVBAR */
+
+#navbar-text-logo {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 2rem;
+}
+
+.navbar-icon {
+  color: black;
+}
+
+.navbar-icon:hover {
+  color: var(--dark-grey);
+}
+
+.navbar-links {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.App.dark .navbar-links {
+  text-decoration: none;
+  color: var(--light-grey);
+}
+
+#navbarScrollingDropdown {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.App.dark #navbarScrollingDropdown {
+  text-decoration: none;
+  color: var(--light-grey);
+}
+
+.navbar-links:hover {
+  color: var(--dark-grey);
+}
+
+.navbar-icon .badge {
+  min-width: 1.5rem;
+}
+
+.text-decoration-none.text-dark.dropdown-item:active {
+  background-color: #bebebe;
+}
+
+#sobre-nosotros {
+  background-color: white;
+}
+
+@media (min-width: 991px) {
+  .navbar-links {
+    position: relative;
+    transition: all ease-in-out 250ms;
+    margin-left: 2rem;
+  }
+
+  .navbar-links::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    display: block;
+    height: 2px;
+    width: 0%;
+    background-color: var(--black);
+    transition: all ease-in-out 250ms;
+  }
+
+  .navbar-links:hover::after {
+    width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-links {
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .navbar-icon {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .navbar-links {
+    text-align: center;
+  }
+}

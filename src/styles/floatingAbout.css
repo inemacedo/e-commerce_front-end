@@ -1,0 +1,32 @@
+/* Floating About Us Button */
+#floatingAboutUs {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 20;
+  transform: translate(calc(50% - 1rem), -50%) rotate(-90deg);
+}
+
+#floatingAboutUs .link {
+  display: block;
+  background: white;
+  font-weight: 600;
+  border-radius: 10px 10px 0 0;
+  transition: color, background-color 0.3s;
+}
+
+#floatingAboutUs .link span {
+  /* color: #4c4c49; */
+  color: black;
+}
+
+#floatingAboutUs .link:hover {
+  opacity: 1;
+  /* background: white; */
+  /* color: #0a0a0a; */
+  background-color: #0a0a0a;
+}
+
+.App #floatingAboutUs .link:hover span {
+  color: white;
+}

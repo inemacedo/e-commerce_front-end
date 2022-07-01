@@ -1,3 +1,5 @@
+
+import "../styles/footer.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaInstagram } from "react-icons/fa";

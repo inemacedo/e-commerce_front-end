@@ -1,0 +1,22 @@
+/* FOOTER */
+
+.footer-link {
+  color: black;
+  text-decoration: none;
+}
+
+/* .App.dark footer {
+  background-color: var(--bg-dark);
+} */
+
+/* .App.dark .footer-link {
+  color: var(--light-beige);
+} */
+/* .App.dark footer * {
+  color: var(--light-beige);
+} */
+
+/* .App footer */
+.footer-link:hover {
+  color: var(--dark-grey);
+}

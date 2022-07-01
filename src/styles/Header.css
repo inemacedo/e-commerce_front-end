@@ -1,7 +1,17 @@
+/* HEADER */
+.header-background {
+  max-height: 90vh;
+}
+
+.header-background .btn-light:hover {
+  background-color: #212529;
+  color: #eae6e1;
+}
+
 .header-background {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)),
     /* url("https://imageio.forbes.com/specials-images/imageserve/6123b033133106144df23946/Best-Home-Decor-Ideas--Nearly-Natural-faux-plants/960x0.jpg?fit=bounds&format=jpg&width=960"); */
-      url("https://azioqgupehjwofkjwddr.supabase.co/storage/v1/object/public/e-commerce/products/header 4.jpg");
+    url("https://azioqgupehjwofkjwddr.supabase.co/storage/v1/object/public/e-commerce/products/header 4.jpg");
   /* filter: grayscale(100%); */
   background-size: cover;
   background-position: center;
@@ -13,7 +23,6 @@
 h1 {
   font-size: 1.9rem;
 }
-
 
 .header-button:hover {
   transform: scale(1.3);

@@ -1,3 +1,5 @@
+
+import "../styles/navbar.css";
 import React, { useEffect, useState, useRef } from "react";
 import {
   Container,
@@ -74,7 +76,6 @@ function NavbarComponent() {
   }, [showNav]);
 
   return (<Navbar
-    bg="white"
     expand="lg"
     className={`zindex-4 ${!welcomeModal.show && "border-bottom"}`}
     expanded={showNav}

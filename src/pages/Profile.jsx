@@ -1,3 +1,5 @@
+
+import "../styles/profile.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { BiUserPin } from "react-icons/bi";
