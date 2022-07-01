@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/Categories.css";
 
 import { Spinner, ProgressBar } from "react-bootstrap";
@@ -42,10 +42,10 @@ function Categories() {
     <div className="home-images-responsive mb-5">
       <div className="flex-wrap d-flex">
         {categories.map((category) => (
-          <div className="col-12 col-md-4" key={category.id}>
-            <NavLink
+          <div className="col-12 col-md-4 position-relative" key={category.id}>
+            <Link
               to={`/categoria/${category.name}`}
-              className="text-decoration-none"
+              className="text-decoration-none position-relativ"
             >
               <div
                 style={{
@@ -54,11 +54,13 @@ function Categories() {
                   backgroundSize: "cover",
                 }}
               ></div>
-              <h3 className="text-dark fs-5 text-uppercase mt-2 text-center">
-                {category.name}
-              </h3>
-              {/* <p className="text-center text-dark fs-6">Descubrir</p> */}
-            </NavLink>
+              <div className="category-title">
+                {/* <div></div> */}
+                <h3 className="text-dark text-center fw-bold fs-5 text-uppercase mt-2">
+                  {category.name}
+                </h3>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
