@@ -9,16 +9,16 @@ import {
   Overlay,
   Popover,
 } from "react-bootstrap";
-import { IoSearchOutline } from "react-icons/io5";
+import { IoSearchOutline, IoSunny, IoMoon } from "react-icons/io5";
 import { BsCart2 } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as LogoHackHome } from "../icons/logohackhome.svg";
 
-// si cambia el params cerrar la nav
 
 function NavbarComponent() {
+  const darkMode = useSelector((state) => state.theme) === "dark";
   const cart = useSelector((state) => state.cart);
   const user = useSelector((state) => state.user);
   const welcomeModal = useSelector((state) => state.welcome);
@@ -29,6 +29,18 @@ function NavbarComponent() {
   const [target, setTarget] = useState(null);
   const [showNav, setShowNav] = useState(welcomeModal.show);
   const [showNavDropdown, setShowNavDropdown] = useState(false);
+
+  const toggleTheme = () => {
+    if (darkMode) {
+      console.log("Dark mode on");
+      dispatch({ type: "LIGHT_MODE" })
+    }
+    else {
+      console.log("Dispatch DARK_MODE");
+      dispatch({ type: "DARK_MODE" })
+    }
+    console.log("Dark mode value", darkMode);
+  };
 
   const handleLogout = async () => {
     dispatch({ type: "REMOVE_CART" });
@@ -77,7 +89,7 @@ function NavbarComponent() {
 
   return (<Navbar
     expand="lg"
-    className={`zindex-4 ${!welcomeModal.show && "border-bottom"}`}
+    className={`${darkMode ? "navbar-dark" : ""} zindex-4 ${!welcomeModal.show && "border-bottom"}`}
     expanded={showNav}
     onToggle={() => setShowNav((prev) => !prev)}
   >
@@ -85,7 +97,7 @@ function NavbarComponent() {
       <Link to="/" className="text-decoration-none">
         <Navbar.Brand className="g-0" id="navbar-text-logo">
           <LogoHackHome
-            className="mb-1 me-2"
+            className="bg-light rounded-circle mb-1 me-2"
             style={{ height: "2.2rem" }}
           />
           HACK HOME
@@ -95,7 +107,7 @@ function NavbarComponent() {
       <Navbar.Collapse id="navbarScroll">
         <Nav className="me-auto">
           <NavDropdown
-            className={`navbar-links m-0 ms-xl-4 mb-lg-0 ms-xxl-5 pointer d-flex flex-column align-items-center ${showNavDropdown ? "mb-4" : ""
+            className={`navbar-links m-0 mb-lg-0 ms-xl-4 ms-xxl-5 pointer d-flex flex-column align-items-center ${showNavDropdown ? "mb-4" : ""
               }`}
             title="Productos"
             id="navbarScrollingDropdown"
@@ -140,6 +152,13 @@ function NavbarComponent() {
           >
             Admin
           </a>
+          <button className="btn mx-auto d-flex align-items-center justify-content-between"
+            style={{ width: "100px" }}
+            onClick={toggleTheme} >
+            <IoSunny className={`${darkMode ? "opacity-25" : ""}`} />
+            <span className="mx-2" ></span>
+            <IoMoon className={`${darkMode ? "" : "opacity-25"}`} />
+          </button>
         </Nav>
 
         <Nav className="ms-auto ">
@@ -148,7 +167,7 @@ function NavbarComponent() {
             ref={ref}>
             <button
               type="button"
-              className="navbar-links navbar-icon m-0 p-4 bg-white border-0 text-center w-100"
+              className="navbar-links navbar-icon m-0 p-4 bg-transparent border-0 text-center w-100"
             >
               <AiOutlineUser size={20} style={{ pointerEvents: "none" }} />
               {user.user && <span className="d-none d-lg-bloc position-absolut" style={{ left: "0", right: "0", bottom: "0px", pointerEvents: "none" }} >{user.user.firstname}</span>}
@@ -219,7 +238,7 @@ function NavbarComponent() {
             <IoSearchOutline size={20} />
           </Link>
           <Link
-            className="navbar-links navbar-icon m-0 p-4"
+            className="navbar-links navbar-icon d-flex justify-content-center m-0 p-4"
             to="/carrito-de-compras"
           >
             <BsCart2 size={20} />

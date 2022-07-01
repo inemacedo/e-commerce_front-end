@@ -47,6 +47,14 @@
 
 #sobre-nosotros {
   background-color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+}
+
+.App.dark #sobre-nosotros {
+  background-color: var(--bg-dark);
 }
 
 @media (min-width: 991px) {
@@ -60,7 +68,7 @@
     content: "";
     position: absolute;
     left: 0;
-    bottom: -2px;
+    bottom: 2px;
     display: block;
     height: 2px;
     width: 0%;
@@ -70,6 +78,10 @@
 
   .navbar-links:hover::after {
     width: 100%;
+  }
+
+  .App.dark .navbar-links:hover::after {
+    background-color: var(--light-grey);
   }
 }
 

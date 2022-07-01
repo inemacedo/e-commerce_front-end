@@ -114,8 +114,7 @@ function Footer() {
       </section>
 
       <div
-        className="text-center text-secondary p-3"
-        style={{ backgroundColor: "#eadfd7" }}
+        className="copyright text-center p-3"
       >
         © 2022 Copyright:
       </div>

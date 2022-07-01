@@ -20,3 +20,8 @@
 .footer-link:hover {
   color: var(--dark-grey);
 }
+
+.App footer .copyright {
+  background-color: var(--light-beige);
+  color: var(--black);
+}
