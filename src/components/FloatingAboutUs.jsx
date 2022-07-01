@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import "../styles/floatingAbout.css";
 import { Link } from "react-router-dom";
 
 function FloatingAboutUs() {

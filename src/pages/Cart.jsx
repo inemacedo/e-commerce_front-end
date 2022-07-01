@@ -1,3 +1,5 @@
+
+import "../styles/cart.css";
 import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import { useSelector } from "react-redux";

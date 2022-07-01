@@ -1,3 +1,5 @@
+
+import "../styles/footer.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaInstagram } from "react-icons/fa";
@@ -65,7 +67,7 @@ function Footer() {
             </div>
 
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold">Suíguenos!</h6>
+              <h6 className="text-uppercase fw-bold">Síguenos!</h6>
               <hr
                 className="mb-4 mt-0 d-inline-block mx-auto"
                 style={{
@@ -112,8 +114,7 @@ function Footer() {
       </section>
 
       <div
-        className="text-center text-secondary p-3"
-        style={{ backgroundColor: "#eadfd7" }}
+        className="copyright text-center p-3"
       >
         © 2022 Copyright:
       </div>

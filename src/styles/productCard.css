@@ -1,0 +1,11 @@
+/* Product Card */
+.envImg {
+  /* display: none; */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .6s;
+}
+
+.product:hover .envImg {
+  opacity: 1;
+}

@@ -22,6 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 function App() {
+  const darkMode = useSelector((state) => state.theme) === "dark";
   const welcomeModal = useSelector((state) => state.welcome);
   const [show, setShow] = useState(welcomeModal.show);
   const params = useParams();
@@ -50,7 +51,7 @@ function App() {
   }, [params]);
 
   return (
-    <div className="App d-flex flex-column">
+    <div className={`${darkMode ? "dark" : ""} App d-flex flex-column`}>
       <NavbarComponent />
       <Routes>
         <Route path="/sobre-este-proyecto" element={<About />} />

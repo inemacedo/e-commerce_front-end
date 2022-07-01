@@ -1,0 +1,57 @@
+/* ABOUT US  */
+
+.author-profile {
+  text-align: center;
+  width: 10rem;
+  height: 10rem;
+}
+
+@media (min-width: 992px) {
+  .author-profile {
+    width: 13rem;
+    height: 13rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .author-profile {
+    width: 16rem;
+    height: 16rem;
+  }
+}
+
+.quienes-somos {
+  transition: transform 1s;
+}
+
+.quienes-somos:hover {
+  transform: scale(1.08);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background-color: rgb(243, 243, 243);
+  border: #dadada solid 0.0000001rem;
+}
+
+.bg-semi-transparent {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.pointer a {
+  display: flex;
+  align-items: center;
+}
+
+#navbarScrollingDropdown {
+  display: block;
+  width: 100%;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.image-gallery-image {
+  position: relative;
+  opacity: 0.3;
+}
+
+.image-gallery-image.opacity-1 {
+  opacity: 1;
+}

@@ -1,9 +1,7 @@
+
+import "../styles/orders.css";
 import { format, parseISO } from "date-fns";
-import { useState } from "react";
 import { BsTrash } from "react-icons/bs";
-import { Link } from "react-router-dom";
-// import { Modal }
-import { ToastContainer, Toast } from "react-bootstrap";
 
 function Order({ order, handleDelete }) {
 
